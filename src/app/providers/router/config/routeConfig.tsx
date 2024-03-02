@@ -3,11 +3,11 @@ import { App } from '@/app/App';
 // import adminRoutes from 'admin/router'; ###uncomment when we add the admin panel
 
 export const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <App />,
-        children: [
-            // ...adminRoutes,  ###uncomment when we add the admin panel
-        ],
-    },
+  {
+    path: '/',
+    element: <App />,
+    children: [
+      // ...adminRoutes,  ###uncomment when we add the admin panel
+    ],
+  },
 ]);

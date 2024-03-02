@@ -1,0 +1,13 @@
+:root {
+    --cc: #FFF;
+}
+
+.aa {
+    position: relative;
+    padding: 1px 0;
+    color: var(--cc);
+}
+
+.vv {
+    width: 100%;
+}
