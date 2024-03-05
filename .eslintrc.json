@@ -9,6 +9,8 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
+    "@feature-sliced",
+    "plugin:@conarti/feature-sliced/recommended",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
