@@ -9,9 +9,11 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "@feature-sliced",
+    "prettier",
     "plugin:@conarti/feature-sliced/recommended",
-    "prettier"
+    "plugin:jsx-a11y/recommended",
+    "@feature-sliced",
+    "@feature-sliced/eslint-config/rules/import-order/experimental"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -21,7 +23,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "plugins": ["react", "@typescript-eslint", "prettier", "jsx-a11y"],
   "settings": {
     "react": {
       "version": "999.999.999"
@@ -48,6 +50,18 @@
     "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "args": "all",
+        "argsIgnorePattern": "^_",
+        "caughtErrors": "all",
+        "caughtErrorsIgnorePattern": "^_",
+        "destructuredArrayIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "ignoreRestSiblings": true
+      }
+    ],
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "padding-line-between-statements": "error"
