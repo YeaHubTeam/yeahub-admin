@@ -6,7 +6,9 @@
   "scripts": {
     "start": "webpack serve --env mode=development",
     "build:dev": "webpack --env mode=development",
-    "build:prod": "webpack --env mode=production"
+    "build:prod": "webpack --env mode=production",
+    "storybook": "storybook dev -p 6006 -c ./config/storybook",
+    "storybook:build": "storybook build -c ./config/storybook"
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,15 @@
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
+    "@storybook/addon-essentials": "^7.6.17",
+    "@storybook/addon-interactions": "^7.6.17",
+    "@storybook/addon-links": "^7.6.17",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/addon-styling-webpack": "^0.0.6",
+    "@storybook/blocks": "^7.6.17",
+    "@storybook/react": "^7.6.17",
+    "@storybook/react-webpack5": "^7.6.17",
+    "@storybook/test": "^7.6.17",
     "@svgr/webpack": "^8.1.0",
     "@types/circular-dependency-plugin": "^5.0.8",
     "@types/node": "^20.11.17",
@@ -44,6 +55,7 @@
     "postcss-preset-env": "^9.3.0",
     "react-refresh": "^0.14.0",
     "react-refresh-typescript": "^2.0.9",
+    "storybook": "^7.6.17",
     "style-loader": "^3.3.4",
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
