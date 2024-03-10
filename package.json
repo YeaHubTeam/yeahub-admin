@@ -8,7 +8,9 @@
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
-    "storybook:build": "storybook build -c ./config/storybook"
+    "storybook:build": "storybook build -c ./config/storybook",
+    "test:ui": "npx loki test",
+    "test:ui:ok": "npx loki approve"
   },
   "repository": {
     "type": "git",
@@ -48,6 +50,7 @@
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "html-webpack-plugin": "^5.6.0",
     "i": "^0.3.7",
+    "loki": "^0.34.0",
     "mini-css-extract-plugin": "^2.8.0",
     "npm": "^10.4.0",
     "postcss": "^8.4.35",
@@ -69,5 +72,20 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.1"
+  },
+  "loki": {
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.app",
+        "width": 1366,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": false
+      },
+      "chrome.iphone7": {
+        "target": "chrome.app",
+        "preset": "iPhone 7"
+      }
+    }
   }
 }

@@ -8,6 +8,8 @@
 - `npm run build:dev` - Build in development mode
 - `npm run storybook` - Start Storybook
 - `npm run storybook:build` - Build Storybook
+- `npm run test:ui` - Running screenshots of tests with loki
+- `npm run test:ui:ok` - Confirmation of new screenshots
 
 ----
 
