@@ -1,5 +1,6 @@
-import { ModuleOptions } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { ModuleOptions } from 'webpack';
+
 import { WebpackOptions } from './types/types';
 
 export const webpackLoaders = ({ isDev }: WebpackOptions): ModuleOptions['rules'] => {

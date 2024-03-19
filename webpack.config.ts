@@ -1,7 +1,9 @@
 import path from 'path';
+
 import type { Configuration } from 'webpack';
-import { webpackConfig } from './config/webpack/webpackConfig';
+
 import { WebpackMode, WebpackOptions, WebpackPaths } from './config/webpack/types/types';
+import { webpackConfig } from './config/webpack/webpackConfig';
 
 interface EnvVariables {
   mode: WebpackMode;
