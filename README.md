@@ -10,6 +10,8 @@
 - `npm run storybook:build` - Build Storybook
 - `npm run test:ui` - Running screenshots of tests with loki
 - `npm run test:ui:ok` - Confirmation of new screenshots
+- `npm run test:unit` - Running unit tests with jest
+- `npm run test:unit:coverage` - Determining test coverage
 
 ----
 
@@ -18,6 +20,8 @@
 The project has a Webpack config - ./config/webpack
 
 The project has a Storybook config - ./config/storybook
+
+The project has a Jest config - ./config/jest
 
 
 ----
