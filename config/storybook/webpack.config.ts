@@ -1,16 +1,13 @@
-import webpack, { RuleSetRule } from "webpack";
-import path from "path";
+import path from 'path';
 
-export const storybookWebpack = ({
-  config,
-}: {
-  config: webpack.Configuration;
-}) => {
-  config.resolve.modules.push(path.resolve(__dirname, "..", "..", "src"));
-  config.resolve.extensions.push(".ts", ".tsx");
+import webpack, { RuleSetRule } from 'webpack';
+
+export const storybookWebpack = ({ config }: { config: webpack.Configuration }) => {
+  config.resolve.modules.push(path.resolve(__dirname, '..', '..', 'src'));
+  config.resolve.extensions.push('.ts', '.tsx');
   config.resolve.alias = {
     ...config!.resolve!.alias,
-    "@": path.resolve(__dirname, "..", "..", "src"),
+    '@': path.resolve(__dirname, '..', '..', 'src'),
   };
 
   config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
@@ -22,7 +19,7 @@ export const storybookWebpack = ({
 
   config.module.rules.push({
     test: /\.svg$/,
-    use: ["@svgr/webpack"],
+    use: ['@svgr/webpack'],
   });
 
   return config;

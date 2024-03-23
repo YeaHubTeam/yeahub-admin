@@ -3,48 +3,39 @@
  * https://jestjs.io/docs/configuration
  */
 
-import type { Config } from "jest";
+import type { Config } from 'jest';
 
 const config: Config = {
   // Automatically clear mock calls, instances, contexts and results before every test
   clearMocks: true,
 
   // The test environment that will be used for testing
-  testEnvironment: "jsdom",
+  testEnvironment: 'jsdom',
 
   // An array of regexp pattern strings used to skip coverage collection
-  coveragePathIgnorePatterns: ["\\\\node_modules\\\\"],
+  coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
 
   // An array of file extensions your modules use
-  moduleFileExtensions: [
-    "js",
-    "mjs",
-    "cjs",
-    "jsx",
-    "ts",
-    "tsx",
-    "json",
-    "node",
-  ],
+  moduleFileExtensions: ['js', 'mjs', 'cjs', 'jsx', 'ts', 'tsx', 'json', 'node'],
 
   // An array of directory names to be searched recursively up from the requiring module's location
-  moduleDirectories: ["node_modules"],
+  moduleDirectories: ['node_modules'],
 
   // The glob patterns Jest uses to detect test files
-  testMatch: ["<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)"],
+  testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
 
   // The root directory that Jest should scan for tests and modules within
-  rootDir: "../../",
+  rootDir: '../../',
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  setupFilesAfterEnv: ["<rootDir>config/jest/jestSetup.ts"],
+  setupFilesAfterEnv: ['<rootDir>config/jest/jestSetup.ts'],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
-    "\\.css$": "identity-obj-proxy",
-    "\\.(jpg|svg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-      "<rootDir>config/jest/jestFileMock.ts",
-    "^@/(.*)$": "<rootDir>/src/$1",
+    '\\.css$': 'identity-obj-proxy',
+    '\\.(jpg|svg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+      '<rootDir>config/jest/jestFileMock.ts',
+    '^@/(.*)$': '<rootDir>/src/$1',
   },
 
   // All imported modules in your tests should be mocked automatically

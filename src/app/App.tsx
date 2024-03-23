@@ -1,10 +1,12 @@
-import { Widget } from "@/widgets/Widget";
+import { Widget } from '@/widgets/Widget';
+
+import styles from './dd.module.css';
 
 export const App = () => {
   return (
-    <h1>
+    <>
       <Widget />
-      Yeahub
-    </h1>
+      <h1 className={styles.vv}>Yeahub</h1>
+    </>
   );
 };

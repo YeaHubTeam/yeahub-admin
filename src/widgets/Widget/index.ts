@@ -1,1 +1,1 @@
-export { Widget } from "./ui/Widget";
+export { Widget } from './ui/Widget';

@@ -1,5 +1,6 @@
-import styles from "./Widget.module.css";
-import Icon from "@/shared/assets/accessibility.svg";
+import Icon from '@/shared/assets/accessibility.svg';
+
+import styles from './Widget.module.css';
 
 interface WidgetProps {
   /**
@@ -13,7 +14,7 @@ interface WidgetProps {
  * @param props
  */
 
-export const Widget = ({ test = "test" }: WidgetProps) => {
+export const Widget = ({ test = 'test' }: WidgetProps) => {
   return (
     <div className={styles.widget}>
       <Icon />

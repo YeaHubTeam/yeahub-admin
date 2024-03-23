@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { Widget } from "./Widget";
+import { Widget } from './Widget';
 
 const meta = {
-  title: "widget/Widget",
+  title: 'widget/Widget',
   component: Widget,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
 } satisfies Meta<typeof Widget>;
 
