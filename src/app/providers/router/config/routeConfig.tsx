@@ -1,14 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import { App } from '../../../App';
-// import adminRoutes from 'admin/router'; ###uncomment when we add the admin panel
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    children: [
-      // ...adminRoutes,  ###uncomment when we add the admin panel
-    ],
+    children: [],
   },
 ]);
