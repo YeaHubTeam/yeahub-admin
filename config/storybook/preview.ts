@@ -1,8 +1,16 @@
 import type { Preview } from '@storybook/react';
 
-import { RouteDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
+import i18n from '../../src/shared/config/i18n/i18n';
+import { RouteDecorator } from '../../src/shared/config/storybook/RouterDecorator/RouterDecorator';
 
 const preview: Preview = {
+  globals: {
+    locale: 'en',
+    locales: {
+      en: 'English',
+      ru: 'Русский',
+    },
+  },
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
@@ -11,6 +19,7 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    i18n,
   },
   decorators: [RouteDecorator],
 };

@@ -43,6 +43,7 @@
     "@storybook/addon-onboarding": "^1.0.8",
     "@storybook/addon-styling-webpack": "^0.0.6",
     "@storybook/blocks": "^7.6.17",
+    "@storybook/icons": "^1.2.9",
     "@storybook/react": "^7.6.17",
     "@storybook/react-webpack5": "^7.6.17",
     "@storybook/test": "^7.6.17",
@@ -112,7 +113,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^14.1.0",
-    "react-router-dom": "^6.22.1"
+    "react-router-dom": "^6.22.1",
+    "storybook-react-i18next": "^3.0.1"
   },
   "loki": {
     "configurations": {

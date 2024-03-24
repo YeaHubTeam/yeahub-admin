@@ -12,7 +12,11 @@ export const LanguageSwitcher = memo(() => {
     i18n.changeLanguage(i18n.language === Languages.RU ? Languages.EN : Languages.RU);
   };
 
-  return <button onClick={onChangeLanguage}>{t(Translations.LANGUAGE)}</button>;
+  return (
+    <button onClick={onChangeLanguage} data-testid="LanguageSwitcher_Button">
+      {t(Translations.LANGUAGE)}
+    </button>
+  );
 });
 
 LanguageSwitcher.displayName = 'LanguageSwitcher';
