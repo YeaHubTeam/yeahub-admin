@@ -6,15 +6,25 @@ import { MemoryRouter } from 'react-router-dom';
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { StoreProvider } from '@/app/providers/store';
 
-import { State } from '../store/State';
-
-import jestI18n from './jestI18n';
+import jestI18n from '../../../config/jest/jestI18n';
+import { State } from '../../../config/store/State';
 
 interface RenderComponentOptions {
+  /**
+   * Default url
+   */
   route?: string;
+  /**
+   * Default redux state
+   */
   initialState?: DeepPartial<State>;
 }
 
+/**
+ * Provider for testing, including all providers
+ * @param component
+ * @param options
+ */
 export const renderComponent = (component: ReactNode, options: RenderComponentOptions = {}) => {
   const { route = '/', initialState } = options;
 

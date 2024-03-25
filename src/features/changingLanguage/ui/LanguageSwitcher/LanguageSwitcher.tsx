@@ -5,6 +5,9 @@ import { Translations } from '@/shared/config/i18n/i18nTranslations';
 
 import { Languages } from '../../model/types/changingLanguage';
 
+/**
+ * Component for change language
+ */
 export const LanguageSwitcher = memo(() => {
   const { t, i18n } = useTranslation();
 
