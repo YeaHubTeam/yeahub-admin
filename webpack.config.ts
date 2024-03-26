@@ -8,7 +8,6 @@ import { webpackConfig } from './config/webpack/webpackConfig';
 interface EnvVariables {
   mode: WebpackMode;
   port: number;
-  ADMIN_REMOTE_URL?: string;
 }
 
 export default (env: EnvVariables) => {
@@ -25,9 +24,6 @@ export default (env: EnvVariables) => {
     mode: env.mode,
     isDev,
     paths,
-    services: {
-      admin: env.ADMIN_REMOTE_URL ?? 'http://localhost:3001',
-    },
   };
 
   const config: Configuration = webpackConfig(options);

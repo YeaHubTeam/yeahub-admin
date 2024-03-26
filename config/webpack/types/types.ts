@@ -13,7 +13,4 @@ export interface WebpackOptions {
   paths: WebpackPaths;
   mode: WebpackMode;
   isDev: boolean;
-  services: {
-    admin: string;
-  };
 }

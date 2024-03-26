@@ -29,6 +29,9 @@
       "version": "999.999.999"
     }
   },
+  "globals": {
+    "__IS_DEV__": true
+  },
   "rules": {
     "prettier/prettier": ["error"],
     "react/function-component-definition": [
