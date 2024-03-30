@@ -9,17 +9,17 @@ import { Languages } from '../../model/types/changingLanguage';
  * Component for change language
  */
 export const LanguageSwitcher = memo(() => {
-  const { t, i18n } = useTranslation();
+	const { t, i18n } = useTranslation();
 
-  const onChangeLanguage = () => {
-    i18n.changeLanguage(i18n.language === Languages.RU ? Languages.EN : Languages.RU);
-  };
+	const onChangeLanguage = () => {
+		i18n.changeLanguage(i18n.language === Languages.RU ? Languages.EN : Languages.RU);
+	};
 
-  return (
-    <button onClick={onChangeLanguage} data-testid="LanguageSwitcher_Button">
-      {t(Translations.LANGUAGE)}
-    </button>
-  );
+	return (
+		<button onClick={onChangeLanguage} data-testid="LanguageSwitcher_Button">
+			{t(Translations.LANGUAGE)}
+		</button>
+	);
 });
 
 LanguageSwitcher.displayName = 'LanguageSwitcher';

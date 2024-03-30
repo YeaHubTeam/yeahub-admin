@@ -1,0 +1,24 @@
+.button {
+    width: 123px;
+    height: 48px;
+    border: none;
+    border-radius: 40px;
+    background: var(--color-button-bg);
+    color: var(--background-primary);
+    text-align: center;
+    font-weight: var(--font-weight-600);
+    font-size: var(--font-size-medium);
+    font-family: var(--font-family-primary);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.button:hover {
+    border: 1px solid var(--color-black);
+    background-color: var(--background-primary);
+    color: var(--badge-color);
+}
+
+.button:active {
+    transform: translateY(1px);
+}

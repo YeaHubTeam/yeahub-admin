@@ -5,10 +5,10 @@ import { createReduxStore } from '@/shared/config/store/config';
 import { State } from '@/shared/config/store/State';
 
 interface StoreProviderProps {
-  /**
-   * Default state for redux, including optional reducers
-   */
-  initialState?: DeepPartial<State>;
+	/**
+	 * Default state for redux, including optional reducers
+	 */
+	initialState?: DeepPartial<State>;
 }
 
 /**
@@ -18,10 +18,10 @@ interface StoreProviderProps {
  * @constructor
  */
 export const StoreProvider = ({
-  children,
-  initialState,
+	children,
+	initialState,
 }: PropsWithChildren<StoreProviderProps>) => {
-  const store = createReduxStore(initialState as State);
+	const store = createReduxStore(initialState as State);
 
-  return <Provider store={store}>{children}</Provider>;
+	return <Provider store={store}>{children}</Provider>;
 };

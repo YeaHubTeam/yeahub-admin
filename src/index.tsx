@@ -11,7 +11,7 @@ const root = document.getElementById('root');
 const container = createRoot(root as HTMLElement);
 
 container.render(
-  <StoreProvider>
-    <RouterProvider router={router} />
-  </StoreProvider>,
+	<StoreProvider>
+		<RouterProvider router={router} />
+	</StoreProvider>,
 );

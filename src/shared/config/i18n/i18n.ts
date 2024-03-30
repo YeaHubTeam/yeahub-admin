@@ -10,29 +10,29 @@ const ns: LangsFiles[] = ['translation'];
 const supportedLngs: Langs[] = ['en', 'ru'];
 
 const resources: Resource = ns.reduce((acc: Resource, n) => {
-  supportedLngs.forEach((lng) => {
-    if (!acc[lng]) acc[lng] = {};
-    acc[lng] = {
-      ...acc[lng],
-      [n]: require(`../../../../public/locales/${lng}/${n}.json`),
-    };
-  });
-  return acc;
+	supportedLngs.forEach((lng) => {
+		if (!acc[lng]) acc[lng] = {};
+		acc[lng] = {
+			...acc[lng],
+			[n]: require(`../../../../public/locales/${lng}/${n}.json`),
+		};
+	});
+	return acc;
 }, {});
 
 i18n
-  .use(Backend)
-  .use(LanguageDetector)
-  .use(initReactI18next)
-  .init({
-    fallbackLng: 'ru',
-    debug: __IS_DEV__,
-    interpolation: {
-      escapeValue: false,
-    },
-    ns,
-    supportedLngs,
-    resources,
-  });
+	.use(Backend)
+	.use(LanguageDetector)
+	.use(initReactI18next)
+	.init({
+		fallbackLng: 'ru',
+		debug: __IS_DEV__,
+		interpolation: {
+			escapeValue: false,
+		},
+		ns,
+		supportedLngs,
+		resources,
+	});
 
 export default i18n;

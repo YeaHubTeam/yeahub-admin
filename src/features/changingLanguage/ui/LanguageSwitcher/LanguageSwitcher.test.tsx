@@ -7,25 +7,25 @@ import i18n from '@/shared/config/jest/jestI18n';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
 describe('LanguageSwitcher', () => {
-  beforeEach(() => {
-    render(
-      <I18nextProvider i18n={i18n}>
-        <LanguageSwitcher />
-      </I18nextProvider>,
-    );
-  });
+	beforeEach(() => {
+		render(
+			<I18nextProvider i18n={i18n}>
+				<LanguageSwitcher />
+			</I18nextProvider>,
+		);
+	});
 
-  test('render', () => {
-    expect(screen.getByText(Translations.LANGUAGE)).toBeInTheDocument();
-  });
+	test('render', () => {
+		expect(screen.getByText(Translations.LANGUAGE)).toBeInTheDocument();
+	});
 
-  test('changeLanguage', () => {
-    const toggleBtn = screen.getByTestId('LanguageSwitcher_Button');
-    expect(toggleBtn).toBeInTheDocument();
-    expect(i18n.language).toBe('ru');
-    fireEvent.click(toggleBtn);
-    expect(i18n.language).toBe('en');
-    fireEvent.click(toggleBtn);
-    expect(i18n.language).toBe('ru');
-  });
+	test('changeLanguage', () => {
+		const toggleBtn = screen.getByTestId('LanguageSwitcher_Button');
+		expect(toggleBtn).toBeInTheDocument();
+		expect(i18n.language).toBe('ru');
+		fireEvent.click(toggleBtn);
+		expect(i18n.language).toBe('en');
+		fireEvent.click(toggleBtn);
+		expect(i18n.language).toBe('ru');
+	});
 });

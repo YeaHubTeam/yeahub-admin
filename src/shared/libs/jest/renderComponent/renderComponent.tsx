@@ -10,14 +10,14 @@ import jestI18n from '../../../config/jest/jestI18n';
 import { State } from '../../../config/store/State';
 
 interface RenderComponentOptions {
-  /**
-   * Default url
-   */
-  route?: string;
-  /**
-   * Default redux state
-   */
-  initialState?: DeepPartial<State>;
+	/**
+	 * Default url
+	 */
+	route?: string;
+	/**
+	 * Default redux state
+	 */
+	initialState?: DeepPartial<State>;
 }
 
 /**
@@ -26,13 +26,13 @@ interface RenderComponentOptions {
  * @param options
  */
 export const renderComponent = (component: ReactNode, options: RenderComponentOptions = {}) => {
-  const { route = '/', initialState } = options;
+	const { route = '/', initialState } = options;
 
-  return render(
-    <StoreProvider initialState={initialState}>
-      <MemoryRouter initialEntries={[route]}>
-        <I18nextProvider i18n={jestI18n}>{component}</I18nextProvider>
-      </MemoryRouter>
-    </StoreProvider>,
-  );
+	return render(
+		<StoreProvider initialState={initialState}>
+			<MemoryRouter initialEntries={[route]}>
+				<I18nextProvider i18n={jestI18n}>{component}</I18nextProvider>
+			</MemoryRouter>
+		</StoreProvider>,
+	);
 };
