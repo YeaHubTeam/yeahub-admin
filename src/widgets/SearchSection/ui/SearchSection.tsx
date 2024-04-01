@@ -1,7 +1,8 @@
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 
-import { Button } from '../Button/index';
-import { SearchInput } from '../SearchInput/index';
+import { Button } from '@/shared/ui/Button';
+
+import { SearchInput } from '@/features/SearchInput';
 
 import styles from './SearchSection.module.css';
 

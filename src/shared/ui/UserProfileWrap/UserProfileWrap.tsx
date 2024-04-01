@@ -1,12 +1,8 @@
 import { FC } from 'react';
 
-// eslint-disable-next-line
 import Message from '@/shared/assets/icons/message.svg';
-// eslint-disable-next-line
 import Notification from '@/shared/assets/icons/notification.svg';
-// eslint-disable-next-line
 import Settings from '@/shared/assets/icons/settings.svg';
-// eslint-disable-next-line
 import Avatar from '@/shared/assets/images/MockAvatar.png';
 
 import styles from './UserProfileWrap.module.css';

@@ -1,6 +1,5 @@
 import React, { FC, useState } from 'react';
 
-// eslint-disable-next-line
 import SearchIcon from '@/shared/assets/icons/search.svg';
 
 import styles from './SearchInput.module.css';

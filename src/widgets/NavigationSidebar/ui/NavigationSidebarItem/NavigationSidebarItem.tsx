@@ -1,22 +1,15 @@
 import React, { FC } from 'react';
 import { NavLink, useMatch } from 'react-router-dom';
 
-// eslint-disable-next-line
 import Main from '@/shared/assets/icons/main.svg';
-
-// eslint-disable-next-line
 import Menu from '@/shared/assets/icons/menu.svg';
-
-// eslint-disable-next-line
 import Questions from '@/shared/assets/icons/questions.svg';
-
-// eslint-disable-next-line
 import Verification from '@/shared/assets/icons/verification.svg';
+import { Badge } from '@/shared/ui/Badge';
 
-import { Badge } from '../Badge';
+import { categoryCounts, categoryTitles } from '../../model/category';
 
-import { categoryCounts, categoryTitles } from './category';
-import styles from './NavigationSidebar.module.css';
+import styles from './NavigationSidebarItem.module.css';
 
 interface NavigationItemProps {
 	title?: string;
@@ -54,7 +47,7 @@ const NavigationItem: FC<NavigationItemProps> = ({ title, name = '' }) => {
 	);
 };
 
-export const NavigationSidebar: FC = () => {
+export const NavigationSidebarItem: FC = () => {
 	return (
 		<nav>
 			<ul className={styles.list}>

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { SearchSection } from '@/shared/ui/SearchSection';
+import { SearchSection } from '@/widgets/SearchSection';
 
 import styles from './Main.module.css';
 

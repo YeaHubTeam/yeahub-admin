@@ -67,6 +67,8 @@
     ],
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
-    "padding-line-between-statements": "error"
+    "padding-line-between-statements": "error",
+    "@conarti/feature-sliced/absolute-relative": "warn",
+    "import/order": "warn"
   }
 }

@@ -1,22 +1,17 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-// eslint-disable-next-line
-import { Main } from '@/widgets/Main/index';
-// eslint-disable-next-line
-import { Professions } from '@/widgets/Professions/index';
-// eslint-disable-next-line
-import { Questions } from '@/widgets/Questions/index';
-// eslint-disable-next-line
-import { Skills } from '@/widgets/Skills/index';
-// eslint-disable-next-line
-import { Verification } from '@/widgets/Verification/index';
-// eslint-disable-next-line
-import { Layout } from '@/app/components/Layout/Layout';
+import { Main } from '@/pages/Main';
+import { Professions } from '@/pages/Professions';
+import { Questions } from '@/pages/Questions';
+import { Skills } from '@/pages/Skills';
+import { Verification } from '@/pages/Verification';
+
+import { App } from '@/app/App';
 
 export const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <Layout />,
+		element: <App />,
 		children: [
 			{
 				path: '/',

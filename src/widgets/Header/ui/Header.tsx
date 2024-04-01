@@ -1,16 +1,12 @@
-import React, { FC, ReactNode, useState } from 'react';
+import { FC, useState } from 'react';
 
-import { SearchInput } from '@/shared/ui/SearchInput/index';
-import { UserProfileWrap } from '@/shared/ui/UserProfileWrap/index';
+import { UserProfileWrap } from '@/shared/ui/UserProfileWrap';
+
+import { SearchInput } from '@/features/SearchInput';
 
 import styles from './Header.module.css';
 
-interface HeaderProps {
-	className: string;
-	children?: ReactNode;
-}
-
-export const Header: FC<HeaderProps> = () => {
+export const Header: FC = () => {
 	const [searchResults, setSearchResults] = useState<string>('');
 
 	const handleSearch = (query: string) => {
