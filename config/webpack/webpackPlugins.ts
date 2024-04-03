@@ -3,6 +3,7 @@ import path from 'path';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import CircularDependencyPlugin from 'circular-dependency-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import HtmlInlineScriptPlugin from 'html-inline-script-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { Configuration, DefinePlugin, ProgressPlugin } from 'webpack';
@@ -16,8 +17,15 @@ export const webpackPlugins = ({ isDev, paths }: WebpackOptions): Configuration[
       template: paths.html,
       favicon: path.resolve(paths.public, 'favicon.ico'),
     }),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].[contenthash:8].css',
+      chunkFilename: 'css/[name].[contenthash:8].css',
+    }),
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
+    }),
+    new HtmlInlineScriptPlugin({
+      scriptMatchPattern: [/initColorScheme\..+\.js$/],
     }),
   ];
 
@@ -31,12 +39,6 @@ export const webpackPlugins = ({ isDev, paths }: WebpackOptions): Configuration[
       }),
     );
   } else {
-    plugins.push(
-      new MiniCssExtractPlugin({
-        filename: 'css/[name].[contenthash:8].css',
-        chunkFilename: 'css/[name].[contenthash:8].css',
-      }),
-    );
     plugins.push(new BundleAnalyzerPlugin());
   }
 

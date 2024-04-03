@@ -1,37 +1,70 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 
 :root {
-    --color-background-gray: #f4f4f4;
-    --color-black: #303030;
-    --color-gray-text: #a3a3a3;
-    --color-gray-border: #d1d1d1;
-    --color-gray-icon: #757575;
-    --color-bottem-border: #e8e8e8;
-    --color-black-text: #474747;
-    --color-button-bg: rgb(195 157 255 / 100%);
-    --color-button-text: rgb(85 9 204 / 100%);
-    --constant-active: rgb(240 231 255 / 100%);
-    --badge-color: rgb(64 7 153 / 100%);
+    --color-black-900: #191919;
+    --color-black-800: #303030;
+    --color-black-700: #474747;
+    --color-black-600: #5e5e5e;
+    --color-black-500: #757575;
+    --color-black-400: #8c8c8c;
+    --color-black-300: #a3a3a3;
+    --color-black-200: #bababa;
+    --color-black-100: #d1d1d1;
+    --color-black-50: #e8e8e8;
+    --color-black-25: #f4f4f4;
+    --color-purple-900: #400799;
+    --color-purple-800: #5509cc;
+    --color-purple-700: #6a0bff;
+    --color-purple-600: #883cff;
+    --color-purple-500: #a66dff;
+    --color-purple-400: #c39dff;
+    --color-purple-300: #d2b6ff;
+    --color-purple-200: #e1ceff;
+    --color-purple-100: #f0e7ff;
+    --color-yellow-900: #faaf00;
+    --color-yellow-800: #ffc233;
+    --color-yellow-700: #ffce5c;
+    --constant-darck: #18191d;
     --constant-white: #fff;
-    --background-zero: var(--color-background-gray);
+    --background-zero: var(--color-black-25);
     --background-primary: var(--constant-white);
-    --background-active: var(--constant-active);
-    --foreground-primary: var(--color-black-text);
-    --badge-primary: var(--badge-color);
-    --container-width: 1024px;
-    --container-padding: 0;
+    --background-active: var(--color-purple-100);
+    --foreground-primary: var(--color-black-700);
+    --color-scheme-switcher-border: var(--color-black-50);
+    --badge-primary: var(--color-purple-900);
+    --background-input: var(--constant-white);
+    --gray-border: var(--color-black-100);
+    --bottem-border: var(--color-black-50);
+    --button-bg: var(--color-purple-400);
+    --button-foreground: var(--constant-white);
+    --button-foreground-hover: var(--color-purple-800);
+    --font-family-primary: "Manrope", sans-serif;
     --font-weight-500: 500;
     --font-weight-600: 600;
     --font-size-small: 14px;
     --font-size-medium: 16px;
     --font-size-large: 20px;
-    --font-family-primary: "Manrope", sans-serif;
+    --container-width: 1024px;
+    --container-padding: 0;
+    --accent-color: var(--color-black-700);
+    --border-dropdown: var(--constant-darck);
 }
 
 [scheme="dark"] {
-    --background-zero: var(--color-black);
-    --background-primary: var(--constant-black);
-    --foreground-primary: var(--constant-white);
+    --background-zero: var(--constant-darck);
+    --background-primary: var(--color-black-700);
+    --foreground-primary: var(--color-black-400);
+    --background-active: var(--color-black-600);
+    --badge-primary: var(--color-black-300);
+    --color-scheme-switcher-border: transparent;
+    --background-input: var(--color-black-700);
+    --button-bg: var(--color-black-800);
+    --gray-border: var(--color-black-100);
+    --bottem-border: var(--color-black-500);
+    --accent-color: var(--color-black-50);
+    --border-dropdown: var(--color-black-500);
+    --button-foreground: var(--color-black-500);
+    --button-foreground-hover: var(--color-black-800);
 }
 
 body {
@@ -47,8 +80,4 @@ body {
     margin: 0 auto;
     padding: 0 var(--container-padding);
     max-width: var(--container-width);
-}
-
-*:focus-visible {
-    outline: 4px solid var(--badge-color);
 }

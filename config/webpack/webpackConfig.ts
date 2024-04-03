@@ -12,7 +12,10 @@ export const webpackConfig = (options: WebpackOptions): Configuration => {
 
   return {
     mode: mode ?? 'development',
-    entry: paths.entry,
+    entry: {
+      main: [paths.entry],
+      initColorScheme: [paths.initColorScheme],
+    },
     module: {
       rules: webpackLoaders(options),
     },

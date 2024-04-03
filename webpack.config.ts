@@ -15,6 +15,13 @@ export default (env: EnvVariables) => {
     html: path.resolve(__dirname, 'public', 'index.html'),
     output: path.resolve(__dirname, 'build'),
     entry: path.resolve(__dirname, 'src', 'index.tsx'),
+    initColorScheme: path.resolve(
+      __dirname,
+      'src',
+      'features',
+      'colorScheme',
+      'initColorScheme.ts',
+    ),
     src: path.resolve(__dirname, 'src'),
     public: path.resolve(__dirname, 'public'),
   };
