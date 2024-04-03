@@ -6,5 +6,5 @@ import '@/app/styles/normalize.css';
 import '@/app/styles/App.module.css';
 
 export const StyleDecorator = (Story: StoryFn) => {
-  return <Story />;
+	return <Story />;
 };

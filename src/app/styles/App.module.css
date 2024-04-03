@@ -1,13 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
 :root {
-    --cc: #FFF;
+    --color-background-gray: #f4f4f4;
+    --color-black: #303030;
+    --color-gray-text: #a3a3a3;
+    --color-gray-border: #d1d1d1;
+    --color-gray-icon: #757575;
+    --color-bottem-border: #e8e8e8;
+    --color-black-text: #474747;
+    --color-button-bg: rgb(195 157 255 / 100%);
+    --color-button-text: rgb(85 9 204 / 100%);
+    --constant-active: rgb(240 231 255 / 100%);
+    --badge-color: rgb(64 7 153 / 100%);
+    --constant-white: #fff;
+    --background-zero: var(--color-background-gray);
+    --background-primary: var(--constant-white);
+    --background-active: var(--constant-active);
+    --foreground-primary: var(--color-black-text);
+    --badge-primary: var(--badge-color);
+    --container-width: 1024px;
+    --container-padding: 0;
+    --font-weight-500: 500;
+    --font-weight-600: 600;
+    --font-size-small: 14px;
+    --font-size-medium: 16px;
+    --font-size-large: 20px;
+    --font-family-primary: "Manrope", sans-serif;
 }
 
-.aa {
-    position: relative;
-    padding: 1px 0;
-    color: var(--cc);
+[scheme="dark"] {
+    --background-zero: var(--color-black);
+    --background-primary: var(--constant-black);
+    --foreground-primary: var(--constant-white);
 }
 
-.vv {
-    width: 100%;
+body {
+    background-color: var(--background-zero);
+    color: var(--foreground-primary);
+    line-height: 22px;
+    font-weight: var(--font-weight-500);
+    font-size: var(--font-size-medium);
+    font-family: var(--font-family-primary);
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    max-width: var(--container-width);
+}
+
+*:focus-visible {
+    outline: 4px solid var(--badge-color);
 }

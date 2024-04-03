@@ -1,0 +1,22 @@
+.layout {
+    display: grid;
+    gap: 0;
+    width: 100%;
+    height: 100%;
+    grid:
+        "sidebar header" 72px
+        "sidebar content" 1fr
+        / 280px 1fr;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.header {
+    grid-area: header;
+}
+
+.content {
+    grid-area: content;
+}

@@ -1,0 +1,17 @@
+.search {
+    width: 350px;
+    height: 44px;
+}
+
+input {
+    padding: 12px;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border: 1px solid var(--color-gray-border);
+    border-radius: 63px;
+    color: var(--foreground-primary);
+}
+
+.long {
+    width: 440px;
+}
