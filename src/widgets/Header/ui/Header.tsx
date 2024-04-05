@@ -1,7 +1,10 @@
 import { FC, useState } from 'react';
+
 import { UserProfileWrap } from '@/shared/ui/UserProfileWrap';
+
 import { ColorSchemeSwitcher } from '@/features/colorScheme';
 import { SearchInput } from '@/features/SearchInput';
+
 import styles from './Header.module.css';
 
 export const Header: FC = () => {
