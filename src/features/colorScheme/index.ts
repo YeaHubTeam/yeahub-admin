@@ -1,1 +1,1 @@
-export { ColorSchemeSwitcher } from './ui/ColorSchemeSwitcher';
+export { ColorSchemeSwitcher } from './ui/ColorSchemeSwitcher/ColorSchemeSwitcher';

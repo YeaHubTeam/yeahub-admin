@@ -17,15 +17,8 @@ export const webpackPlugins = ({ isDev, paths }: WebpackOptions): Configuration[
       template: paths.html,
       favicon: path.resolve(paths.public, 'favicon.ico'),
     }),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash:8].css',
-      chunkFilename: 'css/[name].[contenthash:8].css',
-    }),
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
-    }),
-    new HtmlInlineScriptPlugin({
-      scriptMatchPattern: [/initColorScheme\..+\.js$/],
     }),
   ];
 
@@ -39,6 +32,17 @@ export const webpackPlugins = ({ isDev, paths }: WebpackOptions): Configuration[
       }),
     );
   } else {
+    plugins.push(
+      new MiniCssExtractPlugin({
+        filename: 'css/[name].[contenthash:8].css',
+        chunkFilename: 'css/[name].[contenthash:8].css',
+      }),
+    );
+    plugins.push(
+      new HtmlInlineScriptPlugin({
+        scriptMatchPattern: [/initColorScheme\..+\.js$/],
+      }),
+    );
     plugins.push(new BundleAnalyzerPlugin());
   }
 

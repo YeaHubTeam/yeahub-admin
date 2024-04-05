@@ -33,9 +33,10 @@
     --color-scheme-switcher-border: var(--color-black-50);
     --badge-primary: var(--color-purple-900);
     --background-input: var(--constant-white);
+    --foreground-input: var(--color-black-800);
     --gray-border: var(--color-black-100);
     --bottem-border: var(--color-black-50);
-    --button-bg: var(--color-purple-400);
+    --button-bg: var(--color-purple-800);
     --button-foreground: var(--constant-white);
     --button-foreground-hover: var(--color-purple-800);
     --font-family-primary: "Manrope", sans-serif;
@@ -58,11 +59,12 @@
     --badge-primary: var(--color-black-300);
     --color-scheme-switcher-border: transparent;
     --background-input: var(--color-black-700);
-    --button-bg: var(--color-black-800);
+    --foreground-input: var(--color-black-300);
     --gray-border: var(--color-black-100);
     --bottem-border: var(--color-black-500);
     --accent-color: var(--color-black-50);
     --border-dropdown: var(--color-black-500);
+    --button-bg: var(--color-black-800);
     --button-foreground: var(--color-black-500);
     --button-foreground-hover: var(--color-black-800);
 }
@@ -80,4 +82,8 @@ body {
     margin: 0 auto;
     padding: 0 var(--container-padding);
     max-width: var(--container-width);
+}
+
+*:-moz-focusring {
+    outline: 4px solid red !important;
 }

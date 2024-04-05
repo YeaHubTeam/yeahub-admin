@@ -10,5 +10,5 @@ input {
     border: 1px solid var(--gray-border);
     border-radius: 63px;
     background-color: var(--background-input);
-    color: var(--foreground-primary);
+    color: var(--foreground-input);
 }

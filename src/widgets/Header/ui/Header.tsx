@@ -22,7 +22,6 @@ export const Header: FC = () => {
 			<div style={{ transform: 'translateX(0)' }}>
 				<ColorSchemeSwitcher />
 			</div>
-
 			<UserProfileWrap />
 		</header>
 	);

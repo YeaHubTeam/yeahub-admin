@@ -4,7 +4,7 @@ export interface WebpackPaths {
   output: string;
   src: string;
   public: string;
-  initColorScheme: string;
+  initColorScheme: string | null;
 }
 
 export type WebpackMode = 'production' | 'development';

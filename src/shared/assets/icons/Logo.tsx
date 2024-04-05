@@ -1,4 +1,11 @@
-export const Logo = () => {
+import { FC } from 'react';
+
+interface ImgCastom {
+	alt?: string;
+	role?: string;
+}
+
+export const Logo: FC<ImgCastom> = () => {
 	return (
 		<svg
 			width="100"
@@ -7,6 +14,7 @@ export const Logo = () => {
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 		>
+			<title id="logoTitle">на главную</title>
 			<path
 				d="M16.9357 5.95898H21.6688L14.4604 18.6028V24.9112H9.99938V18.6028L2.79102 5.95898H7.52406L12.2299 14.5687L16.9357 5.95898Z"
 				fill="currentColor"
