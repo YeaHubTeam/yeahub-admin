@@ -12,3 +12,7 @@ input {
     background-color: var(--background-input);
     color: var(--foreground-input);
 }
+
+.long {
+    width: 440px;
+}
