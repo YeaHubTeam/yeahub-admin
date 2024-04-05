@@ -8,24 +8,20 @@
 }
 
 .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5;
     padding: 10px 12px;
     border-radius: 12px;
     color: var(--foreground-primary);
-}
-
-.item:not(:last-child) {
-    margin-bottom: 8px;
+    text-decoration: none;
 }
 
 .wrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.link {
-    color: var(--foreground-primary);
-    text-decoration: none;
 }
 
 .image {
