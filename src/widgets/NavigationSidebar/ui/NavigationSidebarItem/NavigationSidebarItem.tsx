@@ -33,28 +33,22 @@ const NavigationItem: FC<NavigationItemProps> = ({ title, name = '' }) => {
 	const count = categoryCounts[name] || 0;
 
 	return (
-		<li className={`${styles.item} ${match ? styles.active : ''}`} key={name}>
-			<NavLink to={`/${name}`} className={styles.link}>
-				<div className={styles.wrap}>
-					<div className={styles.wrap}>
-						<ImageComponent className={styles.image} />
-						<span className={styles.span}>{title}</span>
-					</div>
-					{count > 0 && <Badge count={count} />}
-				</div>
-			</NavLink>
-		</li>
+		<NavLink to={`/${name}`} className={`${styles.item} ${match ? styles.active : ''}`}>
+			<div className={styles.wrap}>
+				<ImageComponent className={styles.image} />
+				<span className={styles.span}>{title}</span>
+			</div>
+			{count > 0 && <Badge count={count} />}
+		</NavLink>
 	);
 };
 
 export const NavigationSidebarItem: FC = () => {
 	return (
-		<nav>
-			<ul className={styles.list}>
-				{Object.entries(categoryTitles).map(([name, title]) => {
-					return <NavigationItem key={name} name={name} title={title} />;
-				})}
-			</ul>
+		<nav className={styles.list}>
+			{Object.entries(categoryTitles).map(([name, title]) => {
+				return <NavigationItem key={name} name={name} title={title} />;
+			})}
 		</nav>
 	);
 };

@@ -3,8 +3,8 @@
     height: 48px;
     border: none;
     border-radius: 40px;
-    background: var(--color-button-bg);
-    color: var(--background-primary);
+    background: var(--button-bg);
+    color: var(--button-foreground);
     text-align: center;
     font-weight: var(--font-weight-600);
     font-size: var(--font-size-medium);
@@ -14,9 +14,9 @@
 }
 
 .button:hover {
-    border: 1px solid var(--color-black);
-    background-color: var(--background-primary);
-    color: var(--badge-color);
+    border: 1px solid var(--button-bg);
+    background-color: var(--background-active);
+    color: var(--button-foreground-hover);
 }
 
 .button:active {
