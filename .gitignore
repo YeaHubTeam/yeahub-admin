@@ -1,7 +1,6 @@
 build
 node_modules
 coverage
-.env
 
 # Logs
 logs
