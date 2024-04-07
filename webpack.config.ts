@@ -25,6 +25,9 @@ export default (env: EnvVariables) => {
     ),
     src: path.resolve(__dirname, 'src'),
     public: path.resolve(__dirname, 'public'),
+    env: path.resolve(__dirname, '.env'),
+    locales: path.resolve(__dirname, 'public', 'locales'),
+    buildLocales: path.resolve(__dirname, 'build', 'locales'),
   };
   const isDev = env.mode === 'development';
   const options: WebpackOptions = {

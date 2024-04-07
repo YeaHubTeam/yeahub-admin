@@ -3,10 +3,10 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import Backend from 'i18next-http-backend';
 import { initReactI18next } from 'react-i18next';
 
-type LangsFiles = 'translation';
+type LangsFiles = 'translation' | 'question';
 type Langs = 'en' | 'ru';
 
-const ns: LangsFiles[] = ['translation'];
+const ns: LangsFiles[] = ['translation', 'question'];
 const supportedLngs: Langs[] = ['en', 'ru'];
 
 const resources: Resource = ns.reduce((acc: Resource, n) => {
@@ -30,6 +30,7 @@ i18n
 		interpolation: {
 			escapeValue: false,
 		},
+		//TODO ns, supportedLngs, resources - из-за них нет отдельных чанков
 		ns,
 		supportedLngs,
 		resources,

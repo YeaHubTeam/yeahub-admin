@@ -49,6 +49,7 @@
     --container-padding: 0;
     --accent-color: var(--color-black-700);
     --border-dropdown: var(--constant-darck);
+    --header-height: 72px;
 }
 
 [scheme="dark"] {
@@ -76,6 +77,14 @@ body {
     font-weight: var(--font-weight-500);
     font-size: var(--font-size-medium);
     font-family: var(--font-family-primary);
+}
+
+main {
+    padding: 18px 55px;
+    box-sizing: border-box;
+    height: 100%;
+    max-height: calc(100vh - var(--header-height));
+    overflow: auto;
 }
 
 .container {

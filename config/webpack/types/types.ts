@@ -5,6 +5,9 @@ export interface WebpackPaths {
   src: string;
   public: string;
   initColorScheme: string | null;
+  env: string;
+  locales: string;
+  buildLocales: string;
 }
 
 export type WebpackMode = 'production' | 'development';

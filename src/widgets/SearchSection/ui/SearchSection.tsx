@@ -1,6 +1,7 @@
 import { FC, useState } from 'react';
 
 import { Button } from '@/shared/ui/Button';
+import { Card } from '@/shared/ui/Card';
 
 import { SearchInput } from '@/features/SearchInput';
 
@@ -16,9 +17,11 @@ export const SearchSection: FC = () => {
 	console.log(searchResults);
 
 	return (
-		<section className={styles.secion}>
-			<SearchInput onSearch={handleSearch} variant={'long'} />
-			<Button>Создать</Button>
-		</section>
+		<Card>
+			<section className={styles.section}>
+				<SearchInput onSearch={handleSearch} variant={'long'} />
+				<Button>Создать</Button>
+			</section>
+		</Card>
 	);
 };

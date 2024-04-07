@@ -29,7 +29,7 @@ const categoryImages: CategoryImages = {
 
 const NavigationItem: FC<NavigationItemProps> = ({ title, name = '' }) => {
 	const ImageComponent = categoryImages[name] || categoryImages.default;
-	const match = useMatch(`/${name}`);
+	const match = useMatch(`/${name}/*`);
 	const count = categoryCounts[name] || 0;
 
 	return (
