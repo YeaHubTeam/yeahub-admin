@@ -1,10 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import { Main } from '@/pages/Main';
-import { Professions } from '@/pages/Professions';
-import { Questions } from '@/pages/Questions';
-import { Skills } from '@/pages/Skills';
-import { Verification } from '@/pages/Verification';
+import { MainPage } from '@/pages/MainPage';
+import { ProfessionsPage } from '@/pages/ProfessionsPage';
+import { QuestionDetailPage } from '@/pages/QuestionDetailPage';
+import { QuestionsPage } from '@/pages/QuestionsPage';
+import { SkillsPage } from '@/pages/SkillsPage';
+import { VerificationPage } from '@/pages/VerificationPage';
 
 import { App } from '@/app/App';
 
@@ -15,23 +16,27 @@ export const router = createBrowserRouter([
 		children: [
 			{
 				path: '/',
-				element: <Main />,
+				element: <MainPage />,
 			},
 			{
 				path: 'questions',
-				element: <Questions />,
+				element: <QuestionsPage />,
+			},
+			{
+				path: 'questions/:questionId',
+				element: <QuestionDetailPage />,
 			},
 			{
 				path: 'verification',
-				element: <Verification />,
+				element: <VerificationPage />,
 			},
 			{
 				path: 'professions',
-				element: <Professions />,
+				element: <ProfessionsPage />,
 			},
 			{
 				path: 'skills',
-				element: <Skills />,
+				element: <SkillsPage />,
 			},
 		],
 	},

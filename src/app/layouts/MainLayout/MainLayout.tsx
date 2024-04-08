@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import { Header } from '@/widgets/Header';
@@ -7,13 +8,15 @@ import styles from './MainLayout.module.css';
 
 export const MainLayout = () => {
 	return (
-		<section className={`${styles.container} ${styles.layout}`}>
+		<section className={styles.layout}>
 			<div className={styles.sidebar}>
 				<NavigationSidebar />
 			</div>
 			<Header />
 			<div className={styles.content}>
-				<Outlet />
+				<Suspense fallback="">
+					<Outlet />
+				</Suspense>
 			</div>
 		</section>
 	);

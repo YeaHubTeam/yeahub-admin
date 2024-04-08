@@ -1,7 +1,8 @@
 import { createRoot } from 'react-dom/client';
-import { RouterProvider } from 'react-router-dom';
 
 import '@/shared/config/i18n/i18n';
+
+import { RouterProvider } from 'react-router-dom';
 
 import { router } from '@/app/providers/router';
 import { StoreProvider } from '@/app/providers/store';

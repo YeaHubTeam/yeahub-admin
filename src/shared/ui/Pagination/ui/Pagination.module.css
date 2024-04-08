@@ -1,0 +1,7 @@
+.page-button {
+    background: var(--light-gray);
+}
+
+.active {
+    background: var(--button-bg);
+}

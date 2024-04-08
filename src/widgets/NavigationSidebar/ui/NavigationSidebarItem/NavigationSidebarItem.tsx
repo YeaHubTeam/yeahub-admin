@@ -29,14 +29,14 @@ const categoryImages: CategoryImages = {
 
 const NavigationItem: FC<NavigationItemProps> = ({ title, name = '' }) => {
 	const ImageComponent = categoryImages[name] || categoryImages.default;
-	const match = useMatch(`/${name}`);
+	const match = useMatch(`/${name}/*`);
 	const count = categoryCounts[name] || 0;
 
 	return (
 		<NavLink to={`/${name}`} className={`${styles.item} ${match ? styles.active : ''}`}>
 			<div className={styles.wrap}>
 				<ImageComponent className={styles.image} />
-				<span className={styles.span}>{title}</span>
+				<span>{title}</span>
 			</div>
 			{count > 0 && <Badge count={count} />}
 		</NavLink>
