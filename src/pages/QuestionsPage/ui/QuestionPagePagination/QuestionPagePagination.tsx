@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDispatch';
 import { Pagination } from '@/shared/ui/Pagination';
 
-import { Question } from '@/entities/Question';
+import { Question } from '@/entities/question';
 
 import { getQuestionsPageNum } from '../../model/selectors/questionsPageSelectors';
 import { questionsPageActions } from '../../model/slices/questionsPageSlice';

@@ -1,8 +1,6 @@
 import { useParams } from 'react-router-dom';
 
-import { QuestionCard } from '@/entities/Question';
-
-import { useGetQuestionByIdQuery } from '../../api/questionDetailPageApi';
+import { QuestionCard, useGetQuestionByIdQuery } from '@/entities/question';
 
 /**
  * Page showing detail info about a single question

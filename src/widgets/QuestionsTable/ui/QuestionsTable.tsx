@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 
@@ -6,7 +5,7 @@ import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { Translations } from '@/shared/config/i18n/i18nTranslations';
 import { Table } from '@/shared/ui/Table';
 
-import { Question } from '../../model/types/question';
+import { Question } from '@/entities/question';
 
 interface QuestionsTableProps {
 	questions?: Question[];
@@ -23,7 +22,7 @@ export const QuestionsTable = ({ questions }: QuestionsTableProps) => {
 			type: t(Translations.QUESTION_TYPE),
 		};
 
-		return Object.entries(columns)?.map(([k, v]) => <Fragment key={k}>{v}</Fragment>);
+		return Object.entries(columns)?.map(([k, v]) => <td key={k}>{v}</td>);
 	};
 
 	const renderTableBody = (question: Question) => {

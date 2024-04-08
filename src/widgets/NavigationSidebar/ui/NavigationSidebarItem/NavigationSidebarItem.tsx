@@ -36,7 +36,7 @@ const NavigationItem: FC<NavigationItemProps> = ({ title, name = '' }) => {
 		<NavLink to={`/${name}`} className={`${styles.item} ${match ? styles.active : ''}`}>
 			<div className={styles.wrap}>
 				<ImageComponent className={styles.image} />
-				<span className={styles.span}>{title}</span>
+				<span>{title}</span>
 			</div>
 			{count > 0 && <Badge count={count} />}
 		</NavLink>

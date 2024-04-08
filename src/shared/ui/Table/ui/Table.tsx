@@ -43,8 +43,10 @@ export const Table = <T extends { id: number }>({
 	return (
 		<table>
 			<thead>
-				<tr>{renderTableHeader()}</tr>
-				{hasActions ? <tr>{t(Translations.ACTIONS)}</tr> : null}
+				<tr>
+					{renderTableHeader()}
+					{hasActions ? <td>{t(Translations.ACTIONS)}</td> : null}
+				</tr>
 			</thead>
 			<tbody>
 				{items.map((item) => (

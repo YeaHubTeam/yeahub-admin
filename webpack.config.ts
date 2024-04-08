@@ -25,7 +25,7 @@ export default (env: EnvVariables) => {
     ),
     src: path.resolve(__dirname, 'src'),
     public: path.resolve(__dirname, 'public'),
-    env: path.resolve(__dirname, '.env'),
+    env: path.resolve(__dirname, '.env.local'),
     locales: path.resolve(__dirname, 'public', 'locales'),
     buildLocales: path.resolve(__dirname, 'build', 'locales'),
   };

@@ -1,11 +1,11 @@
 import { Card } from '@/shared/ui/Card';
 import { Flex } from '@/shared/ui/Flex';
 
-import { QuestionsTable } from '@/entities/Question';
+import { useGetQuestionsListQuery } from '@/entities/question';
 
+import { QuestionsTable } from '@/widgets/QuestionsTable';
 import { SearchSection } from '@/widgets/SearchSection';
 
-import { useGetQuestionsListQuery } from '../../api/questionsPageApi';
 import { QuestionPagePagination } from '../QuestionPagePagination/QuestionPagePagination';
 
 import styles from './QuestionsPage.module.css';
