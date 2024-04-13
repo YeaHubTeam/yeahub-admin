@@ -1,13 +1,5 @@
-import { http, HttpResponse } from 'msw';
+import { questionsDetailResponse } from '../../pages/QuestionDetailPage/__mocks__/questionsDetailResponse';
+import { questionsResponse } from '../../pages/QuestionsPage/__mocks__/questionsResponse';
+import { avatarResponse } from '../../shared/ui/UserProfileWrap/__mocks__/avatarResponse';
 
-import { mockGetQuestionsList } from './mockGetQuestionsList';
-
-export const handlers = [
-	http.get('/questions', () => HttpResponse.json(mockGetQuestionsList)),
-	http.get('/questions/:id', ({ params }) =>
-		HttpResponse.json(mockGetQuestionsList[`${params.id - 1}`]),
-	),
-	http.get('/assets/:imageId.png', ({ params }) =>
-		HttpResponse.json({ img: `./shared/assets/images/MockAvatar${params.imageId}.png` }),
-	),
-];
+export const handlers = [...questionsResponse, ...questionsDetailResponse, ...avatarResponse];
