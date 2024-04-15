@@ -25,8 +25,11 @@ export const SearchInput: FC<SearchInputProps> = ({
 	const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
 		if (event.key === 'Enter') {
 			event.preventDefault();
-			onSearch(query);
-			setQuery('');
+			const trimmedQuery = query.trim();
+			if (trimmedQuery !== '') {
+				onSearch(query);
+				setQuery('');
+			}
 		}
 	};
 
