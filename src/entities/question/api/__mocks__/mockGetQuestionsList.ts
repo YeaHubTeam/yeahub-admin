@@ -1,4 +1,6 @@
-export const mockGetQuestionsList = [
+import { Question } from '../../model/types/question';
+
+export const mockGetQuestionsList: Question[] = [
 	{
 		id: 1,
 		title: 'Task 1',

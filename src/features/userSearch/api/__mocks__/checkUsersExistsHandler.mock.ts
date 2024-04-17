@@ -1,8 +1,8 @@
 import { http, HttpResponse } from 'msw';
 
-import { searchUsers } from '../utils/searchUsers';
+import { searchUsers } from '../../utils/searchUsers';
 
-export const userSearch = [
+export const checkUsersExists = [
 	http.post('/api/search', async ({ request }) => {
 		const requestBody = await request.json();
 		let searchResults;

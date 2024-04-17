@@ -1,11 +1,12 @@
-import { questionsDetailResponse } from '@/entities/question/__mocks__/questionsDetailResponse';
-import { questionsResponse } from '@/entities/question/__mocks__/questionsResponse';
-import { avatarResponse } from '@/entities/userAvatar/__mocks__/avatarResponse';
-import { userSearch } from '@/entities/userSearch/__mocks__/userSearch';
+import { getQuestionsList, getQuestionById } from '@/entities/question';
+
+import { getUserAvatarById } from '@/features/userAvatar';
+import { checkUsersExists } from '@/features/userSearch';
+7;
 
 export const handlers = [
-	...questionsResponse,
-	...questionsDetailResponse,
-	...avatarResponse,
-	...userSearch,
+	...getQuestionsList,
+	...getQuestionById,
+	...checkUsersExists,
+	...getUserAvatarById,
 ];

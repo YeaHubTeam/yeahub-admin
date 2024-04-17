@@ -4,7 +4,7 @@ import { SearchUsername } from '../model/types/usersearch';
 
 export const userSearchApi = baseApi.injectEndpoints({
 	endpoints: (build) => ({
-		searchUsers: build.mutation<SearchUsername, { username: string }>({
+		checkUsersExists: build.mutation<SearchUsername, { username: string }>({
 			query: ({ username }) => ({
 				url: '/api/search',
 				method: 'POST',
@@ -14,4 +14,4 @@ export const userSearchApi = baseApi.injectEndpoints({
 	}),
 });
 
-export const { useSearchUsersMutation } = userSearchApi;
+export const { useCheckUsersExistsMutation } = userSearchApi;

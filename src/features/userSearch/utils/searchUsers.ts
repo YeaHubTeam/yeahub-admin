@@ -1,4 +1,4 @@
-import { mockUsernames } from '../__mocks__/mockUsernames';
+import { mockUsernames } from '../api/__mocks__/mockUsernames';
 
 export const searchUsers = async (findUsername: string) => {
 	if (!findUsername) {

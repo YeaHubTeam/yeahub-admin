@@ -2,15 +2,14 @@ import { FC } from 'react';
 
 import { UserProfileWrap } from '@/shared/ui/UserProfileWrap';
 
-import { useSearchUsersMutation } from '@/entities/userSearch';
-
 import { ColorSchemeSwitcher } from '@/features/colorScheme';
 import { SearchInput } from '@/features/SearchInput';
+import { useCheckUsersExistsMutation } from '@/features/userSearch';
 
 import styles from './Header.module.css';
 
 export const Header: FC = () => {
-	const [searchUsers, { data, error }] = useSearchUsersMutation();
+	const [searchUsers, { data, error }] = useCheckUsersExistsMutation();
 
 	const handleSearch = (query: string) => {
 		searchUsers({ username: query });

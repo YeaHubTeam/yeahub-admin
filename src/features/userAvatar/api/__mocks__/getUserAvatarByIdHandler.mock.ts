@@ -1,6 +1,6 @@
 import { http, HttpResponse } from 'msw';
 
-export const avatarResponse = [
+export const getUserAvatarById = [
 	http.get('/images/:imageUrl', async ({ params }: { params: { imageUrl: string } }) => {
 		const imageUrl: string = params.imageUrl;
 
