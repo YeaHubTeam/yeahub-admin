@@ -68,6 +68,8 @@
     --button-bg: var(--color-black-800);
     --button-foreground: var(--color-black-500);
     --button-foreground-hover: var(--color-black-800);
+
+    color-scheme: dark;
 }
 
 body {
