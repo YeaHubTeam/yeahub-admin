@@ -1,12 +1,15 @@
-import React, { FC } from 'react';
+import React, { ButtonHTMLAttributes, FC, ReactNode } from 'react';
 
 import styles from './Button.module.css';
 
-interface ButtonProps {
-	/*Проп children используется для передачи дочерних элементов */
-	children: string;
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+	children: string | ReactNode;
 }
 
-export const Button: FC<ButtonProps> = ({ children }) => {
-	return <button className={styles.button}>{children}</button>;
+export const Button: FC<ButtonProps> = ({ children, ...otherProps }) => {
+	return (
+		<button className={styles.button} {...otherProps}>
+			{children}
+		</button>
+	);
 };
