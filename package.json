@@ -90,6 +90,7 @@
     "lint-staged": "^15.2.2",
     "loki": "^0.34.0",
     "mini-css-extract-plugin": "^2.8.0",
+    "msw": "^2.2.13",
     "npm": "^10.4.0",
     "postcss": "^8.4.35",
     "postcss-loader": "^8.1.0",
@@ -144,5 +145,10 @@
         "preset": "iPhone 7"
       }
     }
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }

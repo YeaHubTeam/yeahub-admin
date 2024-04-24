@@ -41,18 +41,18 @@ export const Table = <T extends { id: number }>({
 	const hasActions = !!renderActions;
 
 	return (
-		<table>
+		<table style={{ width: '100%' }}>
 			<thead>
 				<tr>
 					{renderTableHeader()}
-					{hasActions ? <td>{t(Translations.ACTIONS)}</td> : null}
+					{hasActions && <td>{t(Translations.ACTIONS)}</td>}
 				</tr>
 			</thead>
 			<tbody>
 				{items.map((item) => (
 					<tr key={item.id}>
 						{renderTableBody(item)}
-						{hasActions ? <tr>{renderActions?.(item)}</tr> : null}
+						{hasActions && <td>{renderActions?.(item)}</td>}
 					</tr>
 				))}
 			</tbody>
