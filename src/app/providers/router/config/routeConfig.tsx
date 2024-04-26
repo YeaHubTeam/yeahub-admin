@@ -2,7 +2,9 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import { MainPage } from '@/pages/MainPage';
 import { ProfessionsPage } from '@/pages/ProfessionsPage';
+import { QuestionCreatePage } from '@/pages/QuestionCreatePage';
 import { QuestionDetailPage } from '@/pages/QuestionDetailPage';
+import { QuestionEditPage } from '@/pages/QuestionEditPage';
 import { QuestionsPage } from '@/pages/QuestionsPage';
 import { SkillsPage } from '@/pages/SkillsPage';
 import { VerificationPage } from '@/pages/VerificationPage';
@@ -25,6 +27,14 @@ export const router = createBrowserRouter([
 			{
 				path: 'questions/:questionId',
 				element: <QuestionDetailPage />,
+			},
+			{
+				path: 'questions/:questionId/edit',
+				element: <QuestionEditPage />,
+			},
+			{
+				path: 'questions/create',
+				element: <QuestionCreatePage />,
 			},
 			{
 				path: 'verification',

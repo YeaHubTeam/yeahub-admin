@@ -95,9 +95,9 @@ export interface FlexProps extends DivProps {
  */
 export const Flex = ({
 	children,
-	justify = 'start',
-	align = 'normal',
-	direction = 'row',
+	justify,
+	align,
+	direction,
 	gap,
 	className = '',
 	maxWidth,
@@ -112,9 +112,9 @@ export const Flex = ({
 		<Component
 			className={classNames(
 				styles.flex,
-				justifyClasses[justify],
-				alignClasses[align],
-				directionClasses[direction],
+				justify && justifyClasses[justify],
+				align && alignClasses[align],
+				direction && directionClasses[direction],
 				gap && gapClasses[gap],
 				maxWidth && styles['max-width'],
 				maxHeight && styles['max-height'],

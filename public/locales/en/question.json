@@ -3,6 +3,8 @@
     "title": "Title",
     "tags": "Tags",
     "author": "Author",
-    "type": "Type"
+    "type": "Type",
+    "create.page.title": "Creating new question",
+    "edit.page.title": "Edit question"
   }
 }

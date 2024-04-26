@@ -1,4 +1,7 @@
 {
   "language": "English",
-  "actions": "Actions"
+  "actions": "Actions",
+  "save": "Save",
+  "cancel": "Cancel",
+  "create": "Create"
 }

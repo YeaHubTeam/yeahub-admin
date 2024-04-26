@@ -19,7 +19,7 @@ const QuestionsPage = () => {
 
 	return (
 		<Flex componentType="main" direction="column" gap="24">
-			<SearchSection />
+			<SearchSection to="create" />
 			<Card className={styles.content}>
 				<QuestionsTable questions={questions} />
 				<QuestionPagePagination questions={questions} />
