@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 
 export const questionEditSchema = yup.object().shape({
-	id: yup.number().required(),
+	id: yup.string().required(),
 	title: yup.string().required(),
 	description: yup.string().required(),
 	shortAnswer: yup.string().required(),

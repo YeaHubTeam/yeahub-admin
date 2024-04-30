@@ -10,7 +10,7 @@ const editQuestionApi = baseApi.injectEndpoints({
 		editQuestion: build.mutation<Question, QuestionEditFormValues>({
 			query: (question) => ({
 				url: `/questions/${question.id}`,
-				method: 'PUT',
+				method: 'PATCH',
 				body: question,
 			}),
 			invalidatesTags: [ApiTags.QUESTIONS, ApiTags.QUESTION_DETAIL],

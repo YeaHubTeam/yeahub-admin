@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
@@ -14,15 +15,20 @@ import {
 } from '../../model/types/questionCreatePageTypes';
 
 export const QuestionCreateFormHeader = () => {
-	const [createQuestionMutation, { isLoading }] = useCreateQuestionMutation();
+	const [createQuestionMutation, { isLoading, isSuccess }] = useCreateQuestionMutation();
 	const { handleSubmit } = useFormContext<QuestionCreateSchema>();
 	const navigate = useNavigate();
 	const { t } = useTranslation(['question', 'translation']);
 
-	const onCreateQuestion = (data: QuestionCreateFormValues) => {
-		createQuestionMutation(data);
-		navigate('/questions');
+	const onCreateQuestion = async (data: QuestionCreateFormValues) => {
+		await createQuestionMutation(data);
 	};
+
+	useEffect(() => {
+		if (isSuccess) {
+			navigate('/questions');
+		}
+	}, [isSuccess, navigate]);
 
 	return (
 		<Flex align="center" gap="8">

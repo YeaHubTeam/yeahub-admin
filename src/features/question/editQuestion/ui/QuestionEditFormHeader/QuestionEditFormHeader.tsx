@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
@@ -16,16 +17,20 @@ export const QuestionEditFormHeader = () => {
 
 	const { handleSubmit, reset } = useFormContext<QuestionEditFormValues>();
 
-	const [editQuestionMutation, { isLoading }] = useEditQuestionMutation();
+	const [editQuestionMutation, { isLoading, isSuccess }] = useEditQuestionMutation();
 	const onResetFormValues = () => {
-		console.log(11);
 		reset();
 	};
 
-	const onEditQuestion = (data: QuestionEditFormValues) => {
-		editQuestionMutation(data);
-		navigate(-1);
+	const onEditQuestion = async (data: QuestionEditFormValues) => {
+		await editQuestionMutation(data);
 	};
+
+	useEffect(() => {
+		if (isSuccess) {
+			navigate(-1);
+		}
+	}, [navigate, isSuccess]);
 
 	return (
 		<Flex align="center" gap="8">

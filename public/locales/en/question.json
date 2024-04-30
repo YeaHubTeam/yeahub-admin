@@ -1,6 +1,12 @@
 {
   "question": {
     "title": "Title",
+    "description": "Description",
+    "short.answer": "Short answer",
+    "long.answer": "Long answer",
+    "rate": "Rate",
+    "image.src": "Image url",
+    "keywords": "Keywords",
     "tags": "Tags",
     "author": "Author",
     "type": "Type",

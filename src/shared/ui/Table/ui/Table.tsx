@@ -30,7 +30,7 @@ interface TableProps<T> {
  * @param renderActions
  * @constructor
  */
-export const Table = <T extends { id: number }>({
+export const Table = <T extends { id: string }>({
 	items,
 	renderTableHeader,
 	renderTableBody,

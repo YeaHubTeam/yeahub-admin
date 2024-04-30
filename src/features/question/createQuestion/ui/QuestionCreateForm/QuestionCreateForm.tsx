@@ -14,6 +14,9 @@ import styles from './QuestionCreateForm.module.css';
 
 export const QuestionCreateForm = () => {
 	const methods = useForm<QuestionCreateSchema>({
+		defaultValues: {
+			status: 'public',
+		},
 		resolver: yupResolver(questionCreateSchema),
 		mode: 'onTouched',
 	});
