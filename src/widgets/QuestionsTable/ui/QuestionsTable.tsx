@@ -1,11 +1,15 @@
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 
-import EyeIcon from '@/shared/assets/icons/eye.svg';
+import DetailIcon from '@/shared/assets/icons/eye.svg';
+import EditIcon from '@/shared/assets/icons/Pencil.svg';
 import { Translations } from '@/shared/config/i18n/i18nTranslations';
+import { Flex } from '@/shared/ui/Flex';
 import { Table } from '@/shared/ui/Table';
 
 import { Question } from '@/entities/question';
+
+import { DeleteQuestionButton } from '@/features/question/deleteQuestion';
 
 interface QuestionsTableProps {
 	questions?: Question[];
@@ -17,9 +21,9 @@ export const QuestionsTable = ({ questions }: QuestionsTableProps) => {
 	const renderTableHeader = () => {
 		const columns = {
 			title: t(Translations.QUESTION_TITLE),
-			tags: t(Translations.QUESTION_TAGS),
-			author: t(Translations.QUESTION_AUTHOR),
-			type: t(Translations.QUESTION_TYPE),
+			description: t(Translations.QUESTION_DESCRIPTION),
+			rate: t(Translations.QUESTION_RATE),
+			keywords: t(Translations.QUESTION_KEYWORDS),
 		};
 
 		return Object.entries(columns)?.map(([k, v]) => <td key={k}>{v}</td>);
@@ -28,9 +32,9 @@ export const QuestionsTable = ({ questions }: QuestionsTableProps) => {
 	const renderTableBody = (question: Question) => {
 		const columns = {
 			title: question.title,
-			tags: question.tags,
-			author: question.author,
-			type: question.type,
+			description: question.description,
+			rate: question.rate,
+			keywords: question.keywords?.join(', '),
 		};
 
 		return Object.entries(columns)?.map(([k, v]) => <td key={k}>{v}</td>);
@@ -38,9 +42,15 @@ export const QuestionsTable = ({ questions }: QuestionsTableProps) => {
 
 	const renderActions = (question: Question) => {
 		return (
-			<NavLink to={`/questions/${question.id}`}>
-				<EyeIcon />
-			</NavLink>
+			<Flex gap="4">
+				<NavLink to={`/questions/${question.id}`}>
+					<DetailIcon />
+				</NavLink>
+				<NavLink to={`/questions/${question.id}/edit`}>
+					<EditIcon />
+				</NavLink>
+				<DeleteQuestionButton questionId={question.id} />
+			</Flex>
 		);
 	};
 

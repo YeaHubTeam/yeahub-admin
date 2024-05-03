@@ -1,6 +1,12 @@
 {
   "question": {
     "title": "Название",
+    "description": "Описание",
+    "short.answer": "Короткий ответ",
+    "long.answer": "Длинный ответ",
+    "rate": "Рейтинг",
+    "image.src": "Ссылка на картинку",
+    "keywords": "Ключевые слова",
     "tags": "Теги",
     "author": "Автор",
     "type": "Тип",

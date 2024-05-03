@@ -7,11 +7,18 @@ export enum Translations {
 	CANCEL = 'cancel',
 	SAVE = 'save',
 	CREATE = 'create',
+	EDIT = 'edit',
 
 	/**
 	 * Question
 	 */
 	QUESTION_TITLE = 'question.title',
+	QUESTION_DESCRIPTION = 'question.description',
+	QUESTION_SHORT_ANSWER = 'question.short.answer',
+	QUESTION_LONG_ANSWER = 'question.long.answer',
+	QUESTION_RATE = 'question.rate',
+	QUESTION_IMAGE_SRC = 'question.image.src',
+	QUESTION_KEYWORDS = 'question.keywords',
 	QUESTION_TAGS = 'question.tags',
 	QUESTION_AUTHOR = 'question.author',
 	QUESTION_TYPE = 'question.type',

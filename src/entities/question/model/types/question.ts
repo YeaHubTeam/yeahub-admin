@@ -6,12 +6,12 @@ export interface QuestionTestOption {
 }
 
 export interface Question {
-	id: number;
+	id: string;
 	title: string;
 	description: string;
 	rate: number;
 	imgSrc?: string;
-	tags?: string[];
+	keywords?: string[];
 	resources?: string[];
 	author?: string;
 	type?: QuestionType;

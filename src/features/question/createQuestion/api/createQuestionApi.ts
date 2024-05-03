@@ -5,7 +5,7 @@ import { Question } from '@/entities/question';
 
 import { QuestionCreateFormValues } from '../model/types/questionCreatePageTypes';
 
-const createQuestionApi = baseApi.injectEndpoints({
+export const createQuestionApi = baseApi.injectEndpoints({
 	endpoints: (build) => ({
 		createQuestion: build.mutation<Question, QuestionCreateFormValues>({
 			query: (question) => ({

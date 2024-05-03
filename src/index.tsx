@@ -13,7 +13,7 @@ async function enableMocking() {
 	if (!!process.env.REACT_APP_BACKEND_AVAILABLE === true) {
 		return worker.stop();
 	}
-	return worker.start();
+	// return worker.start();
 }
 
 const root = document.getElementById('root');
