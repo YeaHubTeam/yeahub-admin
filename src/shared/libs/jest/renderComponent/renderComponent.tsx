@@ -3,11 +3,12 @@ import { ReactNode } from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { MemoryRouter } from 'react-router-dom';
 
+import { State } from '@/shared/config/store/State';
+
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { StoreProvider } from '@/app/providers/store';
 
 import jestI18n from '../../../config/jest/jestI18n';
-import { State } from '../../../config/store/State';
 
 interface RenderComponentOptions {
 	/**

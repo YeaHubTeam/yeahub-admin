@@ -6,7 +6,7 @@ export const categoryTitles = {
 	'': 'Главная',
 	questions: 'Вопросы',
 	verification: 'Верификации',
-	professions: 'Профессии',
+	specializations: 'Специализация',
 	skills: 'Навыки',
 };
 

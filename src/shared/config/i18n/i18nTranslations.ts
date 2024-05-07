@@ -24,4 +24,12 @@ export enum Translations {
 	QUESTION_TYPE = 'question.type',
 	QUESTION_CREATE_PAGE_TITLE = 'question.create.page.title',
 	QUESTION_EDIT_PAGE_TITLE = 'question.edit.page.title',
+
+	/**
+	 * Specialization
+	 */
+
+	SPECIALIZATION_TITLE = 'specialization.title',
+	SPECIALIZATION_DESCRIPTION = 'specialization.description',
+	SPECIALIZATIONS_NOT_ITEMS = 'specialization.not.items',
 }
