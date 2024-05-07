@@ -3,3 +3,4 @@ export {
 	useGetSpecializationsListQuery,
 	useGetSpecializationByIdQuery,
 } from './api/specializationApi';
+export { SpecializationCard } from './ui/SpecializationCard/SpecializationCard';
