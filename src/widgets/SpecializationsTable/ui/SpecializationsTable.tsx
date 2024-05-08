@@ -10,6 +10,8 @@ import { Table } from '@/shared/ui/Table';
 
 import { Specialization } from '@/entities/specialization';
 
+import { DeleteSpecializationButton } from '@/features/specialization/deleteSpecialization';
+
 interface SpecializationsTableProps {
 	specializations?: Specialization[];
 }
@@ -44,6 +46,7 @@ export const SpecializationsTable = ({ specializations }: SpecializationsTablePr
 				<NavLink to={`/specializations/${specialization.id}/edit`}>
 					<EditIcon />
 				</NavLink>
+				<DeleteSpecializationButton specializationId={specialization.id} />
 			</Flex>
 		);
 	};
