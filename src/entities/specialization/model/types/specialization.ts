@@ -6,3 +6,5 @@ export interface Specialization {
 	createdAt: string;
 	updatedAt: string;
 }
+
+export type SpecializationFormValues = Omit<Specialization, 'id' | 'createdAt' | 'updatedAt'>;

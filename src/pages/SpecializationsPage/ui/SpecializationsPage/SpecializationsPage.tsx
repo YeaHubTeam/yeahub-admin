@@ -21,8 +21,8 @@ const SpecializationsPage = () => {
 		<Flex componentType="main" direction="column" gap="24">
 			<SearchSection to="create" />
 			<Card className={styles.content}>
-				<SpecializationsTable specializations={specialization} />
-				<SpecializationsPagePagination specialization={specialization} />
+				<SpecializationsTable specializations={specialization?.data} />
+				<SpecializationsPagePagination specialization={specialization?.data} />
 			</Card>
 		</Flex>
 	);
