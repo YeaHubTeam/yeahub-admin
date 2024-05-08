@@ -4,6 +4,7 @@
     "description": "Description",
     "not.items": "No specializations",
     "image.src": "Image url",
-    "create.page.title": "Creating new specialization"
+    "create.page.title": "Creating new specialization",
+    "edit.page.title": "Edit specialization"
   }
 }

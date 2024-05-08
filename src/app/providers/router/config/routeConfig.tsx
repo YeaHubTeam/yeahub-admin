@@ -8,6 +8,7 @@ import { QuestionsPage } from '@/pages/QuestionsPage';
 import { SkillsPage } from '@/pages/SkillsPage';
 import { SpecializationCreatePage } from '@/pages/SpecializationCreatePage';
 import { SpecializationDetailPage } from '@/pages/SpecializationDetailPage';
+import { SpecializationEditPage } from '@/pages/SpecializationEditPage';
 import { SpecializationsPage } from '@/pages/SpecializationsPage';
 import { VerificationPage } from '@/pages/VerificationPage';
 
@@ -53,6 +54,10 @@ export const router = createBrowserRouter([
 			{
 				path: 'specializations/create',
 				element: <SpecializationCreatePage />,
+			},
+			{
+				path: 'specializations/:specializationId/edit',
+				element: <SpecializationEditPage />,
 			},
 			{
 				path: 'skills',
