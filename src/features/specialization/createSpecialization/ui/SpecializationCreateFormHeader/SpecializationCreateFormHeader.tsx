@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
@@ -14,21 +13,21 @@ import { useCreateSpecializationMutation } from '../../api/createSpecializationA
 import { SpecializationCreateSchema } from '../../model/types/specializationCreateTypes';
 
 export const SpecializationCreateFormHeader = () => {
-	const [createSpecializationMutation, { isLoading, isSuccess }] =
-		useCreateSpecializationMutation();
+	const [createSpecializationMutation, { isLoading }] = useCreateSpecializationMutation();
 	const { handleSubmit } = useFormContext<SpecializationCreateSchema>();
 	const navigate = useNavigate();
 	const { t } = useTranslation(['specialization', 'translation']);
 
 	const onCreateSpecialization = async (data: SpecializationFormValues) => {
-		await createSpecializationMutation(data);
+		await createSpecializationMutation(data)
+			.unwrap()
+			.then(() => {
+				navigate('/specializations');
+			})
+			.catch((e) => {
+				console.error(e);
+			});
 	};
-
-	useEffect(() => {
-		if (isSuccess) {
-			navigate('/specializations');
-		}
-	}, [isSuccess, navigate]);
 
 	return (
 		<Flex align="center" gap="8">
