@@ -31,5 +31,7 @@ export enum Translations {
 
 	SPECIALIZATION_TITLE = 'specialization.title',
 	SPECIALIZATION_DESCRIPTION = 'specialization.description',
+	SPECIALIZATION_IMAGE_SRC = 'specialization.image.src',
 	SPECIALIZATIONS_NOT_ITEMS = 'specialization.not.items',
+	SPECIALIZATION_CREATE_PAGE_TITLE = 'specialization.create.page.title',
 }
