@@ -4,12 +4,14 @@ import { baseApi } from '@/shared/config/api/baseApi';
 import { State } from '@/shared/config/store/State';
 
 import { questionsPageReducer } from '@/pages/QuestionsPage';
+import { skillsPageReducer } from '@/pages/SkillsPage';
 import { specializationsPageReducer } from '@/pages/SpecializationsPage';
 
 export const createReduxStore = (initialState?: State) => {
 	const rootReducer: ReducersMapObject<State> = {
 		questionsPage: questionsPageReducer,
 		specializationsPage: specializationsPageReducer,
+		skillsPage: skillsPageReducer,
 		[baseApi.reducerPath]: baseApi.reducer,
 	};
 	return configureStore<State>({
