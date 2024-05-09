@@ -35,4 +35,13 @@ export enum Translations {
 	SPECIALIZATIONS_NOT_ITEMS = 'specialization.not.items',
 	SPECIALIZATION_CREATE_PAGE_TITLE = 'specialization.create.page.title',
 	SPECIALIZATION_EDIT_PAGE_TITLE = 'specialization.edit.page.title',
+
+	/**
+	 * Skill
+	 */
+
+	SKILL_TITLE = 'skill.title',
+	SKILL_DESCRIPTION = 'skill.description',
+	SKILL_AVATAR_SRC = 'skill.avatar.src',
+	SKILLS_NOT_ITEMS = 'skill.not.items',
 }

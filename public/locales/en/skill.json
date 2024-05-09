@@ -1,0 +1,8 @@
+{
+  "skill": {
+    "title": "Title",
+    "description": "Description",
+    "not.items": "No skills",
+    "avatar.src": "Image url"
+  }
+}
