@@ -51,7 +51,7 @@ export const SkillsTable = ({ skills }: SkillsTableProps) => {
 	if (!skills) {
 		return (
 			<Flex maxHeight align="center" justify="center">
-				<Text title={t(Translations.SKILLS_NOT_ITEMS)} />
+				<Text title={t(Translations.SKILL_NOT_ITEMS)} />
 			</Flex>
 		);
 	}
