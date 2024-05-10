@@ -5,6 +5,7 @@ import { QuestionCreatePage } from '@/pages/QuestionCreatePage';
 import { QuestionDetailPage } from '@/pages/QuestionDetailPage';
 import { QuestionEditPage } from '@/pages/QuestionEditPage';
 import { QuestionsPage } from '@/pages/QuestionsPage';
+import { SkillCreatePage } from '@/pages/SkillCreatePage';
 import { SkillsPage } from '@/pages/SkillsPage';
 import { SpecializationCreatePage } from '@/pages/SpecializationCreatePage';
 import { SpecializationDetailPage } from '@/pages/SpecializationDetailPage';
@@ -62,6 +63,10 @@ export const router = createBrowserRouter([
 			{
 				path: 'skills',
 				element: <SkillsPage />,
+			},
+			{
+				path: 'skills/create',
+				element: <SkillCreatePage />,
 			},
 		],
 	},

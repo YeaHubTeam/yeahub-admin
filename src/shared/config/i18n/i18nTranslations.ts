@@ -43,5 +43,6 @@ export enum Translations {
 	SKILL_TITLE = 'skill.title',
 	SKILL_DESCRIPTION = 'skill.description',
 	SKILL_AVATAR_SRC = 'skill.avatar.src',
-	SKILLS_NOT_ITEMS = 'skill.not.items',
+	SKILL_NOT_ITEMS = 'skill.not.items',
+	SKILL_CREATE_PAGE_TITLE = 'skill.create.page.title',
 }
