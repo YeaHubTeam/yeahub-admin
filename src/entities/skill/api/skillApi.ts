@@ -12,7 +12,13 @@ const skillApi = baseApi.injectEndpoints({
 			}),
 			providesTags: [ApiTags.SKILLS],
 		}),
+		getSkillById: build.query<Skill, string>({
+			query: (skillId) => ({
+				url: `/skills/${skillId}`,
+			}),
+			providesTags: [ApiTags.SKILL_DETAIL],
+		}),
 	}),
 });
 
-export const { useGetSkillsListQuery } = skillApi;
+export const { useGetSkillsListQuery, useGetSkillByIdQuery } = skillApi;
