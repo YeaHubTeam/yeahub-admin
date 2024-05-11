@@ -3,7 +3,8 @@
     "title": "Title",
     "description": "Description",
     "not.items": "No skills",
-    "avatar.src": "Image url",
-    "create.page.title": "Creating new skill"
+    "image.src": "Image url",
+    "create.page.title": "Creating new skill",
+    "edit.page.title": "Edit skill"
   }
 }

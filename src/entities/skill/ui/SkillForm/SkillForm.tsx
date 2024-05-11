@@ -14,7 +14,7 @@ export const SkillForm = () => {
 		register,
 		formState: { errors },
 	} = useFormContext<SkillFormValues>();
-
+	console.log(errors);
 	return (
 		<Flex direction="column" gap="8">
 			<Flex align="center" gap="8">
@@ -28,10 +28,10 @@ export const SkillForm = () => {
 			</Flex>
 			{errors.description ? <div>{errors.description.message}</div> : null}
 			<Flex align="center" gap="8">
-				<label htmlFor="imageSrc">{t(Translations.SKILL_AVATAR_SRC)}</label>
-				<input className={styles.input} {...register('avatarSrc')} />
+				<label htmlFor="imageSrc">{t(Translations.SKILL_IMAGE_SRC)}</label>
+				<input className={styles.input} {...register('imageSrc')} />
 			</Flex>
-			{errors.avatarSrc ? <div>{errors.avatarSrc.message}</div> : null}
+			{errors.imageSrc ? <div>{errors.imageSrc.message}</div> : null}
 		</Flex>
 	);
 };
