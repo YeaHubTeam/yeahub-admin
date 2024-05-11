@@ -7,6 +7,7 @@ import { QuestionEditPage } from '@/pages/QuestionEditPage';
 import { QuestionsPage } from '@/pages/QuestionsPage';
 import { SkillCreatePage } from '@/pages/SkillCreatePage';
 import { SkillDetailPage } from '@/pages/SkillDetailPage';
+import { SkillEditPage } from '@/pages/SkillEditPage';
 import { SkillsPage } from '@/pages/SkillsPage';
 import { SpecializationCreatePage } from '@/pages/SpecializationCreatePage';
 import { SpecializationDetailPage } from '@/pages/SpecializationDetailPage';
@@ -68,6 +69,10 @@ export const router = createBrowserRouter([
 			{
 				path: 'skills/:skillId',
 				element: <SkillDetailPage />,
+			},
+			{
+				path: 'skills/:skillId/edit',
+				element: <SkillEditPage />,
 			},
 			{
 				path: 'skills/create',

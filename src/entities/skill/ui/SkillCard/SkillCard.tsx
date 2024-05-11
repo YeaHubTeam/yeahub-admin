@@ -23,8 +23,8 @@ export const SkillCard = ({ skill }: SkillCardProps) => {
 			value: skill.description,
 		},
 		{
-			label: t(Translations.SKILL_AVATAR_SRC),
-			value: skill.avatarSrc,
+			label: t(Translations.SKILL_IMAGE_SRC),
+			value: skill.imageSrc,
 		},
 	];
 

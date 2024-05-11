@@ -10,6 +10,8 @@ import { Table } from '@/shared/ui/Table';
 
 import { Skill } from '@/entities/skill';
 
+import { DeleteSkillButton } from '@/features/skill/deleteSkill';
+
 interface SkillsTableProps {
 	skills?: Skill[];
 }
@@ -44,6 +46,7 @@ export const SkillsTable = ({ skills }: SkillsTableProps) => {
 				<NavLink to={`/skills/${skill.id}/edit`}>
 					<EditIcon />
 				</NavLink>
+				<DeleteSkillButton skillId={skill.id} />
 			</Flex>
 		);
 	};

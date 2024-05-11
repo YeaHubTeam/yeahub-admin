@@ -2,7 +2,7 @@ export interface Skill {
 	id: string;
 	title: string;
 	description: string;
-	avatarSrc: string;
+	imageSrc: string;
 	createdAt: string;
 	updatedAt: string;
 }

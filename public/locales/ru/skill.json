@@ -3,7 +3,8 @@
     "title": "Название",
     "description": "Описание",
     "not.items": "Нет навыков",
-    "avatar.src": "Ссылка на картинку",
-    "create.page.title": "Добавление нового навыка"
+    "image.src": "Ссылка на картинку",
+    "create.page.title": "Добавление нового навыка",
+    "edit.page.title": "Изменение навыка"
   }
 }
