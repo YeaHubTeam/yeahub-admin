@@ -1,6 +1,8 @@
 import { useSelector } from 'react-redux';
 
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDispatch';
+import { useQueryParams } from '@/shared/hooks/useQueryParams/useQueryParams';
+import { Response } from '@/shared/types/types';
 import { Pagination } from '@/shared/ui/Pagination';
 
 import { Specialization } from '@/entities/specialization';
@@ -9,30 +11,33 @@ import { getSpecializationsPageNum } from '../../model/selectors/specializations
 import { specializationsPageActions } from '../../model/slices/specializationsPageSlice';
 
 interface SpecializationsPagePaginationProps {
-	specialization?: Specialization[];
+	specializationsResponse?: Response<Specialization[]>;
 }
 
-const SPECIALIZATIONS_LIST_LIMIT = 10;
-
 export const SpecializationsPagePagination = ({
-	specialization,
+	specializationsResponse,
 }: SpecializationsPagePaginationProps) => {
 	const dispatch = useAppDispatch();
 	const page = useSelector(getSpecializationsPageNum);
 
+	const { setQueryParams } = useQueryParams();
+
 	const onPrevPageClick = () => {
 		dispatch(specializationsPageActions.setPage(page - 1));
+		setQueryParams({ page: page - 1 });
 	};
 
 	const onNextPageClick = () => {
 		dispatch(specializationsPageActions.setPage(page + 1));
+		setQueryParams({ page: page + 1 });
 	};
 
 	const onChangePage = (newPage: number) => {
 		dispatch(specializationsPageActions.setPage(newPage));
+		setQueryParams({ page: newPage });
 	};
 
-	if (!specialization) {
+	if (!specializationsResponse?.data) {
 		return null;
 	}
 
@@ -42,7 +47,7 @@ export const SpecializationsPagePagination = ({
 			onNextPageClick={onNextPageClick}
 			onChangePage={onChangePage}
 			page={page}
-			totalPages={Math.ceil(specialization.length / SPECIALIZATIONS_LIST_LIMIT)}
+			totalPages={Math.ceil(specializationsResponse.total / specializationsResponse.limit)}
 		/>
 	);
 };

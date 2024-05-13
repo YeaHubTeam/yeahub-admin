@@ -1,3 +1,3 @@
 import { State } from '@/shared/config/store/State';
 
-export const getSpecializationsPageNum = (state: State) => state.questionsPage.page || 1;
+export const getSpecializationsPageNum = (state: State) => state.specializationsPage.page || 1;

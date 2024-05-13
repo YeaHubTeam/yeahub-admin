@@ -1,6 +1,8 @@
 import { useSelector } from 'react-redux';
 
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDispatch';
+import { useQueryParams } from '@/shared/hooks/useQueryParams/useQueryParams';
+import { Response } from '@/shared/types/types';
 import { Pagination } from '@/shared/ui/Pagination';
 
 import { Question } from '@/entities/question';
@@ -9,28 +11,31 @@ import { getQuestionsPageNum } from '../../model/selectors/questionsPageSelector
 import { questionsPageActions } from '../../model/slices/questionsPageSlice';
 
 interface QuestionPagePaginationProps {
-	questions?: Question[];
+	questionsResponse?: Response<Question[]>;
 }
 
-const QUESTIONS_LIST_LIMIT = 10;
-
-export const QuestionPagePagination = ({ questions }: QuestionPagePaginationProps) => {
+export const QuestionPagePagination = ({ questionsResponse }: QuestionPagePaginationProps) => {
 	const dispatch = useAppDispatch();
 	const page = useSelector(getQuestionsPageNum);
 
+	const { setQueryParams } = useQueryParams();
+
 	const onPrevPageClick = () => {
 		dispatch(questionsPageActions.setPage(page - 1));
+		setQueryParams({ page: page - 1 });
 	};
 
 	const onNextPageClick = () => {
 		dispatch(questionsPageActions.setPage(page + 1));
+		setQueryParams({ page: page + 1 });
 	};
 
 	const onChangePage = (newPage: number) => {
 		dispatch(questionsPageActions.setPage(newPage));
+		setQueryParams({ page: newPage });
 	};
 
-	if (!questions) {
+	if (!questionsResponse?.data) {
 		return null;
 	}
 
@@ -40,7 +45,7 @@ export const QuestionPagePagination = ({ questions }: QuestionPagePaginationProp
 			onNextPageClick={onNextPageClick}
 			onChangePage={onChangePage}
 			page={page}
-			totalPages={Math.ceil(questions.length / QUESTIONS_LIST_LIMIT)}
+			totalPages={Math.ceil(questionsResponse?.total / questionsResponse?.limit)}
 		/>
 	);
 };

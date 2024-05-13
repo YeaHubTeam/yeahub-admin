@@ -8,3 +8,7 @@ export interface Specialization {
 }
 
 export type SpecializationFormValues = Omit<Specialization, 'id' | 'createdAt' | 'updatedAt'>;
+
+export interface SpecializationsListParams {
+	page?: number;
+}
