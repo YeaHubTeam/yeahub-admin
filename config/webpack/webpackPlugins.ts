@@ -34,7 +34,7 @@ export const webpackPlugins = ({ isDev, paths }: WebpackOptions): Configuration[
     plugins.push(
       new CircularDependencyPlugin({
         failOnError: true,
-      }),
+      })
     );
     plugins.push(new BundleAnalyzerPlugin());
   } else {
@@ -42,18 +42,18 @@ export const webpackPlugins = ({ isDev, paths }: WebpackOptions): Configuration[
       new MiniCssExtractPlugin({
         filename: 'css/[name].[contenthash:8].css',
         chunkFilename: 'css/[name].[contenthash:8].css',
-      }),
+      })
     );
     plugins.push(
       new HtmlInlineScriptPlugin({
         scriptMatchPattern: [/initColorScheme\..+\.js$/],
-      }),
+      })
     );
     plugins.push(new BundleAnalyzerPlugin());
     plugins.push(
       new CopyPlugin({
         patterns: [{ from: paths.locales, to: paths.buildLocales }],
-      }),
+      })
     );
   }
 

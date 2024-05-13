@@ -25,7 +25,7 @@ export const storybookWebpack = ({ config }: { config: Configuration }) => {
   config!.plugins!.push(
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(true),
-    }),
+    })
   );
 
   return config;

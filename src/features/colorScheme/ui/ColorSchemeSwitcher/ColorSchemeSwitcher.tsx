@@ -20,7 +20,7 @@ const matchMedia = window.matchMedia('(prefers-color-scheme:dark)');
 
 export const ColorSchemeSwitcher: FC = () => {
 	const [userScheme, setUserScheme] = useState<ColorSchemeSwitcherValues>(
-		getSavedScheme() || 'auto',
+		getSavedScheme() || 'auto'
 	);
 	const [dropdownShown, setDropdownShown] = useState(false);
 	const targetRef = useRef<HTMLButtonElement>(null);
@@ -53,7 +53,7 @@ export const ColorSchemeSwitcher: FC = () => {
 
 	const handleSchemeChange = useCallback(
 		(scheme: ColorSchemeSwitcherValues) => () => setUserScheme(scheme),
-		[],
+		[]
 	);
 
 	return (

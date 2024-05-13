@@ -23,6 +23,6 @@ enableMocking().then(() => {
 	container.render(
 		<StoreProvider>
 			<RouterProvider router={router} />
-		</StoreProvider>,
+		</StoreProvider>
 	);
 });

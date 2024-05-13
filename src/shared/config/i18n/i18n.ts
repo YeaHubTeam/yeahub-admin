@@ -3,10 +3,10 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import Backend from 'i18next-http-backend';
 import { initReactI18next } from 'react-i18next';
 
-type LangsFiles = 'translation' | 'question';
+type LangsFiles = 'translation' | 'question' | 'searchinput' | 'categorysidebar';
 type Langs = 'en' | 'ru';
 
-const ns: LangsFiles[] = ['translation', 'question'];
+const ns: LangsFiles[] = ['translation', 'question', 'searchinput', 'categorysidebar'];
 const supportedLngs: Langs[] = ['en', 'ru'];
 
 const resources: Resource = ns.reduce((acc: Resource, n) => {

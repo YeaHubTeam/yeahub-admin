@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { NavLink, useMatch } from 'react-router-dom';
 
 import Main from '@/shared/assets/icons/main.svg';
@@ -27,7 +28,8 @@ const categoryImages: CategoryImages = {
 	default: Menu,
 };
 
-const NavigationItem: FC<NavigationItemProps> = ({ title, name = '' }) => {
+export const NavigationItem: FC<NavigationItemProps> = ({ name = '' }) => {
+	const { t } = useTranslation('categorysidebar');
 	const ImageComponent = categoryImages[name] || categoryImages.default;
 	const match = useMatch(`/${name}/*`);
 	const count = categoryCounts[name] || 0;
@@ -36,7 +38,7 @@ const NavigationItem: FC<NavigationItemProps> = ({ title, name = '' }) => {
 		<NavLink to={`/${name}`} className={`${styles.item} ${match ? styles.active : ''}`}>
 			<div className={styles.wrap}>
 				<ImageComponent className={styles.image} />
-				<span>{title}</span>
+				<span>{t(categoryTitles[name])}</span>
 			</div>
 			{count > 0 && <Badge count={count} />}
 		</NavLink>

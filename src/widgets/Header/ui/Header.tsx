@@ -22,7 +22,7 @@ export const Header: FC = () => {
 
 	return (
 		<header className={styles.header} style={{ position: 'relative' }}>
-			<SearchInput onSearch={handleSearch} placeholder={'Найти человека, мероприятие...'} />
+			<SearchInput onSearch={handleSearch} />
 			{data && (
 				<div>
 					{data.searchResults.length > 0 ? (

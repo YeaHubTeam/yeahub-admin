@@ -5,7 +5,7 @@ export const searchUsers = async (findUsername: string) => {
 		return;
 	}
 	const searchResults = mockUsernames.filter((user) =>
-		user.username.toLowerCase().includes(findUsername.toLowerCase().trim()),
+		user.username.toLowerCase().includes(findUsername.toLowerCase().trim())
 	);
 
 	return searchResults;

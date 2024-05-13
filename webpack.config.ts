@@ -21,7 +21,7 @@ export default (env: EnvVariables) => {
       'features',
       'colorScheme',
       'utils',
-      'initColorScheme.ts',
+      'initColorScheme.ts'
     ),
     src: path.resolve(__dirname, 'src'),
     public: path.resolve(__dirname, 'public'),

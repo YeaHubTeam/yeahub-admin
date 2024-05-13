@@ -6,12 +6,6 @@ import { createPortal } from 'react-dom';
 
 import styles from './Dropdown.module.css';
 
-/*
-throttle используется для того, чтобы уменьшить количество вызовов calcCoords при изменении размера окна браузера. Нужня для избежания проблемам с производительностью
-
-focus-trap нужен для того что бы поймать фокус и направить его в Dropdown
-*/
-
 interface DropdownProps extends HTMLAttributes<HTMLElement> {
 	targetRef: RefObject<HTMLElement>;
 	shown: boolean;
@@ -88,7 +82,7 @@ export const Dropdown: FC<DropdownProps> = ({
 				>
 					{children}
 				</div>,
-				document.getElementById('overlay') as HTMLElement,
+				document.getElementById('overlay') as HTMLElement
 			)
 		: null;
 };

@@ -1,6 +1,8 @@
 import React, { FC, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import SearchIcon from '@/shared/assets/icons/search.svg';
+import { SearchIcon } from '@/shared/assets/icons/Search';
+import { Translations } from '@/shared/config/i18n/i18nTranslations';
 
 import styles from './SearchInput.module.css';
 
@@ -12,10 +14,11 @@ interface SearchInputProps {
 
 export const SearchInput: FC<SearchInputProps> = ({
 	onSearch,
-	placeholder = 'найти',
+	// placeholder = 'найти',
 	variant = 'default',
 }) => {
 	const [query, setQuery] = useState('');
+	const { t } = useTranslation('searchinput');
 
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const value = event.target.value;
@@ -42,19 +45,10 @@ export const SearchInput: FC<SearchInputProps> = ({
 					value={query}
 					onChange={handleChange}
 					onKeyDown={handleKeyDown}
-					placeholder={placeholder}
+					placeholder={t(Translations.SEARCHINPUT_PLACEHOLDER)}
+					data-testid="search-input"
 				/>
-				<SearchIcon
-					style={{
-						position: 'absolute',
-						left: '12px',
-						top: '50%',
-						transform: 'translateY(-50%)',
-						color: 'var(--foreground-primary)',
-						width: '20px',
-						height: '20px',
-					}}
-				/>
+				<SearchIcon />
 			</div>
 		</form>
 	);

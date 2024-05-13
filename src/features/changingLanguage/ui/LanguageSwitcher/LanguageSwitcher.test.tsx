@@ -11,7 +11,7 @@ describe('LanguageSwitcher', () => {
 		render(
 			<I18nextProvider i18n={i18n}>
 				<LanguageSwitcher />
-			</I18nextProvider>,
+			</I18nextProvider>
 		);
 	});
 

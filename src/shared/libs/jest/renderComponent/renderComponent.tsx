@@ -33,6 +33,6 @@ export const renderComponent = (component: ReactNode, options: RenderComponentOp
 			<MemoryRouter initialEntries={[route]}>
 				<I18nextProvider i18n={jestI18n}>{component}</I18nextProvider>
 			</MemoryRouter>
-		</StoreProvider>,
+		</StoreProvider>
 	);
 };

@@ -118,7 +118,7 @@ export const Flex = ({
 				gap && gapClasses[gap],
 				maxWidth && styles['max-width'],
 				maxHeight && styles['max-height'],
-				className,
+				className
 			)}
 			{...otherProps}
 			data-testid={dataTestId}

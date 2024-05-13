@@ -1,13 +1,19 @@
+import { Translations } from '@/shared/config/i18n/i18nTranslations';
+
 interface CategoryCounts {
 	[key: string]: number;
 }
 
-export const categoryTitles = {
-	'': 'Главная',
-	questions: 'Вопросы',
-	verification: 'Верификации',
-	professions: 'Профессии',
-	skills: 'Навыки',
+interface TranslationsProp {
+	[key: string]: string;
+}
+
+export const categoryTitles: TranslationsProp = {
+	'': Translations.CATEGORYSIDEBAR_MAIN,
+	questions: Translations.CATEGORYSIDEBAR_QUESTIONS,
+	verification: Translations.CATEGORYSIDEBAR_VERIFICATION,
+	professions: Translations.CATEGORYSIDEBAR_PROFESSIONS,
+	skills: Translations.CATEGORYSIDEBAR_SKILLS,
 };
 
 export const categoryCounts: CategoryCounts = {

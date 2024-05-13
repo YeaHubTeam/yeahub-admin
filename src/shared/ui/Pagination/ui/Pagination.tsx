@@ -55,7 +55,9 @@ export const Pagination = ({
 			{Array.from({ length: totalPages }).map((_, index) => (
 				<button
 					onClick={handleChangePage(index + 1)}
-					className={classNames(styles.pageButton, { [styles.active]: index + 1 === page })}
+					className={classNames(styles.pageButton, {
+						[styles.active]: index + 1 === page,
+					})}
 					key={index + 1}
 				>
 					{index + 1}

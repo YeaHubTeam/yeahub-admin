@@ -5,7 +5,7 @@ export const getUserAvatarById = [
 		const imageUrl: string = params.imageUrl;
 
 		const buffer: ArrayBuffer = await fetch(`/assets/${imageUrl}.png`).then((response) =>
-			response.arrayBuffer(),
+			response.arrayBuffer()
 		);
 
 		return HttpResponse.arrayBuffer(buffer, {
