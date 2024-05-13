@@ -8,3 +8,7 @@ export interface Skill {
 }
 
 export type SkillFormValues = Omit<Skill, 'id' | 'createdAt' | 'updatedAt'>;
+
+export interface SkillsListParams {
+	page?: number;
+}

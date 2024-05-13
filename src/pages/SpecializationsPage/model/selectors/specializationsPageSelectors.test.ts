@@ -2,10 +2,10 @@ import { State } from '@/shared/config/store/State';
 
 import { getSpecializationsPageNum } from './specializationsPageSelectors';
 
-describe('questionsPageSelectors', () => {
-	test('getQuestionsPageNum', () => {
+describe('specializationsPageSelectors', () => {
+	test('getSpecializationsPageNum', () => {
 		const state: DeepPartial<State> = {
-			questionsPage: { page: 2 },
+			specializationsPage: { page: 2 },
 		};
 		expect(getSpecializationsPageNum(state as State)).toEqual(2);
 	});

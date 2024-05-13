@@ -23,3 +23,7 @@ export interface Question {
 	explanation?: string;
 	time?: string;
 }
+
+export interface QuestionsListParams {
+	page?: number;
+}
