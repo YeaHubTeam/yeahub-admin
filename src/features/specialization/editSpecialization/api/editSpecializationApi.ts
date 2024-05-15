@@ -7,7 +7,7 @@ const editSpecializationApi = baseApi.injectEndpoints({
 	endpoints: (build) => ({
 		editSpecialization: build.mutation<Specialization, Specialization>({
 			query: (specialization) => ({
-				url: `/specializations/${specialization.id}`,
+				url: `http://localhost:4002/specializations/${specialization.id}`,
 				method: 'PATCH',
 				body: specialization,
 			}),

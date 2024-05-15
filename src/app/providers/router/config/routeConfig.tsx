@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 
+import { AuthPage } from '@/pages/AuthPage';
 import { MainPage } from '@/pages/MainPage';
 import { QuestionCreatePage } from '@/pages/QuestionCreatePage';
 import { QuestionDetailPage } from '@/pages/QuestionDetailPage';
@@ -18,6 +19,10 @@ import { VerificationPage } from '@/pages/VerificationPage';
 import { App } from '@/app/App';
 
 export const router = createBrowserRouter([
+	{
+		path: 'admin/login',
+		element: <AuthPage />,
+	},
 	{
 		path: '/',
 		element: <App />,

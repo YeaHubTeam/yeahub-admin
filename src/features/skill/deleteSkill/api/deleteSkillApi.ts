@@ -7,7 +7,7 @@ const deleteSkillApi = baseApi.injectEndpoints({
 	endpoints: (build) => ({
 		deleteSkill: build.mutation<Skill, Skill['id']>({
 			query: (skillId) => ({
-				url: `/skills/${skillId}`,
+				url: `http://localhost:4002/skills/${skillId}`,
 				method: 'DELETE',
 			}),
 			invalidatesTags: [ApiTags.SKILLS, ApiTags.SKILL_DETAIL],

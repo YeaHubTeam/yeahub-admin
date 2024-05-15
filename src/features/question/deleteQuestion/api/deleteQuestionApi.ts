@@ -7,7 +7,7 @@ const deleteQuestionApi = baseApi.injectEndpoints({
 	endpoints: (build) => ({
 		deleteQuestion: build.mutation<Question, Question['id']>({
 			query: (questionId) => ({
-				url: `/questions/${questionId}`,
+				url: `http://localhost:4002/questions/${questionId}`,
 				method: 'DELETE',
 			}),
 			invalidatesTags: [ApiTags.QUESTIONS, ApiTags.QUESTION_DETAIL],

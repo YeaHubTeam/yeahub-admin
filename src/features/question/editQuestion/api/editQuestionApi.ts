@@ -9,7 +9,7 @@ const editQuestionApi = baseApi.injectEndpoints({
 	endpoints: (build) => ({
 		editQuestion: build.mutation<Question, QuestionEditFormValues>({
 			query: (question) => ({
-				url: `/questions/${question.id}`,
+				url: `http://localhost:4002/questions/${question.id}`,
 				method: 'PATCH',
 				body: question,
 			}),

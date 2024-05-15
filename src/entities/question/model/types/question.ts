@@ -4,20 +4,27 @@ export interface QuestionTestOption {
 	id: number;
 	answer: string;
 }
+export interface ApiResponse {
+	data: Question[];
+	page: number;
+	limit: number;
+	total: number;
+}
 
 export interface Question {
 	id: string;
 	title: string;
 	description: string;
-	rate: number;
 	imgSrc?: string;
 	keywords?: string[];
+	shortAnswer?: string;
+	status?: string;
+	rate: number;
+	longAnswer?: string;
 	resources?: string[];
 	author?: string;
 	type?: QuestionType;
 	criteria?: string;
-	longAnswer?: string;
-	shortAnswer?: string;
 	options?: QuestionTestOption[];
 	correctOptionId?: number;
 	explanation?: string;

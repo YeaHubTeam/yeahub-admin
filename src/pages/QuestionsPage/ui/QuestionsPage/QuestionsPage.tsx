@@ -16,13 +16,14 @@ import styles from './QuestionsPage.module.css';
  */
 const QuestionsPage = () => {
 	const { data: questions } = useGetQuestionsListQuery();
+	const responseQuestions = questions?.data;
 
 	return (
 		<Flex componentType="main" direction="column" gap="24">
 			<SearchSection to="create" />
 			<Card className={styles.content}>
-				<QuestionsTable questions={questions} />
-				<QuestionPagePagination questions={questions} />
+				<QuestionsTable questions={responseQuestions} />
+				<QuestionPagePagination questions={responseQuestions} />
 			</Card>
 		</Flex>
 	);

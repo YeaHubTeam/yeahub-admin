@@ -7,7 +7,7 @@ const deleteSpecializationApi = baseApi.injectEndpoints({
 	endpoints: (build) => ({
 		deleteSpecialization: build.mutation<Specialization, Specialization['id']>({
 			query: (specializationId) => ({
-				url: `/specializations/${specializationId}`,
+				url: `http://localhost:4002/specializations/${specializationId}`,
 				method: 'DELETE',
 			}),
 			invalidatesTags: [ApiTags.SPECIALIZATIONS, ApiTags.SPECIALIZATION_DETAIL],

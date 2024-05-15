@@ -7,7 +7,7 @@ export const createSpecializationApi = baseApi.injectEndpoints({
 	endpoints: (build) => ({
 		createSpecialization: build.mutation<Specialization, SpecializationFormValues>({
 			query: (specialization) => ({
-				url: `/specializations`,
+				url: `http://localhost:4002/specializations`,
 				method: 'POST',
 				body: specialization,
 			}),
