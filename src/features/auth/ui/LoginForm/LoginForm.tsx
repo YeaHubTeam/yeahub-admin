@@ -32,6 +32,7 @@ export const LoginForm = () => {
 		if (response.ok) {
 			const { access_token } = await response.json();
 			localStorage.setItem('accessToken', access_token);
+
 			navigate('/');
 		} else {
 			console.error('Ошибка при входе');
@@ -56,12 +57,14 @@ export const LoginForm = () => {
 					placeholder="Username"
 					value={username}
 					onChange={(e) => setUsername(e.target.value)}
+					autoComplete="username"
 				/>
 				<input
 					type="password"
 					placeholder="Password"
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
+					autoComplete="current-password"
 				/>
 				<button type="submit">Login</button>
 			</form>
