@@ -4,12 +4,6 @@ export interface QuestionTestOption {
 	id: number;
 	answer: string;
 }
-export interface ApiResponse {
-	data: Question[];
-	page: number;
-	limit: number;
-	total: number;
-}
 
 export interface Question {
 	id: string;
@@ -29,4 +23,8 @@ export interface Question {
 	correctOptionId?: number;
 	explanation?: string;
 	time?: string;
+}
+
+export interface QuestionsListParams {
+	page?: number;
 }

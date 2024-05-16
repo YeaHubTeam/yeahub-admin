@@ -1,13 +1,15 @@
 import { ApiTags } from '@/shared/config/api/apiTags';
 import { baseApi } from '@/shared/config/api/baseApi';
+import { Response } from '@/shared/types/types';
 
-import { ApiResponse, Question } from '../model/types/question';
+import { Question, QuestionsListParams } from '../model/types/question';
 
 const questionApi = baseApi.injectEndpoints({
 	endpoints: (build) => ({
-		getQuestionsList: build.query<ApiResponse, void>({
-			query: () => ({
+		getQuestionsList: build.query<Response<Question[]>, QuestionsListParams>({
+			query: (params) => ({
 				url: '/questions',
+				params,
 			}),
 			providesTags: [ApiTags.QUESTIONS],
 		}),
