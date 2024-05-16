@@ -9,7 +9,7 @@ export const createQuestionApi = baseApi.injectEndpoints({
 	endpoints: (build) => ({
 		createQuestion: build.mutation<Question, QuestionCreateFormValues>({
 			query: (question) => ({
-				url: `http://localhost:4002/questions`,
+				url: `/questions`,
 				method: 'POST',
 				body: question,
 			}),

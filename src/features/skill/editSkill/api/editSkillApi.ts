@@ -7,7 +7,7 @@ const editSkillApi = baseApi.injectEndpoints({
 	endpoints: (build) => ({
 		editSkill: build.mutation<Skill, Skill>({
 			query: (skill) => ({
-				url: `http://localhost:4002/skills/${skill.id}`,
+				url: `/skills/${skill.id}`,
 				method: 'PATCH',
 				body: skill,
 			}),

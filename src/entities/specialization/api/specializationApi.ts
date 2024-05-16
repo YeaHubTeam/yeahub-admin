@@ -8,13 +8,13 @@ const specializationApi = baseApi.injectEndpoints({
 	endpoints: (build) => ({
 		getSpecializationsList: build.query<Response<Specialization[]>, void>({
 			query: () => ({
-				url: 'http://localhost:4002/specializations',
+				url: '/specializations',
 			}),
 			providesTags: [ApiTags.SPECIALIZATIONS],
 		}),
 		getSpecializationById: build.query<Specialization, string>({
 			query: (specializationId) => ({
-				url: `http://localhost:4002/specializations/${specializationId}`,
+				url: `/specializations/${specializationId}`,
 			}),
 			providesTags: [ApiTags.SPECIALIZATION_DETAIL],
 		}),

@@ -7,7 +7,7 @@ export const createSkillApi = baseApi.injectEndpoints({
 	endpoints: (build) => ({
 		createSkill: build.mutation<Skill, SkillFormValues>({
 			query: (skill) => ({
-				url: `http://localhost:4002/skills`,
+				url: `/skills`,
 				method: 'POST',
 				body: skill,
 			}),
