@@ -11,7 +11,7 @@ export const PrivateRoute: FC<Props> = ({ children }) => {
 	const handleLogout = async () => {
 		try {
 			const token = localStorage.getItem('accessToken');
-			await fetch('http://localhost:4002/auth/logout', {
+			await fetch('https://api.test.yeahub.ru/auth/logout', {
 				method: 'GET',
 				headers: {
 					Authorization: `Bearer ${token}`,

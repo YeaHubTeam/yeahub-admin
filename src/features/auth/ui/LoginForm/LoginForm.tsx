@@ -21,7 +21,7 @@ export const LoginForm = () => {
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		const response = await fetch('http://localhost:4002/auth/login', {
+		const response = await fetch('https://api.test.yeahub.ru/auth/login', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ export const LoginForm = () => {
 	};
 
 	const createUser = async () => {
-		await fetch('http://localhost:4002/auth/signUp', {
+		await fetch('https://api.test.yeahub.ru/auth/signUp', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
