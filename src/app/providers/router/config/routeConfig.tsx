@@ -1,5 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
 
+import { PrivateRoute } from '@/features/auth';
+
+import { AuthPage } from '@/pages/AuthPage';
 import { MainPage } from '@/pages/MainPage';
 import { QuestionCreatePage } from '@/pages/QuestionCreatePage';
 import { QuestionDetailPage } from '@/pages/QuestionDetailPage';
@@ -19,12 +22,24 @@ import { App } from '@/app/App';
 
 export const router = createBrowserRouter([
 	{
+		path: 'admin/login',
+		element: <AuthPage />,
+	},
+	{
 		path: '/',
-		element: <App />,
+		element: (
+			<PrivateRoute>
+				<App />
+			</PrivateRoute>
+		),
 		children: [
 			{
 				path: '/',
-				element: <MainPage />,
+				element: (
+					<PrivateRoute>
+						<MainPage />
+					</PrivateRoute>
+				),
 			},
 			{
 				path: 'questions',
@@ -79,5 +94,13 @@ export const router = createBrowserRouter([
 				element: <SkillCreatePage />,
 			},
 		],
+	},
+	{
+		path: '*',
+		element: (
+			<PrivateRoute>
+				<App />
+			</PrivateRoute>
+		),
 	},
 ]);

@@ -1,11 +1,11 @@
 .button {
+    padding: 0;
     width: 123px;
     height: 48px;
     border: none;
     border-radius: 40px;
     background: var(--button-bg);
     color: var(--button-foreground);
-    text-align: center;
     font-weight: var(--font-weight-600);
     font-size: var(--font-size-medium);
     font-family: var(--font-family-primary);

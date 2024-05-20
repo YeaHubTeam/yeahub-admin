@@ -29,7 +29,9 @@ export const SearchSection = ({ to = '/' }: SearchSectionProps) => {
 			<section className={styles.section}>
 				<SearchInput onSearch={handleSearch} variant={'long'} />
 				<Button>
-					<NavLink to={to}>{t(Translations.CREATE)}</NavLink>
+					<NavLink className={styles.navigate} to={to}>
+						{t(Translations.CREATE)}
+					</NavLink>
 				</Button>
 			</section>
 		</Card>

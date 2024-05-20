@@ -49,12 +49,13 @@ export const Table = <T extends { id: string }>({
 				</tr>
 			</thead>
 			<tbody>
-				{items.map((item) => (
-					<tr key={item.id}>
-						{renderTableBody(item)}
-						{hasActions && <td>{renderActions?.(item)}</td>}
-					</tr>
-				))}
+				{Array.isArray(items) &&
+					items?.map((item) => (
+						<tr key={item.id}>
+							{renderTableBody(item)}
+							{hasActions && <td>{renderActions?.(item)}</td>}
+						</tr>
+					))}
 			</tbody>
 		</table>
 	);
