@@ -3,5 +3,6 @@
   "actions": "Actions",
   "save": "Save",
   "cancel": "Cancel",
-  "create": "Create"
+  "create": "Create",
+  "remove.selected": "Remove selected"
 }

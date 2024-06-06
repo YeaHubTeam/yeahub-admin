@@ -14,9 +14,15 @@ import { DeleteSpecializationButton } from '@/features/specialization/deleteSpec
 
 interface SpecializationsTableProps {
 	specializations?: Specialization[];
+	selectedSpecializations?: string[];
+	onSelectSpecializations?: (ids: string[]) => void;
 }
 
-export const SpecializationsTable = ({ specializations }: SpecializationsTableProps) => {
+export const SpecializationsTable = ({
+	specializations,
+	selectedSpecializations,
+	onSelectSpecializations,
+}: SpecializationsTableProps) => {
 	const { t } = useTranslation('specialization');
 
 	const renderTableHeader = () => {
@@ -65,6 +71,8 @@ export const SpecializationsTable = ({ specializations }: SpecializationsTablePr
 			renderTableBody={renderTableBody}
 			renderActions={renderActions}
 			items={specializations}
+			selectedItems={selectedSpecializations}
+			onSelectItems={onSelectSpecializations}
 		/>
 	);
 };

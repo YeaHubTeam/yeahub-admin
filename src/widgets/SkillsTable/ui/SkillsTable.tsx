@@ -14,9 +14,11 @@ import { DeleteSkillButton } from '@/features/skill/deleteSkill';
 
 interface SkillsTableProps {
 	skills?: Skill[];
+	selectedSkills?: string[];
+	onSelectSkills?: (ids: string[]) => void;
 }
 
-export const SkillsTable = ({ skills }: SkillsTableProps) => {
+export const SkillsTable = ({ skills, selectedSkills, onSelectSkills }: SkillsTableProps) => {
 	const { t } = useTranslation('skill');
 
 	const renderTableHeader = () => {
@@ -65,6 +67,8 @@ export const SkillsTable = ({ skills }: SkillsTableProps) => {
 			renderTableBody={renderTableBody}
 			renderActions={renderActions}
 			items={skills}
+			selectedItems={selectedSkills}
+			onSelectItems={onSelectSkills}
 		/>
 	);
 };
