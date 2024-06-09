@@ -3,6 +3,7 @@ import { Controller, useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import { Translations } from '@/shared/config/i18n/i18nTranslations';
+import { ControlledTextEditor } from '@/shared/ui/ControlledTextEditor';
 import { Flex } from '@/shared/ui/Flex';
 
 import styles from './QuestionForm.module.css';
@@ -36,17 +37,35 @@ export const QuestionForm = () => {
 			{errors.title ? <div>{errors.title.message?.toString()}</div> : null}
 			<Flex align="center" gap="8">
 				<label htmlFor="description">{t(Translations.QUESTION_DESCRIPTION)}</label>
-				<input className={styles.input} {...register('description')} />
+				<ControlledTextEditor
+					id={'description'}
+					isInline
+					className={styles.input}
+					name={'description'}
+					control={control}
+				/>
 			</Flex>
 			{errors.description ? <div>{errors.description.message?.toString()}</div> : null}
 			<Flex align="center" gap="8">
 				<label htmlFor="shortAnswer">{t(Translations.QUESTION_SHORT_ANSWER)}</label>
-				<input className={styles.input} {...register('shortAnswer')} />
+				<ControlledTextEditor
+					id={'shortAnswer'}
+					isInline
+					className={styles.input}
+					name={'shortAnswer'}
+					control={control}
+				/>
 			</Flex>
 			{errors.shortAnswer ? <div>{errors.shortAnswer.message?.toString()}</div> : null}
 			<Flex align="center" gap="8">
 				<label htmlFor="longAnswer">{t(Translations.QUESTION_LONG_ANSWER)}</label>
-				<input className={styles.input} {...register('longAnswer')} />
+				<ControlledTextEditor
+					id={'shortAnswer'}
+					isInline
+					className={styles.input}
+					name={'longAnswer'}
+					control={control}
+				/>
 			</Flex>
 			{errors.longAnswer ? <div>{errors.longAnswer.message?.toString()}</div> : null}
 			<Flex align="center" gap="8">
