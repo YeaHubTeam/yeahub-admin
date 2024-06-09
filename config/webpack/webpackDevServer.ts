@@ -8,5 +8,15 @@ export const webpackDevServer = ({ port }: WebpackOptions): DevServerConfigurati
     open: true,
     historyApiFallback: true,
     hot: true,
+    client: {
+      overlay: {
+        runtimeErrors: (error) => {
+          if (error.message === 'ResizeObserver loop completed with undelivered notifications.') {
+            return false;
+          }
+          return true;
+        },
+      },
+    },
   };
 };
