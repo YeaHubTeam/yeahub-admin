@@ -8,6 +8,7 @@ export enum Translations {
 	SAVE = 'save',
 	CREATE = 'create',
 	EDIT = 'edit',
+	REMOVE_SELECTED = 'remove.selected',
 
 	/**
 	 * Question

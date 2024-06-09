@@ -13,9 +13,15 @@ import { DeleteQuestionButton } from '@/features/question/deleteQuestion';
 
 interface QuestionsTableProps {
 	questions?: Question[];
+	selectedQuestions?: string[];
+	onSelectQuestions?: (ids: string[]) => void;
 }
 
-export const QuestionsTable = ({ questions }: QuestionsTableProps) => {
+export const QuestionsTable = ({
+	questions,
+	selectedQuestions,
+	onSelectQuestions,
+}: QuestionsTableProps) => {
 	const { t } = useTranslation('question');
 
 	const renderTableHeader = () => {
@@ -64,6 +70,8 @@ export const QuestionsTable = ({ questions }: QuestionsTableProps) => {
 			renderTableBody={renderTableBody}
 			renderActions={renderActions}
 			items={questions}
+			selectedItems={selectedQuestions}
+			onSelectItems={onSelectQuestions}
 		/>
 	);
 };

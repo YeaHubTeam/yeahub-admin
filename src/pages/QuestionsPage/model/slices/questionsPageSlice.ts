@@ -1,13 +1,21 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { QuestionsPageState } from '../types/questionsPageTypes';
+
+const initialState: QuestionsPageState = {
+	page: 1,
+	selectedQuestions: [],
+};
+
 const questionsPageSlice = createSlice({
 	name: 'questionsPage',
-	initialState: {
-		page: 1,
-	},
+	initialState,
 	reducers: {
 		setPage: (state, action: PayloadAction<number>) => {
 			state.page = action.payload;
+		},
+		setSelectedQuestions: (state, action: PayloadAction<string[]>) => {
+			state.selectedQuestions = action.payload;
 		},
 	},
 });
