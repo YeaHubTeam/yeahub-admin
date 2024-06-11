@@ -1,3 +1,4 @@
+import classnames from 'classnames';
 import React, { FC, useState } from 'react';
 
 import SearchIcon from '@/shared/assets/icons/search.svg';
@@ -37,7 +38,9 @@ export const SearchInput: FC<SearchInputProps> = ({
 		<form>
 			<div style={{ position: 'relative' }}>
 				<input
-					className={`${styles.search} ${variant === 'long' && styles.long}`}
+					className={classnames(styles.search, styles.input, {
+						[styles.long]: variant === 'long',
+					})}
 					type="text"
 					value={query}
 					onChange={handleChange}
