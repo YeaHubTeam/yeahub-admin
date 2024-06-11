@@ -10,6 +10,7 @@ export const webpackDevServer = ({ port }: WebpackOptions): DevServerConfigurati
     hot: true,
     client: {
       overlay: {
+        //avoid displaying error due to https://github.com/ckeditor/ckeditor5/issues/8153
         runtimeErrors: (error) => {
           if (error.message === 'ResizeObserver loop completed with undelivered notifications.') {
             return false;

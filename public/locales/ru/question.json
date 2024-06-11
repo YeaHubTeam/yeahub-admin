@@ -11,6 +11,7 @@
     "author": "Автор",
     "type": "Тип",
     "create.page.title": "Добавление нового вопроса",
-    "edit.page.title": "Изменение вопроса"
+    "edit.page.title": "Изменение вопроса",
+    "skills": "Скилы"
   }
 }

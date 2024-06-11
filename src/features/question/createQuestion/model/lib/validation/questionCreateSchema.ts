@@ -12,4 +12,6 @@ export const questionCreateSchema = yup.object().shape({
 		.number()
 		.transform((value) => (Number.isNaN(value) ? null : value))
 		.required(),
+	//skills: yup.array().required(),
+	skills: yup.string().required(),
 });
