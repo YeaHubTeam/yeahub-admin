@@ -4,10 +4,11 @@ interface CategoryCounts {
 
 export const categoryTitles = {
 	'': 'Главная',
-	questions: 'Вопросы',
-	verification: 'Верификации',
+	users: 'Пользователи',
 	specializations: 'Специализация',
-	skills: 'Навыки',
+	verification: 'Верификация',
+	skills: 'Навык',
+	questions: 'Вопрос',
 };
 
 export const categoryCounts: CategoryCounts = {

@@ -1,1 +1,0 @@
-export { UserProfileWrap } from './UserProfileWrap';

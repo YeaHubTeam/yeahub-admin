@@ -16,6 +16,7 @@ import { SpecializationCreatePage } from '@/pages/SpecializationCreatePage';
 import { SpecializationDetailPage } from '@/pages/SpecializationDetailPage';
 import { SpecializationEditPage } from '@/pages/SpecializationEditPage';
 import { SpecializationsPage } from '@/pages/SpecializationsPage';
+import { UsersPage } from '@/pages/Users';
 import { VerificationPage } from '@/pages/VerificationPage';
 
 import { App } from '@/app/App';
@@ -92,6 +93,10 @@ export const router = createBrowserRouter([
 			{
 				path: 'skills/create',
 				element: <SkillCreatePage />,
+			},
+			{
+				path: 'users',
+				element: <UsersPage />,
 			},
 		],
 	},

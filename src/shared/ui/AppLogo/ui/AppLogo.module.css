@@ -1,0 +1,29 @@
+.logo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 72px;
+    border-bottom: 1px solid var(--bottem-border);
+    background: var(--background-primary);
+    color: inherit;
+}
+
+.nav{
+    color:var(--foreground-input);
+}
+
+.nav img{
+    margin-right: 5px;
+}
+
+.btn{
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    color:var(--foreground-primary);
+    transition: transform 0.3s ease; 
+}
+
+.btnclose{
+    transform: rotate(-180deg);
+}

@@ -5,3 +5,23 @@
     border-radius: 12px;
     background: var(--background-zero);
 }
+
+.dropdownanimationenter {
+    transform: scale(0.2);
+}
+
+.dropdownanimationenteractive {
+    transform: scale(1);
+    transform-origin: right top;
+    transition: transform 500ms ease-in;
+}
+
+.dropdownanimationexit {
+    transform: scale(1);
+    transform-origin: right top;
+    transition: transform 300ms ease-in;
+}
+
+.dropdownanimationexitactive {
+    transform: scale(0);
+}

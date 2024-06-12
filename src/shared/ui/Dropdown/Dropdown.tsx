@@ -1,16 +1,11 @@
-import classNames from 'classnames';
+import classnames from 'classnames';
 import { createFocusTrap } from 'focus-trap';
 import throttle from 'lodash.throttle';
 import { FC, HTMLAttributes, RefObject, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { CSSTransition } from 'react-transition-group';
 
 import styles from './Dropdown.module.css';
-
-/*
-throttle используется для того, чтобы уменьшить количество вызовов calcCoords при изменении размера окна браузера. Нужня для избежания проблемам с производительностью
-
-focus-trap нужен для того что бы поймать фокус и направить его в Dropdown
-*/
 
 interface DropdownProps extends HTMLAttributes<HTMLElement> {
 	targetRef: RefObject<HTMLElement>;
@@ -18,13 +13,20 @@ interface DropdownProps extends HTMLAttributes<HTMLElement> {
 	onShownChange: (shown: boolean) => void;
 }
 
-const calcCoords = (targetElement: HTMLElement) => {
+type Coords = {
+	top: number;
+	left?: number;
+	right?: number;
+};
+
+const calcCoords = (targetElement: HTMLElement): Coords => {
 	const rect = targetElement.getBoundingClientRect();
 
-	return {
-		top: window.scrollY + rect.bottom + 12,
-		right: window.innerWidth - rect.right - window.scrollX,
-	};
+	const coords: Coords = { top: window.scrollY + rect.bottom + 12 };
+
+	coords.right = window.innerWidth - rect.right - window.scrollX;
+
+	return coords;
 };
 
 export const Dropdown: FC<DropdownProps> = ({
@@ -36,7 +38,7 @@ export const Dropdown: FC<DropdownProps> = ({
 	className,
 	...restProps
 }: DropdownProps) => {
-	const [coords, setCoords] = useState({ top: 0, right: 0 });
+	const [coords, setCoords] = useState({ top: 0 });
 	const ref = useRef<HTMLDivElement | null>(null);
 
 	useEffect(() => {
@@ -78,17 +80,28 @@ export const Dropdown: FC<DropdownProps> = ({
 		};
 	}, [onShownChange, shown]);
 
-	return shown
-		? createPortal(
-				<div
-					ref={ref}
-					{...restProps}
-					className={classNames(styles.dropdown, className)}
-					style={{ ...style, ...coords }}
-				>
-					{children}
-				</div>,
-				document.getElementById('overlay') as HTMLElement,
-			)
-		: null;
+	return createPortal(
+		<CSSTransition
+			in={shown}
+			timeout={500}
+			mountOnEnter
+			unmountOnExit
+			classNames={{
+				enter: styles.dropdownanimationenter,
+				enterActive: styles.dropdownanimationenteractive,
+				exitActive: styles.dropdownanimationexitactive,
+				exit: styles.dropdownanimationexit,
+			}}
+		>
+			<div
+				ref={ref}
+				{...restProps}
+				className={classnames(styles.dropdown)}
+				style={{ ...style, ...coords }}
+			>
+				{children}
+			</div>
+		</CSSTransition>,
+		document.getElementById('overlay') as HTMLElement,
+	);
 };

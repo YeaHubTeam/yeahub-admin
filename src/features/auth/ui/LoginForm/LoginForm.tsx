@@ -1,52 +1,46 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import { useLoginMutation, useSignUpMutation } from '../../api/authApi';
+import { logoutActions } from '../../model/slice/logoutSlice';
+import { setToken } from '../../utils/tokenUtils';
+
 const SUPERUSER = {
-	firstName: 'Guse',
-	lastName: 'Kazulin',
-	passwordHash: 'password',
-	phone: '+1234567890',
-	email: 'user@example.com',
+	firstName: 'Админ',
+	lastName: 'Админов',
+	password: '123',
+	phone: '+7234567891',
+	email: 'admin@bk.com',
 	country: 'AGroba',
 	city: 'Bag-dad',
-	birthday: '1990-01-01',
-	address: 'улица Пушкина дом Колотушкина',
-	avatarUrl: 'http://example.com/avatar.jpg',
+	birthday: '1975-01-01',
+	address: 'улица Пушкина дом Колотушкина1',
+	avatarUrl: 'https://cdn.fastcup.net/logos/teams/20989_7n1la213o.png',
 };
 
 export const LoginForm = () => {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
+
+	const [login] = useLoginMutation();
+	const [signUp] = useSignUpMutation();
+
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		const response = await fetch('https://api.test.yeahub.ru/auth/login', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({ username, password }),
-		});
-
-		if (response.ok) {
-			const { access_token } = await response.json();
-			localStorage.setItem('accessToken', access_token);
-
+		const result = await login({ username, password });
+		if ('data' in result) {
+			setToken(result.data.access_token);
+			dispatch(logoutActions.setAuthentication(true));
 			navigate('/');
-		} else {
-			console.error('Ошибка при входе');
 		}
 	};
 
 	const createUser = async () => {
-		await fetch('https://api.test.yeahub.ru/auth/signUp', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(SUPERUSER),
-		});
+		await signUp({ user: SUPERUSER });
 	};
 
 	return (
@@ -74,6 +68,6 @@ export const LoginForm = () => {
 };
 
 // {
-//   "username": "user@example.com",
-//   "password": "password"
+//   "username": "admin@bk.com",
+//   "password": "123"
 // }
