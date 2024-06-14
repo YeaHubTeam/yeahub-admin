@@ -1,5 +1,6 @@
 import path from 'path';
 
+import dotenv from 'dotenv';
 import type { Configuration } from 'webpack';
 
 import { WebpackMode, WebpackOptions, WebpackPaths } from './config/webpack/types/types';
@@ -25,13 +26,19 @@ export default (env: EnvVariables) => {
     ),
     src: path.resolve(__dirname, 'src'),
     public: path.resolve(__dirname, 'public'),
-    env: path.resolve(__dirname, '.env.local'),
+    env: path.resolve(
+      __dirname,
+      env.mode === 'production' ? '.env.production' : '.env.development',
+    ),
     locales: path.resolve(__dirname, 'public', 'locales'),
     buildLocales: path.resolve(__dirname, 'build', 'locales'),
   };
+
+  dotenv.config({ path: paths.env });
+
   const isDev = env.mode === 'development';
   const options: WebpackOptions = {
-    port: env.port ?? 3000,
+    port: env.port ?? process.env.PORT ? Number(process.env.PORT) : 3002,
     mode: env.mode,
     isDev,
     paths,

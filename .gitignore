@@ -18,3 +18,5 @@ npm-debug.log*
 *.sln
 *.sw?
 *.local
+.env.development
+.env.production
