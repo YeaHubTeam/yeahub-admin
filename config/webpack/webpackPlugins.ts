@@ -36,7 +36,11 @@ export const webpackPlugins = ({ isDev, paths }: WebpackOptions): Configuration[
         failOnError: true,
       }),
     );
-    plugins.push(new BundleAnalyzerPlugin());
+    plugins.push(
+      new BundleAnalyzerPlugin({
+        openAnalyzer: false,
+      }),
+    );
   } else {
     plugins.push(
       new MiniCssExtractPlugin({
@@ -49,7 +53,12 @@ export const webpackPlugins = ({ isDev, paths }: WebpackOptions): Configuration[
         scriptMatchPattern: [/initColorScheme\..+\.js$/],
       }),
     );
-    plugins.push(new BundleAnalyzerPlugin());
+    plugins.push(
+      new BundleAnalyzerPlugin({
+        openAnalyzer: false,
+        analyzerMode: 'disabled',
+      }),
+    );
     plugins.push(
       new CopyPlugin({
         patterns: [{ from: paths.locales, to: paths.buildLocales }],
