@@ -12,6 +12,14 @@
     "type": "Type",
     "create.page.title": "Creating new question",
     "edit.page.title": "Edit question",
-    "skills": "Skills"
+    "skills": "Skills",
+    "select.skills": "Select skills",
+    "add.question": "Add question",
+    "add.description": "Add description",
+    "select.rate": "Select rate",
+    "status": "Status",
+    "select.status": "Select status",
+    "add.short.answer": "Add short answer",
+    "add.long.answer": "Add long answer"
   }
 }

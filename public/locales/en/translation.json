@@ -4,5 +4,6 @@
   "save": "Save",
   "cancel": "Cancel",
   "create": "Create",
-  "remove.selected": "Remove selected"
+  "remove.selected": "Remove selected",
+  "delete": "Delete"
 }

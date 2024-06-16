@@ -4,5 +4,6 @@
   "save": "Сохранить",
   "cancel": "Отменить",
   "create": "Создать",
-  "remove.selected": "Удалить выбранное"
+  "remove.selected": "Удалить выбранное",
+  "delete": "Удалить"
 }
