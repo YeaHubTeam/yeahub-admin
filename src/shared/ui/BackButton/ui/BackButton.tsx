@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { IconButton, Icon } from 'yeahub-ui-kit';
 
 import styles from './BackButton.module.css';
 
@@ -11,9 +12,14 @@ export const BackButton = memo(() => {
 	};
 
 	return (
-		<button className={styles.button} onClick={onReturnBack}>
-			{'<'}
-		</button>
+		<IconButton
+			onClick={onReturnBack}
+			aria-label="back button"
+			icon={<Icon icon="arrowLeft" size={20} />}
+			form="round"
+			theme="outline"
+			className={styles.button}
+		/>
 	);
 });
 

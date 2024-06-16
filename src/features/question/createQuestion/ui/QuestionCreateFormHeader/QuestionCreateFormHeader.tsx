@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import { Button } from 'yeahub-ui-kit';
 
 import { Translations } from '@/shared/config/i18n/i18nTranslations';
 import { BackButton } from '@/shared/ui/BackButton';
-import { Button } from '@/shared/ui/Button';
 import { Flex } from '@/shared/ui/Flex';
 
 import { useCreateQuestionMutation } from '../../api/createQuestionApi';
@@ -31,11 +31,10 @@ export const QuestionCreateFormHeader = () => {
 	}, [isSuccess, navigate]);
 
 	return (
-		<Flex align="center" gap="8">
+		<Flex align="center" gap="8" justify={'between'}>
 			<BackButton />
-			<h1>{t(Translations.QUESTION_CREATE_PAGE_TITLE)}</h1>
 			<Button disabled={isLoading} onClick={handleSubmit(onCreateQuestion)}>
-				{t(Translations.CREATE, { ns: 'translation' })}
+				{t(Translations.SAVE, { ns: 'translation' })}
 			</Button>
 		</Flex>
 	);
