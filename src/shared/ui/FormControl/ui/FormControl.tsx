@@ -7,11 +7,12 @@ type ChildrenProps = Omit<ControllerRenderProps<FieldValues, string>, 'ref'>;
 interface contrProps {
 	name: string;
 	control: Control;
-	label: string;
+	label?: string;
+	className?: string;
 	children: (field: ChildrenProps, error: boolean) => ReactNode;
 }
 
-export const FormControl = ({ children, name, control, label }: contrProps) => {
+export const FormControl = ({ children, name, control, label, className }: contrProps) => {
 	const {
 		field: { ref, ...fieldProps },
 		fieldState: { error },
@@ -23,7 +24,7 @@ export const FormControl = ({ children, name, control, label }: contrProps) => {
 	const errorText = useMemo(() => error?.message?.toString(), [error]);
 
 	return (
-		<CustomControl htmlFor={name} label={label} error={errorText}>
+		<CustomControl htmlFor={name} label={label} error={errorText} className={className}>
 			{children(fieldProps, !!errorText)}
 		</CustomControl>
 	);

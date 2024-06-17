@@ -6,12 +6,10 @@ export const questionCreateSchema = yup.object().shape({
 	description: yup.string().required(),
 	shortAnswer: yup.string().required(),
 	longAnswer: yup.string().required(),
-	imageSrc: yup.string().required(),
-	keywords: yup.array().required(),
+	imageSrc: yup.string(),
 	rate: yup
 		.number()
 		.transform((value) => (Number.isNaN(value) ? null : value))
 		.required(),
-	//skills: yup.array().required(),
-	skills: yup.string().required(),
+	skills: yup.array().required(),
 });

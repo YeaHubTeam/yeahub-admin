@@ -16,6 +16,7 @@ export const QuestionCreateForm = () => {
 	const methods = useForm<QuestionCreateSchema>({
 		defaultValues: {
 			status: 'public',
+			rate: 1,
 		},
 		resolver: yupResolver(questionCreateSchema),
 		mode: 'onTouched',
@@ -23,8 +24,8 @@ export const QuestionCreateForm = () => {
 	return (
 		<FormProvider {...methods}>
 			<Flex componentType="main" direction="column" gap="24">
+				<QuestionCreateFormHeader />
 				<Card className={styles.content}>
-					<QuestionCreateFormHeader />
 					<QuestionForm />
 				</Card>
 			</Flex>
