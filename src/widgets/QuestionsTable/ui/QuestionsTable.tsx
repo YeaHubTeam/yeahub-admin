@@ -28,7 +28,7 @@ export const QuestionsTable = ({
 			title: t(Translations.QUESTION_TITLE),
 			description: t(Translations.QUESTION_DESCRIPTION),
 			rate: t(Translations.QUESTION_RATE),
-			keywords: t(Translations.QUESTION_KEYWORDS),
+			skills: t(Translations.QUESTION_SKILLS),
 		};
 
 		return Object.entries(columns)?.map(([k, v]) => <td key={k}>{v}</td>);
@@ -39,7 +39,7 @@ export const QuestionsTable = ({
 			title: question.title,
 			description: question.description,
 			rate: question.rate,
-			keywords: question.keywords?.join(', '),
+			skills: question.questionSkills?.map((skill) => skill.title).join(', '),
 		};
 
 		return Object.entries(columns)?.map(([k, v]) => <td key={k}>{v}</td>);
