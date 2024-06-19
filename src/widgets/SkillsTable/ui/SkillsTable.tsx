@@ -1,9 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
-import { Text } from 'yeahub-ui-kit';
+import { Text, Icon } from 'yeahub-ui-kit';
 
-import DetailIcon from '@/shared/assets/icons/eye.svg';
-import EditIcon from '@/shared/assets/icons/Pencil.svg';
 import { Translations } from '@/shared/config/i18n/i18nTranslations';
 import { Flex } from '@/shared/ui/Flex';
 import { Table } from '@/shared/ui/Table';
@@ -43,10 +41,10 @@ export const SkillsTable = ({ skills, selectedSkills, onSelectSkills }: SkillsTa
 		return (
 			<Flex gap="4">
 				<NavLink to={`/skills/${skill.id}`}>
-					<DetailIcon />
+					<Icon icon="eye" size={20} color={'--palette-ui-purple-700'} />
 				</NavLink>
 				<NavLink to={`/skills/${skill.id}/edit`}>
-					<EditIcon />
+					<Icon icon="pencil" size={20} color={'--palette-ui-purple-700'} />
 				</NavLink>
 				<DeleteSkillButton skillId={skill.id} />
 			</Flex>

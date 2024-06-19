@@ -1,3 +1,4 @@
+import { useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDispatch';
@@ -30,6 +31,24 @@ const SkillsPage = () => {
 		dispatch(skillsPageActions.setSelectedSkills(ids));
 	};
 
+	//TODO make a searchTerm based API call to search for skills across all data due to paging
+	const [searchTerm, setSearchTerm] = useState('');
+	const sortedSkills = useMemo(() => {
+		if (!skills) return skills;
+
+		const data = (skills?.data || []).filter((skill) =>
+			skill.title.toLowerCase().includes(searchTerm.toLowerCase()),
+		);
+
+		return {
+			data,
+			total: data.length,
+			page: skills.page,
+			limit: skills.limit,
+		};
+	}, [skills, searchTerm]);
+
+	//TODO implement removing selected questions
 	const onRemoveSkills = () => {};
 
 	return (
@@ -38,14 +57,15 @@ const SkillsPage = () => {
 				to="create"
 				showRemoveButton={selectedSkills.length > 0}
 				onRemove={onRemoveSkills}
+				onSearch={setSearchTerm}
 			/>
 			<Card className={styles.content}>
 				<SkillsTable
-					skills={skills?.data}
+					skills={sortedSkills?.data}
 					selectedSkills={selectedSkills}
 					onSelectSkills={onSelectSkills}
 				/>
-				<SkillsPagePagination skillsResponse={skills} />
+				<SkillsPagePagination skillsResponse={sortedSkills} />
 			</Card>
 		</Flex>
 	);

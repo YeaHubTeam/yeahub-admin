@@ -1,4 +1,4 @@
-import DeleteIcon from '@/shared/assets/icons/Trash.svg';
+import { Icon } from 'yeahub-ui-kit';
 
 import { Skill } from '@/entities/skill';
 
@@ -15,9 +15,5 @@ export const DeleteSkillButton = ({ skillId }: DeleteSkillButtonProps) => {
 		await deleteSkillMutation(skillId);
 	};
 
-	return (
-		<button onClick={onDeleteSkill}>
-			<DeleteIcon />
-		</button>
-	);
+	return <Icon onClick={onDeleteSkill} icon="trash" size={20} color="--palette-ui-red-600" />;
 };

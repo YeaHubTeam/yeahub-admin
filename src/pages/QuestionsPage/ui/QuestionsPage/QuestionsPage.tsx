@@ -34,6 +34,7 @@ const QuestionsPage = () => {
 		dispatch(questionsPageActions.setSelectedQuestions(ids));
 	};
 
+	//TODO make a searchTerm based API call to search for questions across all data due to paging
 	const [searchTerm, setSearchTerm] = useState('');
 	const sortedQuestions = useMemo(() => {
 		if (!questions) return questions;
