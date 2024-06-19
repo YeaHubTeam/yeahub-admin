@@ -1,3 +1,4 @@
+import { useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDispatch';
@@ -34,6 +35,24 @@ const SpecializationsPage = () => {
 		dispatch(specializationsPageActions.setSelectedSpecializations(ids));
 	};
 
+	//TODO make a searchTerm based API call to search for skills across all data due to paging
+	const [searchTerm, setSearchTerm] = useState('');
+	const sortedSpecialization = useMemo(() => {
+		if (!specializations) return specializations;
+
+		const data = (specializations?.data || []).filter((skill) =>
+			skill.title.toLowerCase().includes(searchTerm.toLowerCase()),
+		);
+
+		return {
+			data,
+			total: data.length,
+			page: specializations.page,
+			limit: specializations.limit,
+		};
+	}, [searchTerm, specializations]);
+
+	//TODO implement removing selected questions
 	const onRemoveSpecializations = () => {};
 
 	return (
@@ -42,14 +61,15 @@ const SpecializationsPage = () => {
 				to="create"
 				showRemoveButton={selectedSpecializations.length > 0}
 				onRemove={onRemoveSpecializations}
+				onSearch={setSearchTerm}
 			/>
 			<Card className={styles.content}>
 				<SpecializationsTable
-					specializations={specializations?.data}
+					specializations={sortedSpecialization?.data}
 					selectedSpecializations={selectedSpecializations}
 					onSelectSpecializations={onSelectSpecializations}
 				/>
-				<SpecializationsPagePagination specializationsResponse={specializations} />
+				<SpecializationsPagePagination specializationsResponse={sortedSpecialization} />
 			</Card>
 		</Flex>
 	);

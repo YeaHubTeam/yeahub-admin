@@ -10,6 +10,7 @@ import { Specialization } from '@/entities/specialization';
 import { getSpecializationsPageNum } from '../../model/selectors/specializationsPageSelectors';
 import { specializationsPageActions } from '../../model/slices/specializationsPageSlice';
 
+import styles from './SpecializationPagePagination.module.css';
 interface SpecializationsPagePaginationProps {
 	specializationsResponse?: Response<Specialization[]>;
 }
@@ -42,12 +43,14 @@ export const SpecializationsPagePagination = ({
 	}
 
 	return (
-		<Pagination
-			onPrevPageClick={onPrevPageClick}
-			onNextPageClick={onNextPageClick}
-			onChangePage={onChangePage}
-			page={page}
-			totalPages={Math.ceil(specializationsResponse.total / specializationsResponse.limit)}
-		/>
+		<div className={styles.wrapper}>
+			<Pagination
+				onPrevPageClick={onPrevPageClick}
+				onNextPageClick={onNextPageClick}
+				onChangePage={onChangePage}
+				page={page}
+				totalPages={Math.ceil(specializationsResponse.total / specializationsResponse.limit)}
+			/>
+		</div>
 	);
 };
