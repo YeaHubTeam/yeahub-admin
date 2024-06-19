@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { Icon, IconButton } from 'yeahub-ui-kit';
 
 import { Flex } from '@/shared/ui/Flex';
 
@@ -49,21 +50,33 @@ export const Pagination = ({
 
 	return (
 		<Flex align="center" gap="12">
-			<button disabled={page === 1} onClick={onPrevPageClick}>
-				{'<'}
-			</button>
+			<IconButton
+				disabled={page === 1}
+				size="small"
+				onClick={onPrevPageClick}
+				aria-label="back button"
+				form="round"
+				theme="outline"
+				icon={<Icon icon="arrowLeft" size={20} />}
+			/>
 			{Array.from({ length: totalPages }).map((_, index) => (
 				<button
 					onClick={handleChangePage(index + 1)}
-					className={classNames(styles.pageButton, { [styles.active]: index + 1 === page })}
+					className={classNames(styles['page-button'], { [styles.active]: index + 1 === page })}
 					key={index + 1}
 				>
 					{index + 1}
 				</button>
 			))}
-			<button disabled={page === totalPages} onClick={onNextPageClick}>
-				{'>'}
-			</button>
+			<IconButton
+				disabled={page === totalPages}
+				size="small"
+				onClick={onNextPageClick}
+				aria-label="forward button"
+				form="round"
+				theme="outline"
+				icon={<Icon icon="arrowRight" size={20} />}
+			/>
 		</Flex>
 	);
 };
