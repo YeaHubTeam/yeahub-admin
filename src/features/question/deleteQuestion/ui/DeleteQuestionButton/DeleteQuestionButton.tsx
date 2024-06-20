@@ -1,4 +1,4 @@
-import DeleteIcon from '@/shared/assets/icons/Trash.svg';
+import { Icon } from 'yeahub-ui-kit';
 
 import { Question } from '@/entities/question';
 
@@ -15,9 +15,5 @@ export const DeleteQuestionButton = ({ questionId }: DeleteQuestionButtonProps) 
 		await deleteQuestionMutation(questionId);
 	};
 
-	return (
-		<button onClick={onDeleteQuestion}>
-			<DeleteIcon />
-		</button>
-	);
+	return <Icon onClick={onDeleteQuestion} icon="trash" size={20} color="--palette-ui-red-600" />;
 };

@@ -1,8 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
+import { Icon } from 'yeahub-ui-kit';
 
-import DetailIcon from '@/shared/assets/icons/eye.svg';
-import EditIcon from '@/shared/assets/icons/Pencil.svg';
 import { Translations } from '@/shared/config/i18n/i18nTranslations';
 import { Flex } from '@/shared/ui/Flex';
 import { Table } from '@/shared/ui/Table';
@@ -29,7 +28,7 @@ export const QuestionsTable = ({
 			title: t(Translations.QUESTION_TITLE),
 			description: t(Translations.QUESTION_DESCRIPTION),
 			rate: t(Translations.QUESTION_RATE),
-			keywords: t(Translations.QUESTION_KEYWORDS),
+			skills: t(Translations.QUESTION_SKILLS),
 		};
 
 		return Object.entries(columns)?.map(([k, v]) => <td key={k}>{v}</td>);
@@ -40,7 +39,7 @@ export const QuestionsTable = ({
 			title: question.title,
 			description: question.description,
 			rate: question.rate,
-			keywords: question.keywords?.join(', '),
+			skills: question.questionSkills?.map((skill) => skill.title).join(', '),
 		};
 
 		return Object.entries(columns)?.map(([k, v]) => <td key={k}>{v}</td>);
@@ -50,10 +49,10 @@ export const QuestionsTable = ({
 		return (
 			<Flex gap="4">
 				<NavLink to={`/questions/${question.id}`}>
-					<DetailIcon />
+					<Icon icon="eye" size={20} color={'--palette-ui-purple-700'} />
 				</NavLink>
 				<NavLink to={`/questions/${question.id}/edit`}>
-					<EditIcon />
+					<Icon icon="pencil" size={20} color={'--palette-ui-purple-700'} />
 				</NavLink>
 				<DeleteQuestionButton questionId={question.id} />
 			</Flex>

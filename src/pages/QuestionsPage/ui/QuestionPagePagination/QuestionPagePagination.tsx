@@ -10,6 +10,8 @@ import { Question } from '@/entities/question';
 import { getQuestionsPageNum } from '../../model/selectors/questionsPageSelectors';
 import { questionsPageActions } from '../../model/slices/questionsPageSlice';
 
+import styles from './QuestionPagePagination.module.css';
+
 interface QuestionPagePaginationProps {
 	questionsResponse?: Response<Question[]>;
 }
@@ -40,12 +42,14 @@ export const QuestionPagePagination = ({ questionsResponse }: QuestionPagePagina
 	}
 
 	return (
-		<Pagination
-			onPrevPageClick={onPrevPageClick}
-			onNextPageClick={onNextPageClick}
-			onChangePage={onChangePage}
-			page={page}
-			totalPages={Math.ceil(questionsResponse?.total / questionsResponse?.limit)}
-		/>
+		<div className={styles.wrapper}>
+			<Pagination
+				onPrevPageClick={onPrevPageClick}
+				onNextPageClick={onNextPageClick}
+				onChangePage={onChangePage}
+				page={page}
+				totalPages={Math.ceil(questionsResponse?.total / questionsResponse?.limit)}
+			/>
+		</div>
 	);
 };

@@ -10,6 +10,8 @@ import { Skill } from '@/entities/skill';
 import { getSkillsPageNum } from '../../model/selectors/skillsPageSelectors';
 import { skillsPageActions } from '../../model/slices/skillsPageSlice';
 
+import styles from './SkillsPagePagination.module.css';
+
 interface SkillsPagePaginationProps {
 	skillsResponse?: Response<Skill[]>;
 }
@@ -40,12 +42,14 @@ export const SkillsPagePagination = ({ skillsResponse }: SkillsPagePaginationPro
 	}
 
 	return (
-		<Pagination
-			onPrevPageClick={onPrevPageClick}
-			onNextPageClick={onNextPageClick}
-			onChangePage={onChangePage}
-			page={page}
-			totalPages={Math.ceil(skillsResponse?.total / skillsResponse?.limit)}
-		/>
+		<div className={styles.wrapper}>
+			<Pagination
+				onPrevPageClick={onPrevPageClick}
+				onNextPageClick={onNextPageClick}
+				onChangePage={onChangePage}
+				page={page}
+				totalPages={Math.ceil(skillsResponse?.total / skillsResponse?.limit)}
+			/>
+		</div>
 	);
 };

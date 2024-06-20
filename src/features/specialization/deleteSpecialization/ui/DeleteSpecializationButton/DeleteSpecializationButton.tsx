@@ -1,4 +1,4 @@
-import DeleteIcon from '@/shared/assets/icons/Trash.svg';
+import { Icon } from 'yeahub-ui-kit';
 
 import { Specialization } from '@/entities/specialization';
 
@@ -13,13 +13,9 @@ export const DeleteSpecializationButton = ({
 }: DeleteSpecializationButtonProps) => {
 	const [deleteSpecializationMutation] = useDeleteSpecializationMutation();
 
-	const onDeleteSpecialization = async () => {
+	const onDelete = async () => {
 		await deleteSpecializationMutation(specializationId);
 	};
 
-	return (
-		<button onClick={onDeleteSpecialization}>
-			<DeleteIcon />
-		</button>
-	);
+	return <Icon onClick={onDelete} icon="trash" size={20} color="--palette-ui-red-600" />;
 };

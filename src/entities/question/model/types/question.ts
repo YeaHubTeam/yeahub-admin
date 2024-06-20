@@ -4,6 +4,14 @@ export interface QuestionTestOption {
 	id: number;
 	answer: string;
 }
+export interface QuestionSkill {
+	id: string;
+	title: string;
+	description: string;
+	imageSrc: string;
+	createdAt: string;
+	updatedAt: string;
+}
 
 export interface Question {
 	id: string;
@@ -23,6 +31,7 @@ export interface Question {
 	correctOptionId?: number;
 	explanation?: string;
 	time?: string;
+	questionSkills?: QuestionSkill[];
 }
 
 export interface QuestionsListParams {

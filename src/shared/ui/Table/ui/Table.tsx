@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 
 import { Translations } from '@/shared/config/i18n/i18nTranslations';
 
+import styles from './Table.module.css';
+
 interface TableProps<T> {
 	/**
 	 * Array of elements displayed in the table
@@ -63,9 +65,9 @@ export const Table = <T extends { id: string }>({
 
 	return (
 		<table style={{ width: '100%' }}>
-			<thead>
+			<thead className={styles.head}>
 				<tr>
-					<td>
+					<td className={styles.cell}>
 						<input type="checkbox" checked={isAllSelected} onChange={onSelectAllItems} />
 					</td>
 					{renderTableHeader()}
@@ -74,8 +76,8 @@ export const Table = <T extends { id: string }>({
 			</thead>
 			<tbody>
 				{items.map((item) => (
-					<tr key={item.id}>
-						<td>
+					<tr key={item.id} className={styles.row}>
+						<td className={styles.cell}>
 							<input
 								type="checkbox"
 								checked={selectedItems?.includes(item.id)}

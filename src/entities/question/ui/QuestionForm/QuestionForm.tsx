@@ -1,6 +1,6 @@
 import { useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { Input, TextEditor, Range, Text, Select } from 'yeahub-ui-kit';
+import { Input, TextEditor, Range, Text, Select, TextArea } from 'yeahub-ui-kit';
 
 import { Translations } from '@/shared/config/i18n/i18nTranslations';
 import { Flex } from '@/shared/ui/Flex';
@@ -32,12 +32,11 @@ export const QuestionForm = () => {
 					control={control}
 					label={t(Translations.QUESTION_ADD_DESCRIPTION)}
 				>
-					{(field) => (
-						<TextEditor
+					{(field, hasError) => (
+						<TextArea
 							id="description"
-							isInline
-							className={styles.input}
-							data={field.value}
+							className={styles.description}
+							state={hasError ? 'error' : 'default'}
 							{...field}
 						/>
 					)}
