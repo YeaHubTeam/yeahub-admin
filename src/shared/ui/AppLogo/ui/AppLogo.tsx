@@ -1,5 +1,4 @@
 import classnames from 'classnames';
-import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { LayoutToggleBtn } from '../../../assets/icons/LayoutToggleBtn';
@@ -14,7 +13,7 @@ interface AppLogoProps {
 	setIsOpen: (isOpen: boolean) => void;
 }
 
-export const AppLogo: FC<AppLogoProps> = ({ isOpen, setIsOpen }) => {
+export const AppLogo = ({ isOpen, setIsOpen }: AppLogoProps) => {
 	const handleToggleSidebar = () => {
 		setIsOpen(!isOpen);
 	};

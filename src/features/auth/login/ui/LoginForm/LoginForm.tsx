@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { useLoginMutation, useSignUpMutation } from '../../api/authApi';
-import { logoutActions } from '../../model/slice/logoutSlice';
-import { setToken } from '../../utils/tokenUtils';
+import { authActions } from '@/entities/auth';
+
+import { useLoginMutation, useSignUpMutation } from '../../../api/authApi';
+import { setToken } from '../../../utils/tokenUtils';
 
 const SUPERUSER = {
 	firstName: 'Админ',
@@ -22,6 +23,7 @@ const SUPERUSER = {
 export const LoginForm = () => {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
+	const [isLoading, setIsLoading] = useState(false);
 
 	const [login] = useLoginMutation();
 	const [signUp] = useSignUpMutation();
@@ -31,16 +33,20 @@ export const LoginForm = () => {
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
+		setIsLoading(true);
 		const result = await login({ username, password });
 		if ('data' in result) {
 			setToken(result.data.access_token);
-			dispatch(logoutActions.setAuthentication(true));
+			dispatch(authActions.setAuthentication(true));
 			navigate('/');
 		}
+		setIsLoading(false);
 	};
 
 	const createUser = async () => {
+		setIsLoading(true);
 		await signUp({ user: SUPERUSER });
+		setIsLoading(false);
 	};
 
 	return (
@@ -60,9 +66,13 @@ export const LoginForm = () => {
 					onChange={(e) => setPassword(e.target.value)}
 					autoComplete="current-password"
 				/>
-				<button type="submit">Login</button>
+				<button type="submit" disabled={isLoading}>
+					Login
+				</button>
 			</form>
-			<button onClick={createUser}>create user</button>
+			<button onClick={createUser} disabled={isLoading}>
+				create user
+			</button>
 		</>
 	);
 };

@@ -3,7 +3,7 @@ import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 import { baseApi } from '@/shared/config/api/baseApi';
 import { State } from '@/shared/config/store/State';
 
-import { logoutReducer, userReducer } from '@/features/auth';
+import { authReducer } from '@/entities/auth';
 
 import { questionsPageReducer } from '@/pages/QuestionsPage';
 import { skillsPageReducer } from '@/pages/SkillsPage';
@@ -14,8 +14,7 @@ export const createReduxStore = (initialState?: State) => {
 		questionsPage: questionsPageReducer,
 		specializationsPage: specializationsPageReducer,
 		skillsPage: skillsPageReducer,
-		logout: logoutReducer,
-		userData: userReducer,
+		auth: authReducer,
 		[baseApi.reducerPath]: baseApi.reducer,
 	};
 	return configureStore<State>({

@@ -27,17 +27,7 @@ export const authApi = baseApi.injectEndpoints({
 				},
 			}),
 		}),
-		fetchUser: build.mutation<CurrentUser, string>({
-			query: (token: string) => ({
-				url: '/auth/profile',
-				method: 'GET',
-				headers: {
-					Authorization: `Bearer ${token}`,
-				},
-			}),
-		}),
 	}),
 });
 
-export const { useLoginMutation, useSignUpMutation, useLogOutMutation, useFetchUserMutation } =
-	authApi;
+export const { useLoginMutation, useSignUpMutation, useLogOutMutation } = authApi;

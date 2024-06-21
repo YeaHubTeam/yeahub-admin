@@ -2,7 +2,7 @@
 import { baseApi } from '@/shared/config/api/baseApi';
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { LogoutState, UserState } from '@/features/auth';
+import { AuthState } from '@/entities/auth';
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { QuestionsPageState } from '@/pages/QuestionsPage';
@@ -15,8 +15,7 @@ export interface State {
 	questionsPage: QuestionsPageState;
 	specializationsPage: SpecializationsPageState;
 	skillsPage: SkillsPageState;
-	logout: LogoutState;
-	userData: UserState;
+	auth: AuthState;
 
 	[baseApi.reducerPath]: ReturnType<typeof baseApi.reducer>;
 }

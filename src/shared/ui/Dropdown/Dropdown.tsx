@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import { createFocusTrap } from 'focus-trap';
 import throttle from 'lodash.throttle';
-import { FC, HTMLAttributes, RefObject, useEffect, useRef, useState } from 'react';
+import { HTMLAttributes, RefObject, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
 
@@ -29,7 +29,7 @@ const calcCoords = (targetElement: HTMLElement): Coords => {
 	return coords;
 };
 
-export const Dropdown: FC<DropdownProps> = ({
+export const Dropdown = ({
 	targetRef,
 	shown,
 	onShownChange,

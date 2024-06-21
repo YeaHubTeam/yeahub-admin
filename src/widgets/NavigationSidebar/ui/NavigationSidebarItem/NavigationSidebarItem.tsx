@@ -40,7 +40,7 @@ const categoryImages: CategoryImages = {
 	default: Menu,
 };
 
-export const NavigationSidebarItem: FC<NavigationSidebarItemProps> = ({ isOpen }) => {
+export const NavigationSidebarItem = ({ isOpen }: NavigationSidebarItemProps) => {
 	return (
 		<CSSTransition
 			in={isOpen}
