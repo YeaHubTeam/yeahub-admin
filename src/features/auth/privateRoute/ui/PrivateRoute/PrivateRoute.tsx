@@ -14,19 +14,19 @@ type Props = {
 
 export const PrivateRoute = ({ children }: Props) => {
 	const isAuthenticated = useSelector(selectIsAuthenticated);
-	const [data] = useFetchUserMutation();
+	const [fetchUser] = useFetchUserMutation();
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		const token = getToken();
 		if (token) {
-			data(token)
+			fetchUser(token)
 				.unwrap()
 				.then((data) => {
 					dispatch(authActions.setProfile(data));
 				});
 		}
-	}, [data, dispatch, isAuthenticated]);
+	}, [fetchUser, dispatch, isAuthenticated]);
 
 	return isAuthenticated ? <>{children}</> : <Navigate to="/admin/login" />;
 };
