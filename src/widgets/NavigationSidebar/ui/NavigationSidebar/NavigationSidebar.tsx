@@ -8,12 +8,16 @@ import { NavigationSidebarItem } from '../NavigationSidebarItem/NavigationSideba
 import styles from './NavigationSidebar.module.css';
 
 export const NavigationSidebar: FC = () => {
-	const [isOpen, setIsOPen] = useState(true);
+	const [isOpenSidebar, setIsOpenSidebar] = useState(true);
+
+	const handleToggleSidebar = () => {
+		setIsOpenSidebar((open) => !open);
+	};
 
 	return (
 		<aside className={classnames(styles.sidebar)}>
-			<AppLogo isOpen={isOpen} setIsOpen={setIsOPen} />
-			<NavigationSidebarItem isOpen={isOpen} />
+			<AppLogo isOpen={isOpenSidebar} onToggleSidebar={handleToggleSidebar} />
+			<NavigationSidebarItem isOpen={isOpenSidebar} />
 		</aside>
 	);
 };

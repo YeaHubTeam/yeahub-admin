@@ -10,3 +10,13 @@ export interface CurrentUser {
 	address: string;
 	avatarUrl: string;
 }
+
+export interface LoginInput {
+	username: string;
+	password: string;
+}
+
+export interface AuthResult {
+	access_token: string;
+	refresh_token: string;
+}

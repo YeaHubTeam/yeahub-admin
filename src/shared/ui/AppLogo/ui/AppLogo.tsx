@@ -10,12 +10,12 @@ import styles from './AppLogo.module.css';
 
 interface AppLogoProps {
 	isOpen: boolean;
-	setIsOpen: (isOpen: boolean) => void;
+	onToggleSidebar: (isOpen: boolean) => void;
 }
 
-export const AppLogo = ({ isOpen, setIsOpen }: AppLogoProps) => {
+export const AppLogo = ({ isOpen, onToggleSidebar }: AppLogoProps) => {
 	const handleToggleSidebar = () => {
-		setIsOpen(!isOpen);
+		onToggleSidebar(!isOpen);
 	};
 
 	return (

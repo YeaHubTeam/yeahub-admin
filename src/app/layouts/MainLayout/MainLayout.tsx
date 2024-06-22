@@ -1,6 +1,10 @@
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Outlet, useLocation } from 'react-router-dom';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
+
+import { authActions } from '@/entities/auth';
+import { useFetchUserMutation } from '@/entities/auth';
 
 import { Header } from '@/widgets/Header';
 import { NavigationSidebar } from '@/widgets/NavigationSidebar';
@@ -9,6 +13,19 @@ import styles from './MainLayout.module.css';
 
 export const MainLayout = () => {
 	const location = useLocation();
+
+	const [fetchUser] = useFetchUserMutation();
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		fetchUser()
+			.unwrap()
+			.then((data) => {
+				if (data) {
+					dispatch(authActions.setProfile(data));
+				}
+			});
+	}, [fetchUser, dispatch]);
 
 	return (
 		<section className={styles.layout}>

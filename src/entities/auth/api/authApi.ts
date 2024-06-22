@@ -18,16 +18,20 @@ export const authApi = baseApi.injectEndpoints({
 				body: user,
 			}),
 		}),
-		logOut: build.mutation<void, { token: string }>({
-			query: ({ token }) => ({
+		logOut: build.mutation<void, void>({
+			query: () => ({
 				url: '/auth/logout',
 				method: 'GET',
-				headers: {
-					Authorization: `Bearer ${token}`,
-				},
+			}),
+		}),
+		fetchUser: build.mutation<CurrentUser, void>({
+			query: () => ({
+				url: '/auth/profile',
+				method: 'GET',
 			}),
 		}),
 	}),
 });
 
-export const { useLoginMutation, useSignUpMutation, useLogOutMutation } = authApi;
+export const { useLoginMutation, useSignUpMutation, useLogOutMutation, useFetchUserMutation } =
+	authApi;

@@ -16,13 +16,13 @@ interface SearchSectionProps {
 
 export const SearchSection = ({ to = '/' }: SearchSectionProps) => {
 	const { t } = useTranslation();
-	const [searchResults, setSearchResults] = useState<string>('');
+	const [, setSearchResults] = useState<string>('');
 
 	const handleSearch = (query: string) => {
 		setSearchResults(query);
 	};
 
-	console.log(searchResults);
+	// console.log(searchResults);
 
 	return (
 		<Card>

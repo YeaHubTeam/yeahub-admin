@@ -3,9 +3,9 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { authActions } from '@/entities/auth';
+import { useLoginMutation, useSignUpMutation } from '@/entities/auth/api/authApi';
 
-import { useLoginMutation, useSignUpMutation } from '../../../api/authApi';
-import { setToken } from '../../../utils/tokenUtils';
+import { setToken } from '../../../../../shared/utils/tokenUtils';
 
 const SUPERUSER = {
 	firstName: 'Админ',
@@ -35,7 +35,7 @@ export const LoginForm = () => {
 		event.preventDefault();
 		setIsLoading(true);
 		const result = await login({ username, password });
-		if ('data' in result) {
+		if (result && 'data' in result) {
 			setToken(result.data.access_token);
 			dispatch(authActions.setAuthentication(true));
 			navigate('/');

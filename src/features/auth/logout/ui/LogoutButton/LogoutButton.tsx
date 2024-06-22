@@ -5,9 +5,9 @@ import { Logout } from '@/shared/assets/icons/Logout';
 import { Spinner } from '@/shared/assets/icons/Spinner';
 
 import { authActions } from '@/entities/auth';
+import { useLogOutMutation } from '@/entities/auth/api/authApi';
 
-import { useLogOutMutation } from '../../../api/authApi';
-import { getToken, removeToken } from '../../../utils/tokenUtils';
+import { removeToken } from '../../../../../shared/utils/tokenUtils';
 
 import styles from './LogoutButton.module.css';
 
@@ -17,15 +17,9 @@ export const LogoutButton = () => {
 	const [isLoading, setIsLoading] = useState(false);
 
 	const handleLogout = async () => {
-		const token = getToken();
-
-		if (!token) {
-			console.error('No token found');
-			return;
-		}
 		setIsLoading(true);
 
-		await logout({ token })
+		await logout()
 			.unwrap()
 			.then(() => {
 				removeToken();
@@ -40,7 +34,7 @@ export const LogoutButton = () => {
 	};
 
 	return (
-		<button onClick={handleLogout} className={styles.button}>
+		<button onClick={handleLogout} className={styles.button} disabled={isLoading}>
 			{isLoading ? <Spinner /> : <Logout />}
 		</button>
 	);
