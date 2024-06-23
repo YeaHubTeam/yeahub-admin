@@ -26,8 +26,8 @@ export const QuestionEditForm = ({ question }: QuestionEditFormProps) => {
 	return (
 		<FormProvider {...methods}>
 			<Flex componentType="main" direction="column" gap="24">
+				<QuestionEditFormHeader />
 				<Card className={styles.content}>
-					<QuestionEditFormHeader />
 					<QuestionForm />
 				</Card>
 			</Flex>

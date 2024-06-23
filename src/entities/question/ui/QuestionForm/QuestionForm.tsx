@@ -1,96 +1,132 @@
-import { ChangeEvent } from 'react';
-import { Controller, useFormContext } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import { Input, TextEditor, Range, Text, Select, TextArea } from 'yeahub-ui-kit';
 
 import { Translations } from '@/shared/config/i18n/i18nTranslations';
 import { Flex } from '@/shared/ui/Flex';
+import { FormControl } from '@/shared/ui/FormControl';
+
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { SkillSelect } from '@/entities/skill';
+
+import { STATUSES } from '../../model/constants';
 
 import styles from './QuestionForm.module.css';
 
 export const QuestionForm = () => {
 	const { t } = useTranslation('question');
-	const {
-		register,
-		control,
-		formState: { errors },
-	} = useFormContext();
-	// TODO Подумать насчет другого решения с подтягиванием типов значений формы вместо .toString()
-
-	const handleChange =
-		(onChange: (value: string[]) => void, value: string[]) =>
-		(e: ChangeEvent<HTMLInputElement>) => {
-			const isChecked = e.target.checked;
-			if (isChecked) {
-				onChange([...value, e.target.value]);
-			} else {
-				onChange(value.filter((item: string) => item !== e.target.value));
-			}
-		};
+	const { control } = useFormContext();
 
 	return (
-		<Flex direction="column" gap="8">
-			<Flex align="center" gap="8">
-				<label htmlFor="title">{t(Translations.QUESTION_TITLE)}</label>
-				<input className={styles.input} {...register('title')} />
+		<Flex direction="column" gap="40">
+			<Flex direction="column">
+				<Text title={t(Translations.QUESTION_TITLE)} />
+				<FormControl name="title" control={control} label={t(Translations.QUESTION_ADD_QUESTION)}>
+					{(field, hasError) => <Input {...field} hasError={hasError} />}
+				</FormControl>
 			</Flex>
-			{errors.title ? <div>{errors.title.message?.toString()}</div> : null}
-			<Flex align="center" gap="8">
-				<label htmlFor="description">{t(Translations.QUESTION_DESCRIPTION)}</label>
-				<input className={styles.input} {...register('description')} />
-			</Flex>
-			{errors.description ? <div>{errors.description.message?.toString()}</div> : null}
-			<Flex align="center" gap="8">
-				<label htmlFor="shortAnswer">{t(Translations.QUESTION_SHORT_ANSWER)}</label>
-				<input className={styles.input} {...register('shortAnswer')} />
-			</Flex>
-			{errors.shortAnswer ? <div>{errors.shortAnswer.message?.toString()}</div> : null}
-			<Flex align="center" gap="8">
-				<label htmlFor="longAnswer">{t(Translations.QUESTION_LONG_ANSWER)}</label>
-				<input className={styles.input} {...register('longAnswer')} />
-			</Flex>
-			{errors.longAnswer ? <div>{errors.longAnswer.message?.toString()}</div> : null}
-			<Flex align="center" gap="8">
-				<label htmlFor="rate">{t(Translations.QUESTION_RATE)}</label>
-				<input className={styles.input} type="number" {...register('rate')} />
-			</Flex>
-			{errors.rate ? <div>{errors.rate.message?.toString()}</div> : null}
-			<Flex align="center" gap="8">
-				<label htmlFor="imageSrc">{t(Translations.QUESTION_IMAGE_SRC)}</label>
-				<input className={styles.input} {...register('imageSrc')} />
-			</Flex>
-			{errors.imageSrc ? <div>{errors.imageSrc.message?.toString()}</div> : null}
-
-			<Flex align="center" gap="8">
-				<label>{t(Translations.QUESTION_KEYWORDS)}</label>
-				<Controller
-					name="keywords"
+			<Flex direction="column">
+				<Text title={t(Translations.QUESTION_DESCRIPTION)} />
+				<FormControl
+					name="description"
 					control={control}
-					defaultValue={[]}
-					render={({ field: { onChange, value } }) => (
-						<div>
-							<label>
-								<input
-									type="checkbox"
-									value="keyword1"
-									onChange={handleChange(onChange, value)}
-									checked={value.includes('keyword1')}
-								/>
-								keyword1
-							</label>
-							<label>
-								<input
-									type="checkbox"
-									value="keyword2"
-									onChange={handleChange(onChange, value)}
-									checked={value.includes('keyword2')}
-								/>
-								keyword2
-							</label>
+					label={t(Translations.QUESTION_ADD_DESCRIPTION)}
+				>
+					{(field, hasError) => (
+						<TextArea
+							id="description"
+							className={styles.description}
+							state={hasError ? 'error' : 'default'}
+							{...field}
+						/>
+					)}
+				</FormControl>
+			</Flex>
+			<Flex gap={'32'}>
+				<Flex direction="column" justify="center" className={styles.titles}>
+					<Text title={t(Translations.QUESTION_RATE)} />
+					<Text text={t(Translations.QUESTION_SELECT_RATE)} className={styles.label} />
+				</Flex>
+				<FormControl name="rate" control={control} className={styles.rate}>
+					{(field) => <Range min={1} max={10} step={1} hasScale {...field} />}
+				</FormControl>
+			</Flex>
+			<Flex gap={'32'}>
+				<Flex direction="column" justify="center" className={styles.titles}>
+					<Text title={t(Translations.QUESTION_STATUS)} />
+					<Text text={t(Translations.QUESTION_SELECT_STATUS)} className={styles.label} />
+				</Flex>
+				<FormControl name="status" control={control}>
+					{({ onChange, value }) => (
+						<div className={styles.select}>
+							<Select
+								type="default"
+								onChange={onChange}
+								value={value}
+								placeholder={'Select status'}
+								options={STATUSES}
+							/>
 						</div>
 					)}
-				/>
+				</FormControl>
 			</Flex>
-			{errors.keywords ? <div>{errors.keywords.message?.toString()}</div> : null}
+			<Flex gap={'32'}>
+				<Flex direction="column" className={styles.titles}>
+					<Text title={t(Translations.QUESTION_SKILLS)} />
+					<Text text={t(Translations.QUESTION_SELECT_SKILLS)} className={styles.label} />
+				</Flex>
+				<FormControl name="skills" control={control}>
+					{({ onChange, value }) => {
+						return (
+							<div className={styles.select}>
+								<SkillSelect onChange={onChange} value={value} />
+							</div>
+						);
+					}}
+				</FormControl>
+				{}
+			</Flex>
+			<Flex direction="column">
+				<Text title={t(Translations.QUESTION_SHORT_ANSWER)} />
+				<FormControl
+					name="shortAnswer"
+					control={control}
+					label={t(Translations.QUESTION_ADD_SHORT_ANSWER)}
+				>
+					{(field) => (
+						<TextEditor
+							id="shortAnswer"
+							isInline
+							className={styles.input}
+							data={field.value}
+							{...field}
+						/>
+					)}
+				</FormControl>
+			</Flex>
+			<Flex direction="column">
+				<Text title={t(Translations.QUESTION_LONG_ANSWER)} />
+				<FormControl
+					name="longAnswer"
+					control={control}
+					label={t(Translations.QUESTION_ADD_LONG_ANSWER)}
+				>
+					{(field) => (
+						<TextEditor
+							id="longAnswer"
+							isInline
+							className={styles.input}
+							data={field.value}
+							{...field}
+						/>
+					)}
+				</FormControl>
+			</Flex>
+			{/* <Flex align="center" gap="8">
+        <label htmlFor="imageSrc">{t(Translations.QUESTION_IMAGE_SRC)}</label>
+        <input className={styles.input} {...register('imageSrc')} />
+      </Flex>
+      {errors.imageSrc ? <div>{errors.imageSrc.message?.toString()}</div> : null} */}
 		</Flex>
 	);
 };

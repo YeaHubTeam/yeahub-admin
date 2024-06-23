@@ -1,9 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
-import { Text } from 'yeahub-ui-kit';
+import { Text, Icon } from 'yeahub-ui-kit';
 
-import DetailIcon from '@/shared/assets/icons/eye.svg';
-import EditIcon from '@/shared/assets/icons/Pencil.svg';
 import { Translations } from '@/shared/config/i18n/i18nTranslations';
 import { Flex } from '@/shared/ui/Flex';
 import { Table } from '@/shared/ui/Table';
@@ -14,9 +12,15 @@ import { DeleteSpecializationButton } from '@/features/specialization/deleteSpec
 
 interface SpecializationsTableProps {
 	specializations?: Specialization[];
+	selectedSpecializations?: string[];
+	onSelectSpecializations?: (ids: string[]) => void;
 }
 
-export const SpecializationsTable = ({ specializations }: SpecializationsTableProps) => {
+export const SpecializationsTable = ({
+	specializations,
+	selectedSpecializations,
+	onSelectSpecializations,
+}: SpecializationsTableProps) => {
 	const { t } = useTranslation('specialization');
 
 	const renderTableHeader = () => {
@@ -41,10 +45,10 @@ export const SpecializationsTable = ({ specializations }: SpecializationsTablePr
 		return (
 			<Flex gap="4">
 				<NavLink to={`/specializations/${specialization.id}`}>
-					<DetailIcon />
+					<Icon icon="eye" size={20} color={'--palette-ui-purple-700'} />
 				</NavLink>
 				<NavLink to={`/specializations/${specialization.id}/edit`}>
-					<EditIcon />
+					<Icon icon="pencil" size={20} color={'--palette-ui-purple-700'} />
 				</NavLink>
 				<DeleteSpecializationButton specializationId={specialization.id} />
 			</Flex>
@@ -65,6 +69,8 @@ export const SpecializationsTable = ({ specializations }: SpecializationsTablePr
 			renderTableBody={renderTableBody}
 			renderActions={renderActions}
 			items={specializations}
+			selectedItems={selectedSpecializations}
+			onSelectItems={onSelectSpecializations}
 		/>
 	);
 };

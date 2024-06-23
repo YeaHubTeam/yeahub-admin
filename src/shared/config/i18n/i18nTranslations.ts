@@ -8,6 +8,8 @@ export enum Translations {
 	SAVE = 'save',
 	CREATE = 'create',
 	EDIT = 'edit',
+	REMOVE_SELECTED = 'remove.selected',
+	DELETE = 'delete',
 
 	/**
 	 * Question
@@ -17,13 +19,22 @@ export enum Translations {
 	QUESTION_SHORT_ANSWER = 'question.short.answer',
 	QUESTION_LONG_ANSWER = 'question.long.answer',
 	QUESTION_RATE = 'question.rate',
+	QUESTION_STATUS = 'question.status',
 	QUESTION_IMAGE_SRC = 'question.image.src',
 	QUESTION_KEYWORDS = 'question.keywords',
 	QUESTION_TAGS = 'question.tags',
 	QUESTION_AUTHOR = 'question.author',
 	QUESTION_TYPE = 'question.type',
+	QUESTION_SKILLS = 'question.skills',
+	QUESTION_SELECT_SKILLS = 'question.select.skills',
 	QUESTION_CREATE_PAGE_TITLE = 'question.create.page.title',
 	QUESTION_EDIT_PAGE_TITLE = 'question.edit.page.title',
+	QUESTION_ADD_QUESTION = 'question.add.question',
+	QUESTION_ADD_DESCRIPTION = 'question.add.description',
+	QUESTION_SELECT_RATE = 'question.select.rate',
+	QUESTION_SELECT_STATUS = 'question.select.status',
+	QUESTION_ADD_SHORT_ANSWER = 'question.add.short.answer',
+	QUESTION_ADD_LONG_ANSWER = 'question.add.long.answer',
 
 	/**
 	 * Specialization

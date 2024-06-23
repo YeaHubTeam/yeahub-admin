@@ -37,7 +37,9 @@ export const SearchInput = ({
 		<form>
 			<div style={{ position: 'relative' }}>
 				<input
-					className={`${styles.search} ${variant === 'long' && styles.long}`}
+					className={classnames(styles.search, styles.input, {
+						[styles.long]: variant === 'long',
+					})}
 					type="text"
 					value={query}
 					onChange={handleChange}
