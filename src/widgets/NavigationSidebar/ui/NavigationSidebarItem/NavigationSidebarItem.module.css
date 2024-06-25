@@ -1,20 +1,57 @@
 .list {
     display: block;
     margin-top: 40px;
-    padding: 0 20px;
-    width: 240px;
-    list-style: none;
+    width:100%;
+    list-style: none;  
+}
+
+.listtransitionenter {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+}
+
+.listtransitionenteractive {
+    opacity: 1;
+    width: 100%;
+    transform-origin: right top;
+    transition: width 500ms ease-in , opacity 500ms ease-in,transform-origin 500ms ease-in ;
+}
+
+.listtransitionenterdone {
+    opacity: 1;
+    width: 100%;
+}
+
+.listtransitionexit {
+    opacity: 0;
+    width: 100%;
+}
+
+.listtransitionexitactive {
+    opacity: 1;
+    width: 100%;
+    transform-origin: right top;
+    transition: width 500ms ease-in , opacity 500ms ease-in,transform-origin 500ms ease-in ;
+}
+
+.listtransitionexitdone {
+    opacity: 1;
+    width: 100%;
 }
 
 .item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 5;
-    padding: 10px 12px;
-    border-radius: 12px;
+    margin: 15px 20px;
     color: var(--foreground-primary);
+    line-height: 29px;
     text-decoration: none;
+}
+
+.item:hover {
+    color: var(--color-black-900);
 }
 
 .wrap {
@@ -23,14 +60,49 @@
     align-items: center;
 }
 
+.span {
+    margin-right: 8px;
+    padding: 0 5px;
+    width: 140px;
+}
+
+.spantransitionenter {
+    opacity: 0;
+}
+
+.spantransitionenteractive {
+    opacity: 1;
+    transition: opacity 200ms ease-in;
+}
+
+.spantransitionexit {
+    opacity: 1;
+    transition: opacity 200ms ease-in;
+}
+
+.spantransitionexitactive{
+    opacity: 0;
+}
+
 .image {
-    padding-right: 8px;
-    width: 24px;
-    height: 24px;
+    display: flex;
+    align-items:center;
+    margin-right: 5px;
+    padding: 2px;
     color: var(--foreground-primary);
 }
 
+.image:hover {
+    color: var(--color-black-900);
+}
+
+.imagesvg{
+    width: 24px;
+    height: 24px;
+}
+
 .active {
+    border-radius: 8px;
     background: var(--background-active);
     transform-origin: center;
     transition: background-color 0.3s ease, transform 0.2s ease-in-out;

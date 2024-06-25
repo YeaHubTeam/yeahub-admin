@@ -30,7 +30,7 @@
     --background-primary: var(--constant-white);
     --background-active: var(--color-purple-100);
     --foreground-primary: var(--color-black-700);
-    --color-scheme-switcher-border: var(--color-black-50);
+    --color-elemheader-border: var(--color-black-50);
     --badge-primary: var(--color-purple-900);
     --background-input: var(--constant-white);
     --foreground-input: var(--color-black-800);
@@ -47,11 +47,12 @@
     --font-size-small: 14px;
     --font-size-medium: 16px;
     --font-size-large: 20px;
-    --container-width: 1024px;
+    --container-width: calc(1160 + 280) px;
     --container-padding: 0;
     --accent-color: var(--color-black-700);
     --border-dropdown: var(--constant-darck);
     --header-height: 72px;
+    --margin-headr: 15px;
 }
 
 [scheme="dark"] {

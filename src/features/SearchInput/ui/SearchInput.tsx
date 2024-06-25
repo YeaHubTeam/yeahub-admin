@@ -1,5 +1,4 @@
-import classnames from 'classnames';
-import React, { FC, useState } from 'react';
+import React, { useState } from 'react';
 
 import SearchIcon from '@/shared/assets/icons/search.svg';
 
@@ -11,11 +10,11 @@ interface SearchInputProps {
 	variant?: 'default' | 'long';
 }
 
-export const SearchInput: FC<SearchInputProps> = ({
+export const SearchInput = ({
 	onSearch,
 	placeholder = 'найти',
 	variant = 'default',
-}) => {
+}: SearchInputProps) => {
 	const [query, setQuery] = useState('');
 
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

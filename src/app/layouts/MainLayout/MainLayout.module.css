@@ -6,7 +6,7 @@
     grid:
         "sidebar header" 72px
         "sidebar content" 1fr
-        / 280px 1fr;
+        / auto 1fr;
 }
 
 .sidebar {
@@ -19,4 +19,30 @@
 
 .content {
     grid-area: content;
+}
+
+.pageenter {
+    opacity: 0;
+}
+
+.pageenteractive {
+    opacity: 0;
+}
+
+.pageenterdone {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+}
+
+.pageexit {
+    opacity:  0;
+}
+
+.pageexitactive {
+    opacity: 0;
+    transition: opacity 300ms ease-in;
+}
+
+.pageexitdone {
+    opacity: 0;
 }

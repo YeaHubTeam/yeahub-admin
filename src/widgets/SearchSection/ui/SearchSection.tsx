@@ -27,6 +27,8 @@ export const SearchSection = ({
 		onSearch?.(e.target.value);
 	};
 
+	// console.log(searchResults);
+
 	return (
 		<Card>
 			<section className={styles.section}>

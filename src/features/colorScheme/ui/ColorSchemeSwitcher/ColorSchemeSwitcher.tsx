@@ -52,9 +52,14 @@ export const ColorSchemeSwitcher: FC = () => {
 	};
 
 	const handleSchemeChange = useCallback(
-		(scheme: ColorSchemeSwitcherValues) => () => setUserScheme(scheme),
+		(scheme: ColorSchemeSwitcherValues) => () => {
+			return setUserScheme(scheme), closeDropdown();
+		},
 		[],
 	);
+	const closeDropdown = () => {
+		setDropdownShown(false);
+	};
 
 	return (
 		<div>
