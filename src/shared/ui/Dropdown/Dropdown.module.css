@@ -1,0 +1,27 @@
+.dropdown {
+    position: absolute;
+    padding: 8px 0;
+    box-shadow: 0 4px 12px var(--border-dropdown);
+    border-radius: 12px;
+    background: var(--background-zero);
+}
+
+.dropdownanimationenter {
+    transform: scale(0.2);
+}
+
+.dropdownanimationenteractive {
+    transform: scale(1);
+    transform-origin: right top;
+    transition: transform 500ms ease-in;
+}
+
+.dropdownanimationexit {
+    transform: scale(1);
+    transform-origin: right top;
+    transition: transform 300ms ease-in;
+}
+
+.dropdownanimationexitactive {
+    transform: scale(0);
+}

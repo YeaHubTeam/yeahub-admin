@@ -1,0 +1,10 @@
+{
+  "specialization": {
+    "title": "Название",
+    "description": "Описание",
+    "not.items": "Нет специализаций",
+    "image.src": "Ссылка на картинку",
+    "create.page.title": "Добавление новой специализации",
+    "edit.page.title": "Изменение специализации"
+  }
+}
