@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, { useState } from 'react';
 
 import SearchIcon from '@/shared/assets/icons/search.svg';
@@ -37,7 +38,7 @@ export const SearchInput = ({
 		<form>
 			<div style={{ position: 'relative' }}>
 				<input
-					className={classnames(styles.search, styles.input, {
+					className={classNames(styles.search, styles.input, {
 						[styles.long]: variant === 'long',
 					})}
 					type="text"

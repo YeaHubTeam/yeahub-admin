@@ -1,5 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { getToken } from '@/shared/utils/tokenUtils';
+
 import { CurrentUser } from '../types/auth';
 
 export interface AuthState {
@@ -8,7 +10,7 @@ export interface AuthState {
 }
 
 const initialState: AuthState = {
-	isAuth: false,
+	isAuth: Boolean(getToken()),
 	profile: null,
 };
 

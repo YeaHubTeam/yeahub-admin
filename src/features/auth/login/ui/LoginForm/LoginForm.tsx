@@ -1,24 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { Button, Input } from 'yeahub-ui-kit';
+
+import { Card } from '@/shared/ui/Card';
+import { setToken } from '@/shared/utils/tokenUtils';
 
 import { authActions } from '@/entities/auth';
-import { useLoginMutation, useSignUpMutation } from '@/entities/auth/api/authApi';
+import { useLoginMutation } from '@/entities/auth/api/authApi';
 
-import { setToken } from '../../../../../shared/utils/tokenUtils';
-
-const SUPERUSER = {
-	firstName: 'Админ',
-	lastName: 'Админов',
-	password: '123',
-	phone: '+7234567891',
-	email: 'admin@bk.com',
-	country: 'AGroba',
-	city: 'Bag-dad',
-	birthday: '1975-01-01',
-	address: 'улица Пушкина дом Колотушкина1',
-	avatarUrl: 'https://cdn.fastcup.net/logos/teams/20989_7n1la213o.png',
-};
+import styles from './LoginPage.module.css';
 
 export const LoginForm = () => {
 	const [username, setUsername] = useState('');
@@ -26,7 +17,6 @@ export const LoginForm = () => {
 	const [isLoading, setIsLoading] = useState(false);
 
 	const [login] = useLoginMutation();
-	const [signUp] = useSignUpMutation();
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
@@ -35,6 +25,7 @@ export const LoginForm = () => {
 		event.preventDefault();
 		setIsLoading(true);
 		const result = await login({ username, password });
+
 		if (result && 'data' in result) {
 			setToken(result.data.access_token);
 			dispatch(authActions.setAuthentication(true));
@@ -43,37 +34,35 @@ export const LoginForm = () => {
 		setIsLoading(false);
 	};
 
-	const createUser = async () => {
-		setIsLoading(true);
-		await signUp({ user: SUPERUSER });
-		setIsLoading(false);
-	};
+	// "username": "user1@example.com",
+	// 	"password": "password"
 
 	return (
-		<>
-			<form onSubmit={handleSubmit}>
-				<input
+		<Card className={styles.block}>
+			<form className={styles.form} onSubmit={handleSubmit}>
+				<h2 className={styles.title}>Авторизация</h2>
+				<Input
+					style={{ color: 'black' }}
 					type="text"
 					placeholder="Username"
 					value={username}
 					onChange={(e) => setUsername(e.target.value)}
 					autoComplete="username"
 				/>
-				<input
+				<Input
+					style={{ color: 'black' }}
+					className={styles.input}
 					type="password"
 					placeholder="Password"
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
 					autoComplete="current-password"
 				/>
-				<button type="submit" disabled={isLoading}>
+				<Button type="submit" disabled={isLoading}>
 					Login
-				</button>
+				</Button>
 			</form>
-			<button onClick={createUser} disabled={isLoading}>
-				create user
-			</button>
-		</>
+		</Card>
 	);
 };
 
