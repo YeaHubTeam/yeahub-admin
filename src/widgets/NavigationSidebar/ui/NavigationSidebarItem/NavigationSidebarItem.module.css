@@ -62,8 +62,9 @@
 
 .span {
     margin-right: 8px;
-    padding: 0 5px;
+    padding: 0 15px;
     width: 140px;
+
 }
 
 .spantransitionenter {
@@ -97,6 +98,7 @@
 }
 
 .imagesvg{
+    z-index: 1;
     width: 24px;
     height: 24px;
 }
@@ -104,10 +106,13 @@
 .active {
     border-radius: 8px;
     background: var(--background-active);
+    color: var(--color-purple-700);
     transform-origin: center;
-    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out
 }
-
+    
 .active:hover {
+    color: var(--color-purple-700);
     transform: scale(1.05);
+
 }

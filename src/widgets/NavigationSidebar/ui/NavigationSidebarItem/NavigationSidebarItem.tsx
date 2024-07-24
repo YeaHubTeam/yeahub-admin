@@ -79,27 +79,27 @@ const NavigationItem: FC<NavigationItemProps> = ({ title, name = '', isOpen }) =
 					})}
 				>
 					<ImageComponent className={styles.imagesvg} />
-				</div>
-				<CSSTransition
-					in={isOpen}
-					timeout={100}
-					classNames={{
-						enter: styles.spantransitionEnter,
-						enterActive: styles.spantransitionenteractive,
-						exitActive: styles.spantransitionexitactive,
-						exit: styles.spantransitionexit,
-					}}
-					mountOnEnter={true}
-					unmountOnExit={true}
-				>
-					<span
-						className={classnames(styles.span, {
-							[styles.active]: match,
-						})}
+					<CSSTransition
+						in={isOpen}
+						timeout={100}
+						classNames={{
+							enter: styles.spantransitionEnter,
+							enterActive: styles.spantransitionenteractive,
+							exitActive: styles.spantransitionexitactive,
+							exit: styles.spantransitionexit,
+						}}
+						mountOnEnter={true}
+						unmountOnExit={true}
 					>
-						{title}
-					</span>
-				</CSSTransition>
+						<span
+							className={classnames(styles.span, {
+								[styles.active]: match,
+							})}
+						>
+							{title}
+						</span>
+					</CSSTransition>
+				</div>
 			</div>
 			{count > 0 && <Badge count={count} />}
 		</NavLink>
