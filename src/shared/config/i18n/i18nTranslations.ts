@@ -18,6 +18,8 @@ export enum Translations {
 	QUESTION_DESCRIPTION = 'question.description',
 	QUESTION_SHORT_ANSWER = 'question.short.answer',
 	QUESTION_LONG_ANSWER = 'question.long.answer',
+	QUESTION_LEVEL = 'question.level',
+	QUESTION_COMPLEXITY = 'question.complexity',
 	QUESTION_RATE = 'question.rate',
 	QUESTION_STATUS = 'question.status',
 	QUESTION_IMAGE_SRC = 'question.image.src',

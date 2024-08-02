@@ -4,6 +4,8 @@
     "description": "Description",
     "short.answer": "Short answer",
     "long.answer": "Long answer",
+    "level": "Level",
+    "complexity": "Сomplexity",
     "rate": "Rate",
     "image.src": "Image url",
     "keywords": "Keywords",
