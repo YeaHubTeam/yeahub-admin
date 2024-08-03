@@ -14,6 +14,8 @@ export interface QuestionSkill {
 }
 
 export interface Question {
+	complexity: number;
+	createdBy?: string | undefined;
 	id: string;
 	title: string;
 	description: string;

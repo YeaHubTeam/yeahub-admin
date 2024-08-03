@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { NavLink, useParams } from 'react-router-dom';
+import { Button } from 'yeahub-ui-kit';
 
 import { Translations } from '@/shared/config/i18n/i18nTranslations';
 import { BackButton } from '@/shared/ui/BackButton';
@@ -22,11 +23,10 @@ const QuestionDetailPage = () => {
 
 	return (
 		<main>
-			<Flex align="center" gap="8">
+			<Flex align="center" gap="8" style={{ marginBottom: 34 }}>
 				<BackButton />
-				<h1>{question.title}</h1>
 				<NavLink style={{ marginLeft: 'auto' }} to="edit">
-					{t(Translations.EDIT)}
+					<Button> {t(Translations.EDIT)}</Button>
 				</NavLink>
 			</Flex>
 			<QuestionCard question={question} />
