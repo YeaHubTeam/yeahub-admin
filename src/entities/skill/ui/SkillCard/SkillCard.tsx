@@ -6,36 +6,29 @@ import { Flex } from '@/shared/ui/Flex';
 
 import { Skill } from '../../model/types/skill';
 
+import styles from './SkillCard.module.css';
+
 interface SkillCardProps {
 	skill: Skill;
 }
 
 export const SkillCard = ({ skill }: SkillCardProps) => {
 	const { t } = useTranslation('skill');
-
-	const skillInfoFields = [
-		{
-			label: t(Translations.SKILL_TITLE),
-			value: skill.title,
-		},
-		{
-			label: t(Translations.SKILL_DESCRIPTION),
-			value: skill.description,
-		},
-		{
-			label: t(Translations.SKILL_IMAGE_SRC),
-			value: skill.imageSrc,
-		},
-	];
-
 	return (
-		<Card>
-			{skillInfoFields.map((field) => (
-				<Flex gap="24" align="center" key={field.label}>
-					<div>{field.label}</div>
-					<div>{field.value}</div>
+		<Flex direction="column" gap="24" className={styles.wrap}>
+			<Card>
+				<Flex gap="16">
+					<img src={skill.imageSrc} alt="" className={styles['card-image']} />
+					<h2>{skill.title}</h2>
 				</Flex>
-			))}
-		</Card>
+			</Card>
+
+			<Card>
+				<Flex direction="column" gap="20">
+					<h3>{t(Translations.SKILL_DESCRIPTION)}</h3>
+					<p>{skill.description}</p>
+				</Flex>
+			</Card>
+		</Flex>
 	);
 };

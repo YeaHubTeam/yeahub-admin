@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { NavLink, useParams } from 'react-router-dom';
+import { Button } from 'yeahub-ui-kit';
 
 import { Translations } from '@/shared/config/i18n/i18nTranslations';
 import { BackButton } from '@/shared/ui/BackButton';
@@ -26,7 +27,7 @@ const SkillDetailPage = () => {
 				<BackButton />
 				<h1>{skill.title}</h1>
 				<NavLink style={{ marginLeft: 'auto' }} to="edit">
-					{t(Translations.EDIT)}
+					<Button>{t(Translations.EDIT)}</Button>
 				</NavLink>
 			</Flex>
 			<SkillCard skill={skill} />
