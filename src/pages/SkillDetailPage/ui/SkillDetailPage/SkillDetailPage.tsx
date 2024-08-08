@@ -23,9 +23,8 @@ const SkillDetailPage = () => {
 
 	return (
 		<main>
-			<Flex align="center" gap="8">
+			<Flex align="center" gap="8" style={{ marginBottom: 34 }}>
 				<BackButton />
-				<h1>{skill.title}</h1>
 				<NavLink style={{ marginLeft: 'auto' }} to="edit">
 					<Button>{t(Translations.EDIT)}</Button>
 				</NavLink>
