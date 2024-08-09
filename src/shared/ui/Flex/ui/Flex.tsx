@@ -6,7 +6,7 @@ import styles from './Flex.module.css';
 type FlexJustify = 'start' | 'center' | 'end' | 'between' | 'around';
 type FlexAlign = 'start' | 'center' | 'end' | 'normal';
 type FlexDirection = 'row' | 'column';
-type FlexGap = '4' | '8' | '12' | '16' | '24' | '32' | '40';
+type FlexGap = '4' | '8' | '12' | '16' | '20' | '24' | '32' | '40';
 
 const justifyClasses: Record<FlexJustify, string> = {
 	around: styles['justify-around'],
@@ -33,6 +33,7 @@ const gapClasses: Record<FlexGap, string> = {
 	'8': styles.gap8,
 	'12': styles.gap12,
 	'16': styles.gap16,
+	'20': styles.gap20,
 	'24': styles.gap24,
 	'32': styles.gap32,
 	'40': styles.gap40,
