@@ -1,5 +1,6 @@
 import path from 'path';
 
+import dotenv from 'dotenv';
 import type { Configuration } from 'webpack';
 
 import { WebpackMode, WebpackOptions, WebpackPaths } from './config/webpack/types/types';
@@ -7,7 +8,7 @@ import { webpackConfig } from './config/webpack/webpackConfig';
 
 interface EnvVariables {
   mode: WebpackMode;
-  port: number;
+  port?: number | string;
 }
 
 export default (env: EnvVariables) => {
@@ -29,9 +30,21 @@ export default (env: EnvVariables) => {
     locales: path.resolve(__dirname, 'public', 'locales'),
     buildLocales: path.resolve(__dirname, 'build', 'locales'),
   };
+
+  // Пытаемся загрузить .env файл, если он существует
+  try {
+    dotenv.config({ path: paths.env });
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.warn(`Warning: .env file not found. Using process.env values.`);
+  }
+
   const isDev = env.mode === 'development';
+  const port = Number(env.port) || Number(process.env.PORT) || 3000;
+
   const options: WebpackOptions = {
-    port: env.port ?? 3000,
+    port: port,
     mode: env.mode,
     isDev,
     paths,
