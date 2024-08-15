@@ -1,4 +1,3 @@
-import { useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDispatch';
@@ -10,7 +9,11 @@ import { useGetSkillsListQuery } from '@/entities/skill';
 import { SearchSection } from '@/widgets/SearchSection';
 import { SkillsTable } from '@/widgets/SkillsTable';
 
-import { getSelectedSkills, getSkillsPageNum } from '../../model/selectors/skillsPageSelectors';
+import {
+	getSelectedSkills,
+	getSkillsPageNum,
+	getSkillsSearch,
+} from '../../model/selectors/skillsPageSelectors';
 import { skillsPageActions } from '../../model/slices/skillsPageSlice';
 import { SkillsPagePagination } from '../SkillsPagePagination/SkillsPagePagination';
 
@@ -23,30 +26,17 @@ import styles from './SkillsPage.module.css';
 const SkillsPage = () => {
 	const dispatch = useAppDispatch();
 	const page = useSelector(getSkillsPageNum);
+	const search = useSelector(getSkillsSearch);
 	const selectedSkills = useSelector(getSelectedSkills);
 
-	const { data: skills } = useGetSkillsListQuery({ page });
+	const { data: skills } = useGetSkillsListQuery({ page, title: search });
 
 	const onSelectSkills = (ids: string[]) => {
 		dispatch(skillsPageActions.setSelectedSkills(ids));
 	};
-
-	//TODO make a searchTerm based API call to search for skills across all data due to paging
-	const [searchTerm, setSearchTerm] = useState('');
-	const sortedSkills = useMemo(() => {
-		if (!skills) return skills;
-
-		const data = (skills?.data || []).filter((skill) =>
-			skill.title.toLowerCase().includes(searchTerm.toLowerCase()),
-		);
-
-		return {
-			data,
-			total: data.length,
-			page: skills.page,
-			limit: skills.limit,
-		};
-	}, [skills, searchTerm]);
+	const onChangeSearch = (value: string) => {
+		dispatch(skillsPageActions.setSearch(value));
+	};
 
 	//TODO implement removing selected questions
 	const onRemoveSkills = () => {};
@@ -57,15 +47,15 @@ const SkillsPage = () => {
 				to="create"
 				showRemoveButton={selectedSkills.length > 0}
 				onRemove={onRemoveSkills}
-				onSearch={setSearchTerm}
+				onSearch={onChangeSearch}
 			/>
 			<Card className={styles.content}>
 				<SkillsTable
-					skills={sortedSkills?.data}
+					skills={skills?.data}
 					selectedSkills={selectedSkills}
 					onSelectSkills={onSelectSkills}
 				/>
-				<SkillsPagePagination skillsResponse={sortedSkills} />
+				<SkillsPagePagination skillsResponse={skills} />
 			</Card>
 		</Flex>
 	);

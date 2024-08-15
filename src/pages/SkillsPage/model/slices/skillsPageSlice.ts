@@ -5,6 +5,7 @@ import { SkillsPageState } from '../types/skillsPageTypes';
 const initialState: SkillsPageState = {
 	page: 1,
 	selectedSkills: [],
+	search: '',
 };
 
 const skillsPageSlice = createSlice({
@@ -13,6 +14,9 @@ const skillsPageSlice = createSlice({
 	reducers: {
 		setPage: (state, action: PayloadAction<number>) => {
 			state.page = action.payload;
+		},
+		setSearch: (state, action: PayloadAction<string>) => {
+			state.search = action.payload;
 		},
 		setSelectedSkills: (state, action: PayloadAction<string[]>) => {
 			state.selectedSkills = action.payload;
