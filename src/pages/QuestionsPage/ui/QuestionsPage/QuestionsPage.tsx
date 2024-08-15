@@ -1,4 +1,3 @@
-import { useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDispatch';
@@ -12,6 +11,7 @@ import { SearchSection } from '@/widgets/SearchSection';
 
 import {
 	getQuestionsPageNum,
+	getQuestionsSearch,
 	getSelectedQuestions,
 } from '../../model/selectors/questionsPageSelectors';
 import { questionsPageActions } from '../../model/slices/questionsPageSlice';
@@ -27,33 +27,20 @@ import styles from './QuestionsPage.module.css';
 const QuestionsPage = () => {
 	const dispatch = useAppDispatch();
 	const page = useSelector(getQuestionsPageNum);
+	const search = useSelector(getQuestionsSearch);
 	const selectedQuestions = useSelector(getSelectedQuestions);
-	const { data: questions } = useGetQuestionsListQuery({ page });
+	const { data: questions } = useGetQuestionsListQuery({ page, title: search });
 
 	const onSelectQuestions = (ids: string[]) => {
 		dispatch(questionsPageActions.setSelectedQuestions(ids));
 	};
-
-	//TODO make a searchTerm based API call to search for questions across all data due to paging
-	const [searchTerm, setSearchTerm] = useState('');
-	const sortedQuestions = useMemo(() => {
-		if (!questions) return questions;
-
-		const data = (questions?.data || []).filter((question) =>
-			question.title.toLowerCase().includes(searchTerm.toLowerCase()),
-		);
-
-		return {
-			data,
-			total: data.length,
-			page: questions.page,
-			limit: questions.limit,
-		};
-	}, [questions, searchTerm]);
+	const onChangeSearch = (value: string) => {
+		dispatch(questionsPageActions.setSearch(value));
+	};
 
 	const onRemoveQuestions = () => {
 		//TODO implement removing selected questions
-		console.log(selectedQuestions);
+		console.log('onRemoveQuestions: ', selectedQuestions);
 	};
 
 	return (
@@ -63,14 +50,14 @@ const QuestionsPage = () => {
 					to="create"
 					showRemoveButton={selectedQuestions.length > 0}
 					onRemove={onRemoveQuestions}
-					onSearch={setSearchTerm}
+					onSearch={onChangeSearch}
 				/>
 				<QuestionsTable
-					questions={sortedQuestions?.data}
+					questions={questions?.data}
 					selectedQuestions={selectedQuestions}
 					onSelectQuestions={onSelectQuestions}
 				/>
-				<QuestionPagePagination questionsResponse={sortedQuestions} />
+				<QuestionPagePagination questionsResponse={questions} />
 			</Card>
 		</Flex>
 	);

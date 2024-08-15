@@ -5,6 +5,7 @@ import { QuestionsPageState } from '../types/questionsPageTypes';
 const initialState: QuestionsPageState = {
 	page: 1,
 	selectedQuestions: [],
+	search: '',
 };
 
 const questionsPageSlice = createSlice({
@@ -13,6 +14,9 @@ const questionsPageSlice = createSlice({
 	reducers: {
 		setPage: (state, action: PayloadAction<number>) => {
 			state.page = action.payload;
+		},
+		setSearch: (state, action: PayloadAction<string>) => {
+			state.search = action.payload;
 		},
 		setSelectedQuestions: (state, action: PayloadAction<string[]>) => {
 			state.selectedQuestions = action.payload;

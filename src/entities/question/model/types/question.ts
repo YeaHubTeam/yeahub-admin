@@ -38,4 +38,5 @@ export interface Question {
 
 export interface QuestionsListParams {
 	page?: number;
+	title?: string;
 }
