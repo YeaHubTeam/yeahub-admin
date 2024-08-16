@@ -37,7 +37,7 @@ export const SearchSection = ({
 				<Input
 					onChange={handleSearch}
 					className={styles.input}
-					prefix={<Icon icon={'search'} values={value} />}
+					preffix={<Icon icon={'search'} values={value} />}
 				/>
 				{showRemoveButton && (
 					<Button onClick={onRemove} theme="destructive-tertiary">
