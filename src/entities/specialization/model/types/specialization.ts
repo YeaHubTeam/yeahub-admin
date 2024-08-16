@@ -11,4 +11,5 @@ export type SpecializationFormValues = Omit<Specialization, 'id' | 'createdAt' |
 
 export interface SpecializationsListParams {
 	page?: number;
+	title?: string;
 }

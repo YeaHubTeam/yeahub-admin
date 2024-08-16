@@ -116,7 +116,7 @@
     "webpack-bundle-analyzer": "^4.10.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1",
-    "yeahub-ui-kit": "^1.0.13",
+    "yeahub-ui-kit": "^1.0.17",
     "yup": "^1.4.0"
   },
   "dependencies": {
@@ -135,8 +135,7 @@
     "react-router-dom": "^6.22.1",
     "react-transition-group": "^4.4.5",
     "rm": "^0.1.8",
-    "storybook-react-i18next": "^3.0.1",
-    "yeahub-ui-kit": "^1.0.10"
+    "storybook-react-i18next": "^3.0.1"
   },
   "loki": {
     "configurations": {

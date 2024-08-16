@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import { Button, Input, Icon } from 'yeahub-ui-kit';
@@ -23,6 +23,8 @@ export const SearchSection = ({
 }: SearchSectionProps) => {
 	const { t } = useTranslation();
 
+	const [value] = useState('');
+
 	const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
 		onSearch?.(e.target.value);
 	};
@@ -35,7 +37,7 @@ export const SearchSection = ({
 				<Input
 					onChange={handleSearch}
 					className={styles.input}
-					preffix={<Icon icon={'search'} />}
+					preffix={<Icon icon={'search'} values={value} />}
 				/>
 				{showRemoveButton && (
 					<Button onClick={onRemove} theme="destructive-tertiary">

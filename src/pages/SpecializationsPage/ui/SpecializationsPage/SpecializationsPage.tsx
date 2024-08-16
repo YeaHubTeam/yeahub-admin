@@ -1,4 +1,3 @@
-import { useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDispatch';
@@ -15,6 +14,7 @@ import { specializationsPageActions } from '@/pages/SpecializationsPage/model/sl
 import {
 	getSelectedSpecializations,
 	getSpecializationsPageNum,
+	getSpecializationsSearch,
 } from '../../model/selectors/specializationsPageSelectors';
 import { SpecializationsPagePagination } from '../SpecializationsPagePagination/SpecializationsPagePagination';
 
@@ -27,30 +27,17 @@ import styles from './SpecializationsPage.module.css';
 const SpecializationsPage = () => {
 	const dispatch = useAppDispatch();
 	const page = useSelector(getSpecializationsPageNum);
+	const search = useSelector(getSpecializationsSearch);
 	const selectedSpecializations = useSelector(getSelectedSpecializations);
 
-	const { data: specializations } = useGetSpecializationsListQuery({ page });
+	const { data: specializations } = useGetSpecializationsListQuery({ page, title: search });
 
 	const onSelectSpecializations = (ids: string[]) => {
 		dispatch(specializationsPageActions.setSelectedSpecializations(ids));
 	};
-
-	//TODO make a searchTerm based API call to search for skills across all data due to paging
-	const [searchTerm, setSearchTerm] = useState('');
-	const sortedSpecialization = useMemo(() => {
-		if (!specializations) return specializations;
-
-		const data = (specializations?.data || []).filter((skill) =>
-			skill.title.toLowerCase().includes(searchTerm.toLowerCase()),
-		);
-
-		return {
-			data,
-			total: data.length,
-			page: specializations.page,
-			limit: specializations.limit,
-		};
-	}, [searchTerm, specializations]);
+	const onChangeSearch = (value: string) => {
+		dispatch(specializationsPageActions.setSearch(value));
+	};
 
 	//TODO implement removing selected questions
 	const onRemoveSpecializations = () => {};
@@ -61,15 +48,15 @@ const SpecializationsPage = () => {
 				to="create"
 				showRemoveButton={selectedSpecializations.length > 0}
 				onRemove={onRemoveSpecializations}
-				onSearch={setSearchTerm}
+				onSearch={onChangeSearch}
 			/>
 			<Card className={styles.content}>
 				<SpecializationsTable
-					specializations={sortedSpecialization?.data}
+					specializations={specializations?.data}
 					selectedSpecializations={selectedSpecializations}
 					onSelectSpecializations={onSelectSpecializations}
 				/>
-				<SpecializationsPagePagination specializationsResponse={sortedSpecialization} />
+				<SpecializationsPagePagination specializationsResponse={specializations} />
 			</Card>
 		</Flex>
 	);
