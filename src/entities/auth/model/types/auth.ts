@@ -1,7 +1,12 @@
+export interface Profiles {
+	profileId: string;
+	specializationId: number;
+}
 export interface CurrentUser {
+	id: string;
 	firstName: string;
 	lastName: string;
-	password: string;
+	password?: string;
 	phone: string;
 	email: string;
 	country: string;
@@ -9,6 +14,11 @@ export interface CurrentUser {
 	birthday: string;
 	address: string;
 	avatarUrl: string;
+	profiles?: Profiles[];
+	createdAt?: string;
+	updatedAt?: string;
+	userRoles?: unknown[];
+	refreshToken?: string;
 }
 
 export interface LoginInput {
@@ -18,5 +28,6 @@ export interface LoginInput {
 
 export interface AuthResult {
 	access_token: string;
-	refresh_token: string;
+	refresh_token?: string;
+	user: CurrentUser;
 }

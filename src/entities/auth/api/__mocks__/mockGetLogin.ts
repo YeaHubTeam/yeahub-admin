@@ -1,48 +1,21 @@
-interface mockGetLoginType {
-	id: string;
-	firstName: string;
-	lastName: string;
-	phone: string;
-	country: string;
-	city: string;
-	email: string;
-	birthday: string;
-	address: string;
-	avatarUrl: string;
-	createdAt: string;
-	updatedAt: string;
-	refreshToken: string;
-	userRoles: [];
-	profiles: [
-		{
-			profileId: string;
-			specializationId: number;
-		},
-	];
-}
+import { AuthResult } from '../../model/types/auth';
 
-export const mockGetLogin: mockGetLoginType[] = [
+export const mockGetLogin: AuthResult[] = [
 	{
-		id: '1e2ac9b6-c87d-4c9f-8a80-82f5fbbf2a1d',
-		firstName: 'Guse',
-		lastName: 'Kazulin',
-		phone: '+1234567890',
-		country: 'AGroba',
-		city: 'Bag-dad',
-		email: 'user@example.com',
-		birthday: '1990-01-01T00:00:00.000Z',
-		address: 'улица Пушкина дом Колотушкина',
-		avatarUrl: 'https://cdn.fastcup.net/logos/teams/20989_7n1la213o.png',
-		createdAt: '2024-05-19T13:38:35.481Z',
-		updatedAt: '2024-08-16T13:46:14.315Z',
-		refreshToken:
-			'$argon2id$v=19$m=65536,t=3,p=4$gwJhVNRb+WGPJ+5leg9q8g$EfJZ3IKuibrNDs6goajfksTFU6Y2z9iz0W2HYzkdMIg',
-		userRoles: [],
-		profiles: [
-			{
-				profileId: '03499949-5ba6-44fd-8600-3edd5cf88f68',
-				specializationId: 1,
-			},
-		],
+		access_token:
+			'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxQGV4YW1wbGUuY29tIiwic3ViIjoiOTBiMjRhZGEtYjM5OC00MzYzLWI2YjItNjkyMWQ0ZTM0MGEwIiwiaWF0IjoxNzIzOTc5MjkzLCJleHAiOjE3MjQwNjU2OTN9.1HA1Ko-PXWgD0pQrsqHCjmnPVjQ4jrrOznWR0W1Ir-M',
+		user: {
+			id: '90b24ada-b398-4363-b6b2-6921d4e340a0',
+			firstName: 'John1',
+			lastName: 'Doe2',
+			phone: '+1234567810',
+			email: 'user1@example.com',
+			country: 'USA',
+			city: 'New York',
+			birthday: 'null',
+			address: '123 Main St',
+			avatarUrl: 'null',
+			password: '',
+		},
 	},
 ];
