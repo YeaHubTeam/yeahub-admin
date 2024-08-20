@@ -37,7 +37,7 @@ export const SpecializationCard = ({ specialization }: SpecializationCardProps) 
 				</Card>
 				<Card withShadow>
 					<h2 className={classNames(styles['title-description'])}>
-						{t(Translations.SPECIALIZATION_TITLE)}
+						{t(Translations.SPECIALIZATION_DESCRIPTION)}
 					</h2>
 					<p>{specialization.description}</p>
 				</Card>
