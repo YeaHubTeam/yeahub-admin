@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 
 import { Translations } from '@/shared/config/i18n/i18nTranslations';
@@ -6,6 +7,8 @@ import { Flex } from '@/shared/ui/Flex';
 
 import { Specialization } from '../../model/types/specialization';
 
+import styles from './SpecializationCard.module.css';
+
 interface SpecializationCardProps {
 	specialization: Specialization;
 }
@@ -13,25 +16,32 @@ interface SpecializationCardProps {
 export const SpecializationCard = ({ specialization }: SpecializationCardProps) => {
 	const { t } = useTranslation('specialization');
 
-	const specializationInfoFields = [
-		{
-			label: t(Translations.SPECIALIZATION_TITLE),
-			value: specialization.title,
-		},
-		{
-			label: t(Translations.SPECIALIZATION_DESCRIPTION),
-			value: specialization.description,
-		},
-	];
-
 	return (
-		<Card>
-			{specializationInfoFields.map((field) => (
-				<Flex gap="24" align="center" key={field.label}>
-					<div>{field.label}</div>
-					<div>{field.value}</div>
-				</Flex>
-			))}
-		</Card>
+		<Flex>
+			<Flex direction="column" gap="24" style={{ flex: '0 1 740px' }}>
+				<Card withShadow className={classNames(styles['title-block'])}>
+					<Flex gap="16">
+						<div className={classNames(styles['title-img-block'])}>
+							{specialization?.imageSrc && (
+								<img
+									className={classNames(styles['title-img-block-image'])}
+									src={specialization.imageSrc}
+									alt="img"
+								/>
+							)}
+						</div>
+						<Flex maxWidth direction="column">
+							<h1 className={classNames(styles['title-block-title'])}>{specialization.title}</h1>
+						</Flex>
+					</Flex>
+				</Card>
+				<Card withShadow>
+					<h2 className={classNames(styles['title-description'])}>
+						{t(Translations.SPECIALIZATION_DESCRIPTION)}
+					</h2>
+					<p>{specialization.description}</p>
+				</Card>
+			</Flex>
+		</Flex>
 	);
 };

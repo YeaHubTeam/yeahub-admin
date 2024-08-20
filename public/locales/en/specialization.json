@@ -1,7 +1,7 @@
 {
   "specialization": {
     "title": "Title",
-    "description": "Description",
+    "description": "Specializations description",
     "not.items": "No specializations",
     "image.src": "Image url",
     "create.page.title": "Creating new specialization",
