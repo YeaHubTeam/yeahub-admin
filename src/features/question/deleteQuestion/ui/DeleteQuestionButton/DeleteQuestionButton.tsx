@@ -1,4 +1,4 @@
-import { Icon } from 'yeahub-ui-kit';
+import { Icon, IconButton } from 'yeahub-ui-kit';
 
 import { Question } from '@/entities/question';
 
@@ -15,5 +15,11 @@ export const DeleteQuestionButton = ({ questionId }: DeleteQuestionButtonProps) 
 		await deleteQuestionMutation(questionId);
 	};
 
-	return <Icon onClick={onDeleteQuestion} icon="trash" size={20} color="--palette-ui-red-600" />;
+	return (
+		<IconButton
+			aria-label="Large"
+			icon={<Icon onClick={onDeleteQuestion} icon="trash" size={20} color="--palette-ui-red-600" />}
+			theme="link"
+		/>
+	);
 };
