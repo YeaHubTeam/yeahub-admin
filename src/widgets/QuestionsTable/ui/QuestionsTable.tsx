@@ -11,6 +11,8 @@ import { Question } from '@/entities/question';
 
 import { DeleteQuestionButton } from '@/features/question/deleteQuestion';
 
+import style from './QuestionsTable.module.css';
+
 interface QuestionsTableProps {
 	questions?: Question[];
 	selectedQuestions?: string[];
@@ -22,7 +24,7 @@ export const QuestionsTable = ({
 	selectedQuestions,
 	onSelectQuestions,
 }: QuestionsTableProps) => {
-	const [openPopovers, setOpenPopovers] = useState(false);
+	const [openPopovers, setOpenPopovers] = useState<string | null>(null);
 
 	const { t } = useTranslation('question');
 
@@ -57,51 +59,53 @@ export const QuestionsTable = ({
 	};
 
 	const renderActions = (question: Question) => {
-		const toggleActions = (questionId: string) => {
-			console.log('questionId: ', question);
-			if (question.id === questionId) {
-				setOpenPopovers((prev) => (prev = !prev));
-			}
+		const openActions = () => {
+			setOpenPopovers(question.id);
 		};
 
 		const closeActions = () => {
-			console.log('closeActions called');
-			setOpenPopovers(false);
+			setOpenPopovers(null);
 		};
 
 		return (
 			<Flex gap="4">
 				<Popover
+					placement="bottom-start"
 					body={
-						<div style={{ display: 'flex' }}>
+						<div>
 							<NavLink to={`/questions/${question.id}`}>
-								<IconButton
-									aria-label="Large"
-									icon={<Icon icon="eye" size={20} color={'--palette-ui-purple-700'} />}
-									theme="link"
-								/>
+								<Flex align="center" gap="4">
+									<IconButton
+										aria-label="Large"
+										icon={<Icon icon="eye" size={20} color={'--palette-ui-purple-700'} />}
+										theme="tertiary"
+									/>
+									<span className={style['text-color']}>{t(Translations.QUESTION_WATCH)}</span>
+								</Flex>
 							</NavLink>
 							<NavLink to={`/questions/${question.id}/edit`}>
-								<IconButton
-									aria-label="Large"
-									icon={<Icon icon="pencil" size={20} color={'--palette-ui-purple-700'} />}
-									theme="link"
-								/>
+								<Flex align="center" gap="4">
+									<IconButton
+										aria-label="Large"
+										icon={<Icon icon="pencil" size={20} color={'--palette-ui-purple-700'} />}
+										theme="tertiary"
+									/>
+									<span className={style['text-color']}>{t(Translations.QUESTION_EDIT)}</span>
+								</Flex>
 							</NavLink>
-							<DeleteQuestionButton questionId={question.id} />
+							<DeleteQuestionButton questionId={question.id} withText />
 						</div>
 					}
-					isOpen={openPopovers}
-					onClickOutside={() => {
-						closeActions();
-					}}
+					isOpen={openPopovers === question.id}
+					onClickOutside={closeActions}
 				>
 					<div>
 						<IconButton
-							onClick={() => toggleActions(question.id)}
+							theme="tertiary"
+							onClick={() => openActions()}
 							aria-label="Large"
 							icon={<Icon icon="dotsThreeVertical" size={20} />}
-						></IconButton>
+						/>
 					</div>
 				</Popover>
 			</Flex>

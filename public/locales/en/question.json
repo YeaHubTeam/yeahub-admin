@@ -1,6 +1,9 @@
 {
   "question": {
     "title": "Title",
+    "delete": "Delete",
+    "watch": "Watch",
+    "edit": "Edit",
     "description": "Description",
     "short.answer": "Short answer",
     "long.answer": "Long answer",
