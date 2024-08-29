@@ -2,7 +2,7 @@
   "question": {
     "title": "Title",
     "delete": "Delete",
-    "watch": "Watch",
+    "show": "Show",
     "edit": "Edit",
     "description": "Description",
     "short.answer": "Short answer",

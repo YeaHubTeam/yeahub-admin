@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
-import { Icon, IconButton, Popover } from 'yeahub-ui-kit';
+import { Icon, Button, Popover, IconButton } from 'yeahub-ui-kit';
 
 import { Translations } from '@/shared/config/i18n/i18nTranslations';
 import { Flex } from '@/shared/ui/Flex';
@@ -10,8 +10,6 @@ import { Table } from '@/shared/ui/Table';
 import { Question } from '@/entities/question';
 
 import { DeleteQuestionButton } from '@/features/question/deleteQuestion';
-
-import style from './QuestionsTable.module.css';
 
 interface QuestionsTableProps {
 	questions?: Question[];
@@ -75,25 +73,27 @@ export const QuestionsTable = ({
 						<div>
 							<NavLink to={`/questions/${question.id}`}>
 								<Flex align="center" gap="4">
-									<IconButton
+									<Button
 										aria-label="Large"
-										icon={<Icon icon="eye" size={20} color={'--palette-ui-purple-700'} />}
+										preffix={<Icon icon="eye" size={20} color={'--palette-ui-purple-700'} />}
 										theme="tertiary"
-									/>
-									<span className={style['text-color']}>{t(Translations.QUESTION_WATCH)}</span>
+									>
+										{t(Translations.QUESTION_SHOW)}
+									</Button>
 								</Flex>
 							</NavLink>
 							<NavLink to={`/questions/${question.id}/edit`}>
 								<Flex align="center" gap="4">
-									<IconButton
+									<Button
 										aria-label="Large"
-										icon={<Icon icon="pencil" size={20} color={'--palette-ui-purple-700'} />}
+										preffix={<Icon icon="pencil" size={20} color={'--palette-ui-purple-700'} />}
 										theme="tertiary"
-									/>
-									<span className={style['text-color']}>{t(Translations.QUESTION_EDIT)}</span>
+									>
+										{t(Translations.QUESTION_EDIT)}
+									</Button>
 								</Flex>
 							</NavLink>
-							<DeleteQuestionButton questionId={question.id} withText />
+							<DeleteQuestionButton questionId={question.id} />
 						</div>
 					}
 					isOpen={openPopovers === question.id}
@@ -102,7 +102,7 @@ export const QuestionsTable = ({
 					<div>
 						<IconButton
 							theme="tertiary"
-							onClick={() => openActions()}
+							onClick={openActions}
 							aria-label="Large"
 							icon={<Icon icon="dotsThreeVertical" size={20} />}
 						/>

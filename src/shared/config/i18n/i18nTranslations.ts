@@ -16,7 +16,7 @@ export enum Translations {
 	 */
 	QUESTION_TITLE = 'question.title',
 	QUESTION_DELETE = 'question.delete',
-	QUESTION_WATCH = 'question.watch',
+	QUESTION_SHOW = 'question.show',
 	QUESTION_EDIT = 'question.edit',
 	QUESTION_DESCRIPTION = 'question.description',
 	QUESTION_SHORT_ANSWER = 'question.short.answer',
