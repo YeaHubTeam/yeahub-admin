@@ -39,8 +39,6 @@ export const QuestionsTable = ({
 		return Object.entries(columns)?.map(([k, v]) => <td key={k}>{v}</td>);
 	};
 
-	// console.log('question.createdBy: ', questions);
-
 	const renderTableBody = (question: Question) => {
 		const fullName = `${JSON.parse(question?.createdBy).firstName} ${JSON.parse(question?.createdBy).lastName}`;
 
@@ -74,6 +72,7 @@ export const QuestionsTable = ({
 							<NavLink to={`/questions/${question.id}`}>
 								<Flex align="center" gap="4">
 									<Button
+										style={{ width: 'auto' }}
 										aria-label="Large"
 										preffix={<Icon icon="eye" size={20} color={'--palette-ui-purple-700'} />}
 										theme="tertiary"
@@ -85,6 +84,7 @@ export const QuestionsTable = ({
 							<NavLink to={`/questions/${question.id}/edit`}>
 								<Flex align="center" gap="4">
 									<Button
+										style={{ width: 'auto' }}
 										aria-label="Large"
 										preffix={<Icon icon="pencil" size={20} color={'--palette-ui-purple-700'} />}
 										theme="tertiary"
