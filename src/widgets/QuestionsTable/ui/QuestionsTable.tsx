@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
-import { Icon } from 'yeahub-ui-kit';
+import { Icon, Button, Popover, IconButton } from 'yeahub-ui-kit';
 
 import { Translations } from '@/shared/config/i18n/i18nTranslations';
 import { Flex } from '@/shared/ui/Flex';
@@ -21,12 +22,16 @@ export const QuestionsTable = ({
 	selectedQuestions,
 	onSelectQuestions,
 }: QuestionsTableProps) => {
+	const [openPopovers, setOpenPopovers] = useState<string | null>(null);
+
 	const { t } = useTranslation('question');
 
 	const renderTableHeader = () => {
 		const columns = {
+			author: t(Translations.QUESTION_AUTHOR),
 			title: t(Translations.QUESTION_TITLE),
 			description: t(Translations.QUESTION_DESCRIPTION),
+			complexity: t(Translations.QUESTION_COMPLEXITY),
 			rate: t(Translations.QUESTION_RATE),
 			skills: t(Translations.QUESTION_SKILLS),
 		};
@@ -35,9 +40,13 @@ export const QuestionsTable = ({
 	};
 
 	const renderTableBody = (question: Question) => {
+		const fullName = `${JSON.parse(question?.createdBy).firstName} ${JSON.parse(question?.createdBy).lastName}`;
+
 		const columns = {
+			author: fullName,
 			title: question.title,
 			description: question.description,
+			complexity: question.complexity,
 			rate: question.rate,
 			skills: question.questionSkills?.map((skill) => skill.title).join(', '),
 		};
@@ -46,15 +55,59 @@ export const QuestionsTable = ({
 	};
 
 	const renderActions = (question: Question) => {
+		const openActions = () => {
+			setOpenPopovers(question.id);
+		};
+
+		const closeActions = () => {
+			setOpenPopovers(null);
+		};
+
 		return (
 			<Flex gap="4">
-				<NavLink to={`/questions/${question.id}`}>
-					<Icon icon="eye" size={20} color={'--palette-ui-purple-700'} />
-				</NavLink>
-				<NavLink to={`/questions/${question.id}/edit`}>
-					<Icon icon="pencil" size={20} color={'--palette-ui-purple-700'} />
-				</NavLink>
-				<DeleteQuestionButton questionId={question.id} />
+				<Popover
+					placement="bottom-start"
+					body={
+						<div>
+							<NavLink to={`/questions/${question.id}`}>
+								<Flex align="center" gap="4">
+									<Button
+										style={{ width: 'auto' }}
+										aria-label="Large"
+										preffix={<Icon icon="eye" size={20} color={'--palette-ui-purple-700'} />}
+										theme="tertiary"
+									>
+										{t(Translations.QUESTION_SHOW)}
+									</Button>
+								</Flex>
+							</NavLink>
+							<NavLink to={`/questions/${question.id}/edit`}>
+								<Flex align="center" gap="4">
+									<Button
+										style={{ width: 'auto' }}
+										aria-label="Large"
+										preffix={<Icon icon="pencil" size={20} color={'--palette-ui-purple-700'} />}
+										theme="tertiary"
+									>
+										{t(Translations.QUESTION_EDIT)}
+									</Button>
+								</Flex>
+							</NavLink>
+							<DeleteQuestionButton questionId={question.id} />
+						</div>
+					}
+					isOpen={openPopovers === question.id}
+					onClickOutside={closeActions}
+				>
+					<div>
+						<IconButton
+							theme="tertiary"
+							onClick={openActions}
+							aria-label="Large"
+							icon={<Icon icon="dotsThreeVertical" size={20} />}
+						/>
+					</div>
+				</Popover>
 			</Flex>
 		);
 	};

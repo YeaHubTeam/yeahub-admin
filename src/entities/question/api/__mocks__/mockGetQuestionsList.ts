@@ -11,6 +11,7 @@ export const mockGetQuestionsList: Question[] = [
 		keywords: ['task', 'tag1'],
 		resources: ['resource1'],
 		author: 'Author A',
+		createdBy: 'Author A',
 		type: 'task',
 	},
 	{
@@ -23,6 +24,7 @@ export const mockGetQuestionsList: Question[] = [
 		keywords: ['question', 'tag2'],
 		resources: ['resource2'],
 		author: 'Author B',
+		createdBy: 'Author B',
 		type: 'question',
 		criteria: 'Criteria for question 1',
 	},
@@ -36,6 +38,7 @@ export const mockGetQuestionsList: Question[] = [
 		keywords: ['test', 'tag3'],
 		resources: ['resource3'],
 		author: 'Author C',
+		createdBy: 'Author C',
 		type: 'test',
 		options: [
 			{ id: 1, answer: 'Option 1' },
@@ -57,6 +60,7 @@ export const mockGetQuestionsList: Question[] = [
 		keywords: ['task', 'tag4'],
 		resources: ['resource4'],
 		author: 'Author D',
+		createdBy: 'Author D',
 		type: 'task',
 	},
 	{
@@ -69,6 +73,7 @@ export const mockGetQuestionsList: Question[] = [
 		keywords: ['question', 'tag5'],
 		resources: ['resource5'],
 		author: 'Author E',
+		createdBy: 'Author E',
 		type: 'question',
 		criteria: 'Criteria for question 2',
 	},
@@ -82,6 +87,7 @@ export const mockGetQuestionsList: Question[] = [
 		keywords: ['test', 'tag6'],
 		resources: ['resource6'],
 		author: 'Author F',
+		createdBy: 'Author F',
 		type: 'test',
 		options: [
 			{ id: 1, answer: 'Option 1' },
@@ -103,6 +109,7 @@ export const mockGetQuestionsList: Question[] = [
 		keywords: ['task', 'tag7'],
 		resources: ['resource7'],
 		author: 'Author G',
+		createdBy: 'Author G',
 		type: 'task',
 	},
 	{
@@ -115,6 +122,7 @@ export const mockGetQuestionsList: Question[] = [
 		keywords: ['question', 'tag8'],
 		resources: ['resource8'],
 		author: 'Author H',
+		createdBy: 'Author H',
 		type: 'question',
 		criteria: 'Criteria for question 3',
 	},
@@ -128,6 +136,7 @@ export const mockGetQuestionsList: Question[] = [
 		keywords: ['test', 'tag9'],
 		resources: ['resource9'],
 		author: 'Author I',
+		createdBy: 'Author I',
 		type: 'test',
 		options: [
 			{ id: 1, answer: 'Option 1' },
@@ -148,6 +157,7 @@ export const mockGetQuestionsList: Question[] = [
 		keywords: ['test', 'tag9'],
 		resources: ['resource9'],
 		author: 'Author I',
+		createdBy: 'Author I',
 		type: 'test',
 		options: [
 			{ id: 1, answer: 'Option 1' },
@@ -168,6 +178,7 @@ export const mockGetQuestionsList: Question[] = [
 		keywords: ['test', 'tag9'],
 		resources: ['resource9'],
 		author: 'Author I',
+		createdBy: 'Author I',
 		type: 'test',
 		options: [
 			{ id: 1, answer: 'Option 1' },
@@ -188,6 +199,7 @@ export const mockGetQuestionsList: Question[] = [
 		keywords: ['test', 'tag9'],
 		resources: ['resource9'],
 		author: 'Author I',
+		createdBy: 'Author I',
 		type: 'test',
 		options: [
 			{ id: 1, answer: 'Option 1' },
@@ -208,6 +220,7 @@ export const mockGetQuestionsList: Question[] = [
 		keywords: ['test', 'tag9'],
 		resources: ['resource9'],
 		author: 'Author I',
+		createdBy: 'Author I',
 		type: 'test',
 		options: [
 			{ id: 1, answer: 'Option 1' },
@@ -228,6 +241,7 @@ export const mockGetQuestionsList: Question[] = [
 		keywords: ['test', 'tag9'],
 		resources: ['resource9'],
 		author: 'Author I',
+		createdBy: 'Author I',
 		type: 'test',
 		options: [
 			{ id: 1, answer: 'Option 1' },

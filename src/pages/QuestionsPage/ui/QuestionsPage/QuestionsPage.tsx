@@ -47,6 +47,7 @@ const QuestionsPage = () => {
 		<Flex componentType="main" direction="column" gap="24">
 			<Card className={styles.content}>
 				<SearchSection
+					// className={styles['search-section']}
 					to="create"
 					showRemoveButton={selectedQuestions.length > 0}
 					onRemove={onRemoveQuestions}
