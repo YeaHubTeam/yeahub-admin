@@ -1,11 +1,13 @@
 import { useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { Input, TextEditor, Range, Text, Select, TextArea } from 'yeahub-ui-kit';
+import { Input, Range, Select, Text, TextArea, TextEditor } from 'yeahub-ui-kit';
 
 import { Translations } from '@/shared/config/i18n/i18nTranslations';
 import { Flex } from '@/shared/ui/Flex';
 import { FormControl } from '@/shared/ui/FormControl';
 
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { Keyword } from '@/entities/Keyword';
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { SkillSelect } from '@/entities/skill';
 
@@ -53,6 +55,15 @@ export const QuestionForm = () => {
 			</Flex>
 			<Flex gap={'32'}>
 				<Flex direction="column" justify="center" className={styles.titles}>
+					<Text title={t(Translations.QUESTION_COMPLEXITY)} />
+					<Text text={t(Translations.QUESTION_COMPLEXITY)} className={styles.label} />
+				</Flex>
+				<FormControl name="complexity" control={control} className={styles.rate}>
+					{(field) => <Range min={1} max={5} step={1} hasScale {...field} />}
+				</FormControl>
+			</Flex>
+			<Flex gap={'32'}>
+				<Flex direction="column" justify="center" className={styles.titles}>
 					<Text title={t(Translations.QUESTION_STATUS)} />
 					<Text text={t(Translations.QUESTION_SELECT_STATUS)} className={styles.label} />
 				</Flex>
@@ -84,7 +95,22 @@ export const QuestionForm = () => {
 						);
 					}}
 				</FormControl>
-				{}
+			</Flex>
+			<Flex gap={'32'}>
+				<Flex direction="column" className={styles.titles}>
+					<Text title={t(Translations.QUESTION_KEYWORDS)} />
+					<Text text={t(Translations.QUESTION_KEYWORDS)} className={styles.label} />
+				</Flex>
+				<FormControl name="keywords" control={control}>
+					{({ onChange, value }) => {
+						console.log('typeof value: ', typeof value);
+						return (
+							<div className={styles.select}>
+								<Keyword value={value} onChange={onChange} />
+							</div>
+						);
+					}}
+				</FormControl>
 			</Flex>
 			<Flex direction="column">
 				<Text title={t(Translations.QUESTION_SHORT_ANSWER)} />
