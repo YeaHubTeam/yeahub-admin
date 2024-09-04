@@ -30,8 +30,8 @@ export const KeywordInput = ({ value = [], onChange }: KeywordInputProps) => {
 
 	const handleDeleteKeywords = useCallback(
 		(selectedKeyword: string) => () => {
-			setKeywordsArray((prevValue) => prevValue.filter((keyword) => keyword !== selectedKeyword));
-			onChange(keywordsArray);
+			const newKeywordsArray = keywordsArray.filter((keyword) => keyword !== selectedKeyword);
+			onChange(newKeywordsArray);
 		},
 		[keywordsArray, onChange],
 	);
@@ -43,7 +43,6 @@ export const KeywordInput = ({ value = [], onChange }: KeywordInputProps) => {
 				value={keywords}
 				onChange={(e) => setKeywords(e.target.value)}
 				onKeyDown={handleKeyDown}
-				style={{ color: '#000' }}
 			/>
 			<Flex gap="16" direction="column">
 				<h4>{t(Translations.QUESTION_KEYWORDS)}</h4>
