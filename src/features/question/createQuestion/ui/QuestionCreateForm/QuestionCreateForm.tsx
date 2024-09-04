@@ -16,7 +16,8 @@ export const QuestionCreateForm = () => {
 	const methods = useForm<QuestionCreateSchema>({
 		defaultValues: {
 			status: 'public',
-			rate: 1,
+			rate: 5,
+			complexity: 1,
 		},
 		resolver: yupResolver(questionCreateSchema),
 		mode: 'onTouched',

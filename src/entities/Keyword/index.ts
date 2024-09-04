@@ -1,1 +1,1 @@
-export { Keyword } from './KeywordComponent/Keyword';
+export { KeywordInput } from './ui/KeywordInput/KeywordInput';

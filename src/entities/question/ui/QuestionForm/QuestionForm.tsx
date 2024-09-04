@@ -7,7 +7,7 @@ import { Flex } from '@/shared/ui/Flex';
 import { FormControl } from '@/shared/ui/FormControl';
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { Keyword } from '@/entities/Keyword';
+import { KeywordInput } from '@/entities/keyword';
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { SkillSelect } from '@/entities/skill';
 
@@ -50,7 +50,7 @@ export const QuestionForm = () => {
 					<Text text={t(Translations.QUESTION_SELECT_RATE)} className={styles.label} />
 				</Flex>
 				<FormControl name="rate" control={control} className={styles.rate}>
-					{(field) => <Range min={1} max={10} step={1} hasScale {...field} />}
+					{(field) => <Range min={1} max={5} step={1} hasScale {...field} />}
 				</FormControl>
 			</Flex>
 			<Flex gap={'32'}>
@@ -59,7 +59,7 @@ export const QuestionForm = () => {
 					<Text text={t(Translations.QUESTION_COMPLEXITY)} className={styles.label} />
 				</Flex>
 				<FormControl name="complexity" control={control} className={styles.rate}>
-					{(field) => <Range min={1} max={5} step={1} hasScale {...field} />}
+					{(field) => <Range min={1} max={10} step={1} hasScale {...field} />}
 				</FormControl>
 			</Flex>
 			<Flex gap={'32'}>
@@ -103,10 +103,9 @@ export const QuestionForm = () => {
 				</Flex>
 				<FormControl name="keywords" control={control}>
 					{({ onChange, value }) => {
-						console.log('typeof value: ', typeof value);
 						return (
 							<div className={styles.select}>
-								<Keyword value={value} onChange={onChange} />
+								<KeywordInput value={value} onChange={onChange} />
 							</div>
 						);
 					}}
