@@ -4,12 +4,13 @@
 
 
 .text {
-    color: var(--color-purple-700)
+    color: var(--color-purple-700);
+    line-height: 25.6px;
 }
 
 .button {
     position: absolute;
-    top: -12px;
+    top: -3px;
     right: -15px;
     padding-inline: 5px;
     border: none;
