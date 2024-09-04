@@ -7,13 +7,13 @@ import { StoreProvider } from '@/app/providers/store';
 
 async function enableMocking() {
 	const { worker } = await import('./app/msw/browser');
-	if (process.env.NODE_ENV !== 'development') {
-		return;
-	}
-	if (!!process.env.REACT_APP_BACKEND_AVAILABLE === true) {
-		return worker.stop();
-	}
-	// return worker.start();
+	// if (process.env.NODE_ENV !== 'development') {
+	// 	return;
+	// }
+	// if (!!process.env.REACT_APP_BACKEND_AVAILABLE === true) {
+	// 	return worker.stop();
+	// }
+	return worker.start();
 }
 
 const root = document.getElementById('root');

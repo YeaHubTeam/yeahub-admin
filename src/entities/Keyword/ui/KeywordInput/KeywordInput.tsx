@@ -6,21 +6,23 @@ import { Translations } from '@/shared/config/i18n/i18nTranslations';
 import { Flex } from '@/shared/ui/Flex';
 import { SimpleChip } from '@/shared/ui/SimpleChip';
 
-type KeywordProps = {
+type KeywordInputProps = {
 	value: string[];
 	onChange: (value: string[]) => void;
 };
 
-export const KeywordInput = ({ value = [], onChange }: KeywordProps) => {
+export const KeywordInput = ({ value = [], onChange }: KeywordInputProps) => {
 	const [keywords, setKeywords] = useState('');
 	const [keywordsArray, setKeywordsArray] = useState<string[]>(value);
+	console.log('keywordsArray: ', keywordsArray);
 	const { t } = useTranslation('question');
 
 	const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
 		if (event.key === 'Enter' && keywords.trim()) {
 			if (!keywordsArray.includes(keywords)) {
-				setKeywordsArray((prev) => [...prev, keywords]);
-				onChange([...keywordsArray, keywords]);
+				const newKeywordsArray = [...keywordsArray, keywords];
+				setKeywordsArray(newKeywordsArray);
+				onChange(newKeywordsArray);
 				setKeywords('');
 			}
 		}

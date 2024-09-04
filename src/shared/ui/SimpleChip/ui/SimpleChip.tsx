@@ -3,11 +3,12 @@ import React from 'react';
 import { Flex } from '../../Flex';
 
 import styles from './SimpleChip.module.css';
-interface Props {
+
+interface SimpleChipProps {
 	children: React.ReactNode;
 	onDelete: () => void;
 }
-export const SimpleChip = ({ children, onDelete, ...other }: Props) => {
+export const SimpleChip = ({ children, onDelete, ...other }: SimpleChipProps) => {
 	return (
 		<Flex direction="row" {...other} className={styles.container}>
 			<span className={styles.text}>{children}</span>
