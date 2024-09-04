@@ -14,7 +14,6 @@ type KeywordInputProps = {
 export const KeywordInput = ({ value = [], onChange }: KeywordInputProps) => {
 	const [keywords, setKeywords] = useState('');
 	const [keywordsArray, setKeywordsArray] = useState<string[]>(value);
-	console.log('keywordsArray: ', keywordsArray);
 	const { t } = useTranslation('question');
 
 	const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
