@@ -7,7 +7,7 @@ import { Flex } from '@/shared/ui/Flex';
 import { FormControl } from '@/shared/ui/FormControl';
 
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { KeywordInput } from '@/entities/keyword';
+import { KeywordInput } from '@/entities/Keyword';
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { SkillSelect } from '@/entities/skill';
 

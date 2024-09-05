@@ -15,8 +15,6 @@ export const KeywordInput = ({ value = [], onChange }: KeywordInputProps) => {
 	const [keywords, setKeywords] = useState('');
 	const [keywordsArray, setKeywordsArray] = useState<string[]>(value);
 	const { t } = useTranslation('question');
-	console.log('t: ', t);
-
 	const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
 		if (event.key === 'Enter' && keywords.trim()) {
 			if (!keywordsArray.includes(keywords)) {
