@@ -40,7 +40,7 @@ export const KeywordInput = ({ value = [], onChange }: KeywordInputProps) => {
 		<Flex gap="24" direction="column">
 			<Input type="text" value={keywords} onChange={changeHandler} onKeyDown={handleKeyDown} />
 			<Flex gap="16" direction="column">
-				{keywordsArray?.length && (
+				{keywordsArray?.length > 0 && (
 					<>
 						<h4>{t(Translations.QUESTION_KEYWORDS)}</h4>
 						<Flex direction="row" gap="32">
