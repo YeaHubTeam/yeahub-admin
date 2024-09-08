@@ -1,4 +1,4 @@
-import { KeyboardEvent, useCallback, useState } from 'react';
+import { ChangeEvent, KeyboardEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'yeahub-ui-kit';
 
@@ -26,34 +26,39 @@ export const KeywordInput = ({ value = [], onChange }: KeywordInputProps) => {
 		}
 	};
 
-	const handleDeleteKeywords = useCallback(
-		(selectedKeyword: string) => () => {
-			const newKeywordsArray = keywordsArray.filter((keyword) => keyword !== selectedKeyword);
-			onChange(newKeywordsArray);
-		},
-		[keywordsArray, onChange],
-	);
+	const handleDeleteKeywords = (selectedKeyword: string) => {
+		const newKeywordsArray = keywordsArray.filter((keyword) => keyword !== selectedKeyword);
+		setKeywordsArray(newKeywordsArray);
+		onChange(newKeywordsArray);
+	};
+
+	const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+		setKeywords(e.target.value);
+	};
 
 	return (
 		<Flex gap="24" direction="column">
-			<Input
-				type="text"
-				value={keywords}
-				onChange={(e) => setKeywords(e.target.value)}
-				onKeyDown={handleKeyDown}
-			/>
+			<Input type="text" value={keywords} onChange={changeHandler} onKeyDown={handleKeyDown} />
 			<Flex gap="16" direction="column">
-				<h4>{t(Translations.QUESTION_KEYWORDS)}</h4>
-				<Flex direction="row" gap="32">
-					{keywordsArray?.length > 0 &&
-						keywordsArray.map((keyword) => {
-							return (
-								<SimpleChip key={keyword} onDelete={handleDeleteKeywords(keyword)}>
-									{keyword}
-								</SimpleChip>
-							);
-						})}
-				</Flex>
+				{keywordsArray?.length && (
+					<>
+						<h4>{t(Translations.QUESTION_KEYWORDS)}</h4>
+						<Flex direction="row" gap="32">
+							{keywordsArray.map((keyword) => {
+								return (
+									<SimpleChip
+										key={keyword}
+										onDelete={() => {
+											handleDeleteKeywords(keyword);
+										}}
+									>
+										{keyword}
+									</SimpleChip>
+								);
+							})}
+						</Flex>
+					</>
+				)}
 			</Flex>
 		</Flex>
 	);
