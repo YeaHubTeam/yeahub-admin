@@ -16,9 +16,10 @@ export const KeywordInput = ({ value = [], onChange }: KeywordInputProps) => {
 	const [keywordsArray, setKeywordsArray] = useState<string[]>(value);
 	const { t } = useTranslation('question');
 	const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-		if (event.key === 'Enter' && keywords.trim()) {
+		const enteredKeywords = keywords.toLocaleLowerCase().trim();
+		if (event.key === 'Enter' && enteredKeywords) {
 			if (!keywordsArray.includes(keywords)) {
-				const newKeywordsArray = [...keywordsArray, keywords];
+				const newKeywordsArray = [...keywordsArray, enteredKeywords];
 				setKeywordsArray(newKeywordsArray);
 				onChange(newKeywordsArray);
 				setKeywords('');
@@ -27,7 +28,7 @@ export const KeywordInput = ({ value = [], onChange }: KeywordInputProps) => {
 	};
 
 	const handleDeleteKeywords = (selectedKeyword: string) => {
-		const newKeywordsArray = keywordsArray.filter((keyword) => keyword !== selectedKeyword);
+		const newKeywordsArray = keywordsArray.filter((keyword) => keyword != selectedKeyword);
 		setKeywordsArray(newKeywordsArray);
 		onChange(newKeywordsArray);
 	};
