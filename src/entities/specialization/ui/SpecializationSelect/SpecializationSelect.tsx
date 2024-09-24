@@ -11,6 +11,10 @@ interface SpecializationSelectProps {
 export const SpecializationSelect = ({ onChange, value }: SpecializationSelectProps) => {
 	const { data: specializationsList } = useGetSpecializationsListQuery({});
 
+	const onChangeHandler = (value?: string) => {
+		onChange([String(value)]);
+	};
+
 	const options = useMemo(() => {
 		return (specializationsList?.data || []).map((specialization) => ({
 			label: specialization.title,
@@ -20,7 +24,7 @@ export const SpecializationSelect = ({ onChange, value }: SpecializationSelectPr
 
 	return (
 		<Select
-			onChange={(value) => onChange([String(value)])}
+			onChange={onChangeHandler}
 			options={options}
 			type="default"
 			placeholder={'No available options'}
