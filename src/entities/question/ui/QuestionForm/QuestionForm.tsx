@@ -10,6 +10,8 @@ import { FormControl } from '@/shared/ui/FormControl';
 import { KeywordInput } from '@/entities/Keyword';
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { SkillSelect } from '@/entities/skill';
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
+import { SpecializationSelect } from '@/entities/specialization';
 
 import { STATUSES } from '../../model/constants';
 
@@ -77,6 +79,19 @@ export const QuestionForm = () => {
 								placeholder={'Select status'}
 								options={STATUSES}
 							/>
+						</div>
+					)}
+				</FormControl>
+			</Flex>
+			<Flex gap={'32'}>
+				<Flex direction="column" justify="center" className={styles.titles}>
+					<Text title={t(Translations.QUESTION_SPECIALIZATION)} />
+					<Text text={t(Translations.QUESTION_SELECT_SPECIALIZATION)} className={styles.label} />
+				</Flex>
+				<FormControl name="specializations" control={control}>
+					{({ onChange, value }) => (
+						<div className={styles.select}>
+							<SpecializationSelect onChange={onChange} value={value} />
 						</div>
 					)}
 				</FormControl>

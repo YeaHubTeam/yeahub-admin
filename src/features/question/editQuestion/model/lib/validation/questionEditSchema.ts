@@ -10,4 +10,5 @@ export const questionEditSchema = yup.object().shape({
 		.number()
 		.transform((value) => (Number.isNaN(value) ? null : value))
 		.required(),
+	specializations: yup.array().required(),
 });
