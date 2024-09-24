@@ -85,10 +85,10 @@ export const QuestionForm = () => {
 			</Flex>
 			<Flex gap={'32'}>
 				<Flex direction="column" justify="center" className={styles.titles}>
-					<Text title="Специализация" />
-					<Text text="Специализаци" className={styles.label} />
+					<Text title={t(Translations.QUESTION_SPECIALIZATION)} />
+					<Text text={t(Translations.QUESTION_SELECT_SPECIALIZATION)} className={styles.label} />
 				</Flex>
-				<FormControl name="specialization" control={control}>
+				<FormControl name="specializations" control={control}>
 					{({ onChange, value }) => (
 						<div className={styles.select}>
 							<SpecializationSelect onChange={onChange} value={value} />

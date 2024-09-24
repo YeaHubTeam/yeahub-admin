@@ -32,6 +32,8 @@ export enum Translations {
 	QUESTION_TYPE = 'question.type',
 	QUESTION_SKILLS = 'question.skills',
 	QUESTION_SELECT_SKILLS = 'question.select.skills',
+	QUESTION_SPECIALIZATION = 'question.specialization',
+	QUESTION_SELECT_SPECIALIZATION = 'question.select.specialization',
 	QUESTION_CREATE_PAGE_TITLE = 'question.create.page.title',
 	QUESTION_EDIT_PAGE_TITLE = 'question.edit.page.title',
 	QUESTION_ADD_QUESTION = 'question.add.question',
