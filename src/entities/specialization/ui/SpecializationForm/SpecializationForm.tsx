@@ -27,11 +27,6 @@ export const SpecializationForm = () => {
 				<input className={styles.input} {...register('description')} />
 			</Flex>
 			{errors.description ? <div>{errors.description.message}</div> : null}
-			<Flex align="center" gap="8">
-				<label htmlFor="imageSrc">{t(Translations.SPECIALIZATION_IMAGE_SRC)}</label>
-				<input className={styles.input} {...register('imageSrc')} />
-			</Flex>
-			{errors.imageSrc ? <div>{errors.imageSrc.message}</div> : null}
 		</Flex>
 	);
 };
