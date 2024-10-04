@@ -14,7 +14,7 @@ type SkillSelectProps = Omit<React.ComponentProps<typeof Select>, 'options' | 't
 };
 
 export const SkillSelect = ({ onChange, value }: SkillSelectProps) => {
-	const { data: skills } = useGetSkillsListQuery({});
+	const { data: skills } = useGetSkillsListQuery({ limit: 100 });
 
 	const [selectedSkills, setSelectedSkills] = useState<number[]>(value);
 
@@ -58,6 +58,7 @@ export const SkillSelect = ({ onChange, value }: SkillSelectProps) => {
 				options={options}
 				type="default"
 				placeholder={options.length ? 'Select skills' : 'No available options'}
+				className={styles['skill-select']}
 			/>
 			{selectedSkills?.length && (
 				<>

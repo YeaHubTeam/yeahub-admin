@@ -28,11 +28,8 @@ export const QuestionsTable = ({
 
 	const renderTableHeader = () => {
 		const columns = {
-			author: t(Translations.QUESTION_AUTHOR),
 			title: t(Translations.QUESTION_TITLE),
-			description: t(Translations.QUESTION_DESCRIPTION),
-			complexity: t(Translations.QUESTION_COMPLEXITY),
-			rate: t(Translations.QUESTION_RATE),
+			specialization: t(Translations.QUESTION_SPECIALIZATION),
 			skills: t(Translations.QUESTION_SKILLS),
 		};
 
@@ -40,15 +37,14 @@ export const QuestionsTable = ({
 	};
 
 	const renderTableBody = (question: Question) => {
-		const fullName = `${JSON.parse(question?.createdBy).firstName} ${JSON.parse(question?.createdBy).lastName}`;
-
 		const columns = {
-			author: fullName,
 			title: question.title,
-			description: question.description,
-			complexity: question.complexity,
-			rate: question.rate,
-			skills: question.questionSkills?.map((skill) => skill.title).join(', '),
+			specialization: question.questionSpecializations?.length
+				? question.questionSpecializations?.map((skill) => skill.title).join(', ')
+				: '-',
+			skills: question.questionSkills?.length
+				? question.questionSkills?.map((skill) => skill.title).join(', ')
+				: '-',
 		};
 
 		return Object.entries(columns)?.map(([k, v]) => <td key={k}>{v}</td>);
