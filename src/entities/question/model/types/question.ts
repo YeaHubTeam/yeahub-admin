@@ -34,6 +34,7 @@ export interface Question {
 	explanation?: string;
 	time?: string;
 	questionSkills?: QuestionSkill[];
+	questionSpecializations?: QuestionSkill[];
 }
 
 export interface QuestionsListParams {

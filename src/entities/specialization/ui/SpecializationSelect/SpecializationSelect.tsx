@@ -9,7 +9,7 @@ interface SpecializationSelectProps {
 }
 
 export const SpecializationSelect = ({ onChange, value }: SpecializationSelectProps) => {
-	const { data: specializationsList } = useGetSpecializationsListQuery({});
+	const { data: specializationsList } = useGetSpecializationsListQuery({ limit: 100 });
 
 	const onChangeHandler = (value?: string) => {
 		onChange([String(value)]);
