@@ -64,11 +64,11 @@ export const QuestionsTable = ({
 				<Popover
 					placement="bottom-start"
 					body={
-						<div>
+						<>
 							<NavLink to={`/questions/${question.id}`}>
 								<Flex align="center" gap="4">
 									<Button
-										style={{ width: 'auto' }}
+										style={{ width: 'auto', justifyContent: 'flex-start' }}
 										aria-label="Large"
 										preffix={<Icon icon="eye" size={20} color={'--palette-ui-purple-700'} />}
 										theme="tertiary"
@@ -80,7 +80,7 @@ export const QuestionsTable = ({
 							<NavLink to={`/questions/${question.id}/edit`}>
 								<Flex align="center" gap="4">
 									<Button
-										style={{ width: 'auto' }}
+										style={{ width: 'auto', justifyContent: 'flex-start' }}
 										aria-label="Large"
 										preffix={<Icon icon="pencil" size={20} color={'--palette-ui-purple-700'} />}
 										theme="tertiary"
@@ -90,13 +90,14 @@ export const QuestionsTable = ({
 								</Flex>
 							</NavLink>
 							<DeleteQuestionButton questionId={question.id} />
-						</div>
+						</>
 					}
 					isOpen={openPopovers === question.id}
 					onClickOutside={closeActions}
 				>
 					<div>
 						<IconButton
+							style={{ cursor: 'pointer' }}
 							theme="tertiary"
 							onClick={openActions}
 							aria-label="Large"
