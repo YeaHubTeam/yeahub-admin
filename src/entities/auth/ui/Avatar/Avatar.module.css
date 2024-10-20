@@ -2,6 +2,11 @@
     display: flex;
     align-items: center;
     margin-right: var(--margin-headr);
+    cursor: pointer;
+}
+
+.avatar:focus {
+    border: none !important;
 }
 
 .firstname{

@@ -8,3 +8,38 @@
     /* background: var(--background-primary); */
     border-bottom: 1px solid var(--bottem-border);
 }
+
+.dropdown {
+    display: none;
+    animation: vanish 0.3s;
+}
+
+.dropdown.open {
+    display: flex;
+    animation: appear 0.3s;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+  
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes vanish {
+    from {
+        display: flex;
+        opacity: 1;
+    }
+
+    to {
+        display: none;
+        opacity: 0;
+    }
+}
+
+
+

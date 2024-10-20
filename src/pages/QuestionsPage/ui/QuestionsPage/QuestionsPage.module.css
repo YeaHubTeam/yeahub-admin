@@ -1,6 +1,8 @@
 .content {
     position: relative;
+    display: flex;
     flex: 1 1 728px;
+    flex-direction: column;
 }
 
 .search-section {
